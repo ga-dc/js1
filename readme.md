@@ -1,3 +1,1 @@
-![](assets/logo.png)
-
-# JavaScript Development
+# ![](assets/logo.png) JavaScript Development
