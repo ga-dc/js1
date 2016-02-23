@@ -1,13 +1,4 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) InstallFest (2:00)
-
-| Timing | Type | Topic |
-| --- | --- | --- |
-| 15 min | [Opening](#opening) | Welcome to JavaScript Development! |
-| 10 min | [Introduction](#introduction) |Structure & Benchmarks |
-| 15 min | [Install](#install1) |Set Up Slack |
-| 45 min | [Install](#install2) |Brew, Git, Node & Text Editors |
-| 25 min | [Exercise](#excercise) |Thinking Like a Programmer: Pseudocode |
-| 10 min | [Conclusion](#conclusion) |Final Questions & Exit Tickets|
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) InstallFest
 
 ### Learning Objectives
 
@@ -40,9 +31,11 @@ Citation: [Quora](https://www.quora.com/What-is-the-core-difference-in-laymans-t
 
 #### Introductions
 
-The instructional team should have already introduced themselves (or have been introduced by the course producer) at the beginning of class. At this point, you should give students the opportunity to introduce themselves.
+Give a brief introduction:
 
-> Note: Go around the room in a circle and ask each student to give a brief introduction. You can invite them to talk about why JavaScript interests them, what they hope to get out of the class and any previous experience they have with web development.
+- why JS interests you
+- what you hope to get out of the class
+- experience (if any) with web development
 
 ----
 <a name="introduction"></a>
@@ -54,17 +47,17 @@ In addition to in-class participation, students are expected to complete three p
 
 | Class | Title |  | Class | Title |
 | --- | :---: | --- |  --- | :---: |
-| Lesson 0 | [Installfest](curriculum/lesson-plans/00-installfest/readme.md) || Lesson 10 | [Advanced APIs](curriculum/lesson-plans/10-advanced-apis/README.md)|
-| Lesson 1 | [JS on the Command Line](curriculum/lesson-plans/01-command-line-JS/readme.md) || Lesson 11 | [Lab Time](curriculum/lesson-plans/11-in-class-lab/readme.md)|
-| Lesson 2 | [Data Types](curriculum/lesson-plans/02-data-types/readme.md) || **Project 2**  |[ Feedr - Your Personalized Feed Reader](curriculum/lesson-plans/11-in-class-lab/readme.md) |
-| Lesson 3| [Collections and Loops](curriculum/lesson-plans/03-collections-and-loops/readme.md) || Lesson 12 | [Prototypical Inheritance](curriculum/lesson-plans/11-in-class-lab/readme.md) |
-| Lesson 4 | [Functions and Scope](ecurriculum/lesson-plans/04-functions-and-scope/readme.md) || Lesson 13 | [Closures and This](curriculum/lesson-plans/13-closures-and-this/readme.md) |
-| **Project 1** | [Slackbot](curriculum/projects/unit1/project-01.md) ||Lesson 14| [Intro to Crud and Parse](curriculum/lesson-plans/13-closures-and-this/readme.md) |
-| Lesson 5 | [Objects and JSON](curriculum/lesson-plans/04-functions-and-scope/readme.md) ||Lesson 15| [Deploying Your App](curriculum/lesson-plans/15-deploying-your-app/readme.md) |
-| Lesson 6 | [Intro to DOM & jQuery](curriculum/lesson-plans/07-dom-and-jquery-continued/readme.md)|| Lesson 16 |  [Instructor Student Choice](curriculum/lesson-plans/16-instructor-student-choice/readme.md) |
-| Lesson 7 | [DOM & jQuery Continued](curriculum/lesson-plans/08-ajax-and-apis/readme.md) || Lesson 17 |[Lab Time](curriculum/lesson-plans/17-lab-time/readme.md) |
-| Lesson 8 | [AJAX and APIs](curriculum/lesson-plans/08-ajax-and-apis/readme.md) ||Lesson 18 | [Lab Time](curriculum/lesson-plans/18-lab-time/readme.md) |
-| Lesson 9| [Asynchronous JS and Callbacks](curriculum/lesson-plans/08-ajax-and-apis/readme.md) ||**Project 3** |[Your Single Page App](curriculum/lesson-plans/08-ajax-and-apis/readme.md) |
+| Lesson 0 | Installfest || Lesson 10 | Advanced APIs|
+| Lesson 1 | JS on the Command Line || Lesson 11 | Lab Time |
+| Lesson 2 | Data Types || **Project 2**  | Feedr - Your Personalized Feed Reader |
+| Lesson 3| Collections and Loops || Lesson 12 | Prototypical Inheritance |
+| Lesson 4 | Functions and Scope || Lesson 13 | Closures and This |
+| **Project 1** | Slackbot ||Lesson 14| Intro to Crud and Parse |
+| Lesson 5 | Objects and JSON ||Lesson 15| Deploying Your App |
+| Lesson 6 | Intro to DOM & jQuery || Lesson 16 |  Instructor Student Choice |
+| Lesson 7 | DOM & jQuery Continued || Lesson 17 | Lab Time |
+| Lesson 8 | AJAX and APIs ||Lesson 18 | Lab Time |
+| Lesson 9| Asynchronous JS and Callbacks ||**Project 3** | Your Single Page App |
 | | | || Lesson 19 | Final Project Presentations |
 
 
@@ -133,9 +126,9 @@ We'll need to install a couple of tools that will be used through out the course
     npm install npm -g
     ```
 
-6. __Install Sublime Text 3__
+6. __Install Atom__
 
-    Sublime Text can be found [here](http://www.sublimetext.com/3), but you are free to use any code editor that you are comfortable with. Another popular choice is [Atom](http://atom.io).
+    [Atom](http://atom.io) - you are free to use any code editor that you are comfortable with. Another popular choice is  Sublime Text and can be found [here](http://www.sublimetext.com/3).
 
 Once complete, please raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
@@ -170,9 +163,9 @@ Once complete, please raise your hand and ask a member of the instructional team
 
     Next up is installing Node.js. The best way to install it is from the package installer on their [website](https://nodejs.org/en/). Follow the steps to get it set up.
 
-4. __Install Sublime Text__
+4. __Install Atom__
 
-    Sublime Text can be found [here](http://www.sublimetext.com/3), but you are free to use any code editor that you are comfortable with. Another popular choice is [Atom](http://atom.io).
+    Atom can be found [here](http://atom.io), but you are free to use any code editor that you are comfortable with. Another popular choice is [Sublime Text](http://www.sublimetext.com/3).
 
 Once complete, please raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
@@ -210,19 +203,10 @@ Once complete, please raise your hand and ask a member of the instructional team
     apt-get install --yes build-essential
     ```
 
-4. __Installing Sublime Text 3__
+4. __Installing Atom__
 
-    Sublime Text can installed from the commands below, but you are free to use
-    any code editor that you are comfortable with. Another popular choice is
     [Atom](http://atom.io).
 
-    ```bash
-    sudo add-apt-repository ppa:webupd8team/sublime-text-3
-    sudo apt-get update
-    sudo apt-get install sublime-text-installer
-    ```
-
-    Then you should be all set! Test it out with `subl`.
 
 Once complete, please raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
