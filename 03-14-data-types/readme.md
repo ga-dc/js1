@@ -19,7 +19,6 @@
 
 - Describe the concept of a "data type" and how it relates to variables.
 - Declare, assign to, and manipulate data stored in a variable.
-<!-- - Write code that uses conditional statements to perform various actions. -->
 - Iterate over and and manipulate values in an array.
 
 ### Preparation
@@ -31,7 +30,23 @@
 
 >Last class, we worked on using basic commands in the terminal, writing some JavaScript and working with Git and Github. Check with students to make sure that everyone is comfortable with the materials covered in the last class.
 
->Take a look at some simple keyboard shortcuts to practice: [CLI Shortcuts](https://gist.github.com/alexpchin/01caa027b825d5f98871)
+Take a look at some simple keyboard shortcuts to practice:
+
+| **Keypress**    | **Action** |
+|-----------------|-------------|
+|Ctrl + A|  Go to the beginning of the line you are currently typing on
+|Ctrl + E|  Go to the end of the line you are currently typing on
+|Ctrl + L|  Clears the Screen, similar to the clear command
+|Ctrl + U|  Clears the line before the cursor position. If you are at the end of the line, clears the entire line.
+|Ctrl + H|  Same as backspace
+|Ctrl + R|  Let’s you search through previously used commands
+|Ctrl + C|  Kill whatever you are running
+|Ctrl + D|  Exit the current shell
+|Ctrl + Z|  Puts whatever you are running into a suspended background process. fg restores it.
+|Ctrl + W|  Delete the word before the cursor
+|Ctrl + K|  Clear the line after the cursor
+|Ctrl + T|  Swap the last two characters before the cursor
+|Tab    |   Auto-complete files and folder names
 
 ---
 <a name="opening"></a>
@@ -195,6 +210,8 @@ Strings are collections of letters and symbols known as *characters*, and we use
 Variables are used to store data types into the memory of the computer so that they can be referenced later.
 
 #### Part 1: Always use var!
+
+We'll talk more about why next week with scopes.
 
 New variables in JavaScript are declared using the [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var "/en/JavaScript/Reference/Statements/var") keyword.
 
@@ -418,7 +435,7 @@ goods[2] = "beer"
 quantity.push(8)
 ```
 
->Note to the students the differences in adding (or setting) array values. What are the pros/cons of each approach?
+>Note the differences in adding (or setting) array values. What are the pros/cons of each approach?
 
 #### Part 3: Accessing elements from arrays and concatenating them with strings
 
@@ -434,8 +451,6 @@ Now it's time to access various combinations of the two array's elements and con
 ## Array Helper Methods (20 min)
 
 Arrays come with a number of methods. Here's a list of some popular helpers:
-
-> Note: You might want to demonstrate a few of these.
 
 - `a.toString()` - Returns a string with the `toString()` of each element separated by commas.
 
@@ -490,7 +505,7 @@ message.reverse()
 => [ 'G', 'A', 'i', 's', 'n', 'u', 'm', 'b', 'e', 'r', 1 ]
 ```
 
-> Note: Discuss how the `.reverse()` method mutates the array structure.
+> Note: `.reverse()` method mutates the array structure.
 
 #### Part 4: Array `.join()`
 
@@ -519,6 +534,7 @@ We can use a `for` loop to iterate over the elements of an array like this:
 ```javascript
 var teams = ['Bruins', 'Cal Bears', 'Ravens', 'Ducks'];
 for (var i = 0; i < teams.length; i++) {
+  console.log(i)
 	console.log(teams[i]);
 }
 ```
@@ -551,7 +567,6 @@ Bruins
 Cal Bears
 Ravens
 Ducks
-undefined
 ```
 
 Notice how much clearer this syntax is than that of the `for` loop?
@@ -672,11 +687,9 @@ In the [starter code](starter-code/array.js) you'll find an array.js file that w
 
 ---
 <a name="lab2"></a>
-## Mablibs: Lab (25 min)
+## Data Types: Lab (25 min)
 
-For this lab, you'll create your own StartUp Generator app. Open the files in the [madlib with loops folder](starter-code/madlib_with_loops). You'll learn how to use helper methods and for loops. We've given you some starter code; while we haven't covered functions and DOM manipulation yet, this is a good chance for you to challenge yourself and get a head start on these topics.
-
->Notes: Give students the starter code for this but this exercise should not be due until after lesson 4 on functions and scope has been completed.
+https://github.com/ga-wdi-exercises/js-data-types
 
 ---
 <a name="conclusion"></a>
@@ -693,3 +706,4 @@ Make sure the lesson objectives have been met.
 #### Further Resources
 
 * Feel free to read more from [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) about JavaScript fundamentals.
+* [Eloquent Javascript](http://eloquentjavascript.net/)
