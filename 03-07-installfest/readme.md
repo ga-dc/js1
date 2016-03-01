@@ -210,6 +210,71 @@ Once complete, please raise your hand and ask a member of the instructional team
 
 Once complete, please raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
+## Introduction to Git/GitHub (40 min)
+
+#### What is Git? What is Github?
+
+* GitHub is a platform makes it easy to share and manage code and for multiple engineers to collaborate on the same project. It is now commonplace in any company that works with engineers.
+* Stores files like Dropbox or Google Drive, but stores code.
+* Stores a history of files and the changes that happens within each changed document (like Apple's Time Machine software).
+* Hosts files on the web so you can share the finished product with other people.
+* Git - the technology that Github is built on top of - was designed to allow for multiple engineers to work on the same project.
+
+#### Why is GitHub Valuable? Why do developers use GitHub?
+
+* Since GitHub stores a history of the code, it allows developers to go back in time if something breaks.
+* GitHub allows multiple developers to work on the same project. Much like Dropbox or Google Drive lets multiple people collaborate on the same document, GitHub allows this for code.
+* GitHub tracks changes so you can see who worked on what.
+* GitHub allows for feedback to be given on the code, which hopefully, increases code quality. Much like an editor updates a Word document using Track Changes, GitHub allows a similar environment.
+
+#### How does GitHub work in a collaborative environment?
+
+GitHub's collaborative process can work many different ways, but this is the most common:
+
+1. Each GitHub project is called a "repository". Engineers joining a team start by "cloning" the repository (or repo, for short).
+    - "Clone" means that we are copying our GitHub repository from the cloud and saving it as a local folder on our computer.
+2. The main, stable version of the codebase is on the default "branch" in GitHub which is called "master".
+    - Engineers typically create new branches for certain features or portions of the code they will work on, but we won't be creating branches in this class.
+3. As engineers are working on a project, they "add" and "commit" their changes. This establishes a saved version of a project and creates a history of what they are working on.  With these saved versions, engineers are able to revert to an earlier version if an issue arises that cannot be fixed.
+4. If there are multiple engineers working on a project, other engineers can review the code that is committed and provide feedback.  For this class, the instructors will be reviewing and providing feedback on your code.
+  - We will be working with our own default "master" branch for each of our projects.
+
+#### Git/GitHub Vocabulary
+
+* **git** - A version control program that saves the state of your project's files and folders; basically, it takes a "snapshot" of what all your files look like at that moment and stores a reference to that "snapshot".
+
+* **repository** - A central location in which data - typically about a project - is stored and managed.
+* **clone** - Download data from the cloud to your local machine (laptop, computer, etc.).
+* **commit** - Save a version of your project to git.
+
+![](https://raw.githubusercontent.com/ga-wdi-lessons/git-intro/master/git-local.jpg)
+
+![](https://raw.githubusercontent.com/ga-wdi-lessons/git-intro/master/git06.jpg)
+
+### GitHub Exercise
+
+In this codealong, students will create their first GitHub repository and push to it.
+
+**Step 1: Creating and setting up a GitHub account**
+
+1. Sign up for an account on GitHub.com.
+2. Use [the following guide](https://help.github.com/articles/set-up-git/) to connect Git on your local machine to your GitHub account. You will need to either [save your GitHub password in Git](https://help.github.com/articles/caching-your-github-password-in-git/) or [generate SSH keys](https://help.github.com/articles/generating-ssh-keys/).
+3. When you're done and have successfully tested your connection with GitHub, raise your hand to let the instructional team know.
+
+**Step 2: Creating and pushing to your first repository**
+
+1. Create a new repository on GitHub.com titled "username.github.io" (where "username" is your GitHub username)
+2. ```cd``` into your ```~/Sites``` folder
+3. Clone the repository (hint: GitHub tells you how to do this with git clone ... on the newly created repository page)
+4. ```cd``` into your ```~/Sites/username.github.io``` folder
+5. Move the files from your "goals" folder from the previous exercise into your ```~/Sites/username.github.io``` folder
+6. Add all files in the ```~/Sites/username.github.io``` folder to the Git stage
+7. Commit your changes in Git with the message "Initial commit"
+8. Push your changes to GitHub and verify that the changes were received in the web interface
+9. Try visiting https://username.github.io/goals (where "username" is your actual GitHub username)
+
+---
+
 
 ### Helpful Debugging Tips
 
@@ -237,30 +302,6 @@ Even experienced programmers Google error messages. If you have an error, there 
 >* Students who need to update their installations of npm can run `npm install -g npm`.
 
 >* Students with an existing, outdated installation of Node should be able to update their install by following the directions above (i.e. using the package installer).
-
----
-<a name="exercise"></a>
-## Thinking Like a Programmer (25 min)
-
-Thinking computationally requires a major shift in thinking. We need to really understand how computers think and follow our instructions (code) in order to become great programmers. The first step is to write anything we want our computer to do in plain English or pseudocode.
-
-Pseudocode is an outline of a program, written in a form that can easily be converted into real programming statements. Pseudocode cannot be compiled nor executed, and there are no real formatting or syntax rules. It is simply one step - an important one - in producing the final code. The benefit of pseudocode is that it enables the programmer to concentrate on the flow of a program without worrying about all the syntactic details of a particular programming language. In fact, you can write pseudocode without even knowing what programming language you will use for the final implementation.
-
-Citation: [Webopedia](http://www.webopedia.com/TERM/P/pseudocode.html)
-
-### Pseudocode Exercise
-
-Write the pseudocode for a program for that controls a light that can change color based on user input. Imagine that we have 3 different colored buttons (red, blue and yellow) and if a user taps one of the colored buttons the light changes to the selected color. If the selected color is tapped again, the light turns off. You do not have to write any actual JavaScript for this exercise.
-
-> The purpose of this exercise is to introduce students to what it means to program. Follow the tips below:
-* Give some background on pseudocode and why we use it.
-* Explain that proper pseudocode should be written as a series of steps.
-* Start the exercise as a class, trying to encourage participation and kicking things off together, then break off into pairs to complete the exercise.
-* Finally come together as a group and have different pairs present their pseudocode line by line. Highlight variables, conditionals, and loops.
-* Ask groups to identify common patterns and problems.
-* Prompt students to consider communication differences between code and people.
-
-Check the [pseudocode.md](solution-code/pseudocode_solution.md) file in the solution code folder for examples.
 
 ---
 <a name="conclusion"></a>
