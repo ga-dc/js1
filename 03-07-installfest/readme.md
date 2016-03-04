@@ -18,6 +18,7 @@
 > Note: We won't be covering HTML & CSS in this course. If students need review material, they can check out [Dash](https://dash.generalassemb.ly/projects) to get up to speed.
 
 ---
+
 <a name="opening"></a>
 ### Welcome to JavaScript Development! (15 min)
 
@@ -304,6 +305,12 @@ Even experienced programmers Google error messages. If you have an error, there 
 >* Students with an existing, outdated installation of Node should be able to update their install by following the directions above (i.e. using the package installer).
 
 ---
+
+## Garnet
+
+Garnet is an application we use to track student attendance and progress. Please join
+this class by clicking this link: https://garnet.wdidc.org/github/authorize?invite_code=d3a4640111f44b2dbd0b9811c417ac65
+
 
 ## Exit Ticket
 
