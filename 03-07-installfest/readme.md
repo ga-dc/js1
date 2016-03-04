@@ -304,6 +304,13 @@ Even experienced programmers Google error messages. If you have an error, there 
 >* Students with an existing, outdated installation of Node should be able to update their install by following the directions above (i.e. using the package installer).
 
 ---
+
+## Exit Ticket
+
+Before you leave, please take ~3 minutes to complete [this exit ticket](https://docs.google.com/forms/d/1LNeV7Vf043jg_4A1cBlHvFQkT_GiQAsl2a14jJjgYO0/viewform?c=0&w=1).
+
+This helps us help you! We'll review responses for each exit ticket before the next lesson.
+
 <a name="conclusion"></a>
 ## Conclusion (10 min)
 
