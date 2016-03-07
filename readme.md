@@ -9,6 +9,9 @@
 - Instructors
   - Johnny Austin
     - [johnny@isl.co](johnny@isl.co)
+    - Office hours:
+      - Thursdays 6:00pm - 7:00pm [ISL Office](https://isl.co/contact/)
+      - Sundays 6:00pm - 7:00pm Remote - Hangout Link Coming!
   - Jesse Shawl
     - [jesse@ga.co](jesse@ga.co)
     - office hours:
