@@ -13,8 +13,7 @@
     - [jesse@ga.co](jesse@ga.co)
     - office hours:
       - Wednesdays 5:30 - 6:30
-      - Sundays 6:00pm - 7:00pm
-
+      - Sundays 6:00pm - 7:00pm [remote](https://appear.in/ga-js1-office-hours)
 
 ## Course information
 
