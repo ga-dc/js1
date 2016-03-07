@@ -11,6 +11,10 @@
     - [johnny@isl.co](johnny@isl.co)
   - Jesse Shawl
     - [jesse@ga.co](jesse@ga.co)
+    - office hours:
+      - Wednesdays 5:30 - 6:30
+      - Sundays 6:00pm - 7:00pm
+
 
 ## Course information
 
@@ -26,7 +30,6 @@ A. Your laptop (and charger with your name on it!)
 B. Snacks in case you get hungry
 
 C. [Class Pass](./assets/class-pass.png) printed out or on your phone
-
 
 ## Schedule
 
