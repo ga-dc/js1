@@ -122,7 +122,7 @@ Here are some common UNIX commands that you'll want to get familiar with as they
 
 1.  Navigate to your Documents Folder from your root directory. ```cd ~``` and then ```cd Documents```
 
-2. Create a directory named Advanced_JS.  ```mkdir Advanced_JS```
+2. Create a directory named advanced_js.  ```mkdir advanced_js```
 
 3. Change into this directory. ```cd Advanced_JS```
 
@@ -166,31 +166,6 @@ Complete the following instructions below in the Terminal application.
   ```
 
 5. Open index.html with your browser and make sure you see your goals and worries.
-
----
-<a name="discussion"></a>
-
-## Internet vs. World Wide Web (10 min)
-
-The internet and the world wide web are very different entities, however, they are often used interchangeably. We'll clarify some of the misconceptions about the two. Try to answer the following questions first:  
-
-* What do you think the world web wide is? How is it different from the internet?
-* Can you think of an analogy to describe the difference between the two?
-* Who controls the internet?
-
-#### The Internet is a Big Collection of Computers and Cables
-
-The Internet is short for "interconnection of computer networks". It consists of millions of personal, business, and governmental computers, all connected like roads and highways. In essence, it's an infrastructure that connects millions of computers around the world together. The internet as you know it ultimately boils down to a series of requests and responses - you send information out to the web, and based on the info you send, you get information back.
-
-No single person owns the Internet. No single government has authority over its operations. Some technical rules and hardware/software standards enforce how people plug into the Internet, but for the most part, the Internet is a free and open broadcast medium.
-
-#### The Web Is a Big Collection of HTML Pages on the Internet
-
-The World Wide Web, or "Web" for short, is a massive collection of digital documents in the form of HTML pages. The Web is viewed by using free software called web browsers. Born in 1989, the Web is based on the hypertext transfer protocol (HTTP), the language which allows you and I to "jump" from one public web page to another via links. There are over 65 billion public web pages on the Web today.
-
-The World Wide Web (WWW) is, in essence, the way most of us access information over the internet. It is software that runs on top of the Internet that lets us access HTML content.
-
-Citation: [About Tech](http://netforbeginners.about.com/od/i/f/What-Is-The-Internet.htm)
 
 ---
 <a name="activity"></a>
@@ -245,78 +220,6 @@ When you type a website domain in to your web browser (or other internet capable
 Your internet provider has a nice little cached list of all of the registered domains - and their respective IP addresses - so when you go to apple.com, your browser asks the DNS server "what is the IP address of apple.com?" The DNS server responds with "17.172.224.47", and the browser can then connect to 17.172.224.47.
 
 In real world terms, it's like how we use street addresses for finding a house, rather than using Latitude and Longitude coordinates - they're easier to remember and to read.
-
----
-
-<a name="codealong2"></a>
-## Introduction to Git/GitHub (40 min)
-
-#### What is Git? What is Github?
-
-* GitHub is a platform makes it easy to share and manage code and for multiple engineers to collaborate on the same project. It is now commonplace in any company that works with engineers.
-* Stores files like Dropbox or Google Drive, but stores code.
-* Stores a history of files and the changes that happens within each changed document (like Apple's Time Machine software).
-* Hosts files on the web so you can share the finished product with other people.
-* Git - the technology that Github is built on top of - was designed to allow for multiple engineers to work on the same project.
-
-#### Why is GitHub Valuable? Why do developers use GitHub?
-
-* Since GitHub stores a history of the code, it allows developers to go back in time if something breaks.
-* GitHub allows multiple developers to work on the same project. Much like Dropbox or Google Drive lets multiple people collaborate on the same document, GitHub allows this for code.
-* GitHub tracks changes so you can see who worked on what.
-* GitHub allows for feedback to be given on the code, which hopefully, increases code quality. Much like an editor updates a Word document using Track Changes, GitHub allows a similar environment.
-
-#### How does GitHub work in a collaborative environment?
-
-GitHub's collaborative process can work many different ways, but this is the most common:
-
-1. Each GitHub project is called a "repository". Engineers joining a team start by "cloning" the repository (or repo, for short).
-    - "Clone" means that we are copying our GitHub repository from the cloud and saving it as a local folder on our computer.
-2. The main, stable version of the codebase is on the default "branch" in GitHub which is called "master".
-    - Engineers typically create new branches for certain features or portions of the code they will work on, but we won't be creating branches in this class.
-3. As engineers are working on a project, they "add" and "commit" their changes. This establishes a saved version of a project and creates a history of what they are working on.  With these saved versions, engineers are able to revert to an earlier version if an issue arises that cannot be fixed.
-4. If there are multiple engineers working on a project, other engineers can review the code that is committed and provide feedback.  For this class, the instructors will be reviewing and providing feedback on your code.
-  - We will be working with our own default "master" branch for each of our projects.
-
-#### Git/GitHub Vocabulary
-
-* **git** - A version control program that saves the state of your project's files and folders; basically, it takes a "snapshot" of what all your files look like at that moment and stores a reference to that "snapshot".
-
->Note: you may want to compare git to an organizational backup tool used to save and organize work; be mindful of your students' experience and try not to use too much technical vocabulary.
-
-* **repository** - A central location in which data - typically about a project - is stored and managed.
-* **clone** - Download data from the cloud to your local machine (laptop, computer, etc.).
-* **commit** - Save a version of your project to git.
-
->Note: You'll want to draw a diagram and explain what happens when you push/pull and stage a commit. Make sure students understand that changes first need to be added and then committed before they can be pushed. Remember to explain the differences between your local working repository vs. what is on GitHub and review the vocabulary!
-
-### GitHub Exercise
-
-In this codealong, students will create their first GitHub repository and push to it.
-
->Note: The instructional team should walk around and help out any students who get stuck during this codealong. This will be the first time that many students are using the Terminal for an extended period of time, so proceed slowly, check for understanding and take time to explain anything that isn't clear.
-
-**Step 1: Creating and setting up a GitHub account**
-
-1. Sign up for an account on GitHub.com.
-2. Use [the following guide](https://help.github.com/articles/set-up-git/) to connect Git on your local machine to your GitHub account. You will need to either [save your GitHub password in Git](https://help.github.com/articles/caching-your-github-password-in-git/) or [generate SSH keys](https://help.github.com/articles/generating-ssh-keys/).
-3. When you're done and have successfully tested your connection with GitHub, raise your hand to let the instructional team know.
-
-**Step 2: Creating and pushing to your first repository**
-
-  >Note: During this stage of the codealong, the instructional team should also explain what each component of each command means (i.e. the "." or "origin").
-
-1. Create a new repository on GitHub.com titled "username.github.io" (where "username" is your GitHub username)
-2. ```cd``` into your ```~/Sites``` folder
-3. Clone the repository (hint: GitHub tells you how to do this with git clone ... on the newly created repository page)
-4. ```cd``` into your ```~/Sites/username.github.io``` folder
-5. Move the files from your "goals" folder from the previous exercise into your ```~/Sites/username.github.io``` folder
-6. Add all files in the ```~/Sites/username.github.io``` folder to the Git stage
-7. Commit your changes in Git with the message "Initial commit"
-8. Push your changes to GitHub and verify that the changes were received in the web interface
-9. Try visiting https://username.github.io/goals (where "username" is your actual GitHub username)
-
-  >Note: Many students will still be shaky on GitHub even after completing this exercise. Assure them that practice makes perfect and that we'll be using GitHub regularly throughout the course. It is _highly recommended_ that you continue to demo the basic GitHub workflow in class (i.e. after completing an exercise in class, push it up to GitHub), just to give students more exposure and practice.
 
 ---
 
