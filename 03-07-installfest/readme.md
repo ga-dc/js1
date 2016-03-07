@@ -19,16 +19,9 @@
 
 ---
 
-<a name="opening"></a>
 ### Welcome to JavaScript Development! (15 min)
 
-In this course we'll be learning the fundamental concepts of JavaScript in order to become better programmers and web developers. For this class, we'll be learning both functional and object-oriented programming. Understanding the core differences between these two different programming paradigms will help you learn the concepts in this class and ultimately, become a more efficient programmer.
-
-* Object oriented programming is an attempt to structure imperative code. It makes models of the various concepts in the problem area and applies them. These models ("objects") are given functionality ("methods") that allow them to perform various actions, and each object can also hold information. The fundamental unit in OOP is the object, which can itself contain further objects, a bit like a Russian Matryoshka doll. The idea is to make it easier for human programmers to visualize the program by tying the program to concrete things, which lets you group things logically. **The fundamental thing to remember is that in object-oriented programming, _everything_ is an object and every object has methods that allow you to access its functionality.**
-
-* Functional programming treats the problem area as a chain of equations ("functions") which are strung together, a progression of definitions which lead to the answer. The information begins as a number of axioms and culminates in the answer (think of it as a logical argument that ends in what you see on the screen). Functional programming borrows many concepts from formal mathematics, and as in mathematics (and unlike Imperative programming or OOP), it usually does not save data between steps. **The fundamental unit in functional programming is the function, which can perform operations as well as produce further functions.**
-
-Citation: [Quora](https://www.quora.com/What-is-the-core-difference-in-laymans-terms-between-procedural-programming-and-object-oriented-programming)
+In this course we'll be learning the fundamental concepts of JavaScript in order to become better programmers and web developers.
 
 #### Introductions
 
@@ -39,7 +32,7 @@ Give a brief introduction:
 - experience (if any) with web development
 
 ----
-<a name="introduction"></a>
+
 ### Structure & Benchmarks (10 min)
 
 This course has 20 classes. We'll be starting off by learning the fundamentals of JavaScript including programming concepts such as data types, variables and loops. Basically, core concepts of programming. Then we'll move into object-oriented programming and learn how to pass around information and functionality within our programs. From there, we'll learn how we use JavaScript to manipulate websites and applications.
@@ -51,165 +44,42 @@ In addition to in-class participation, students are expected to complete three p
 | Lesson 0 | Installfest || Lesson 10 | Advanced APIs|
 | Lesson 1 | JS on the Command Line || Lesson 11 | Lab Time |
 | Lesson 2 | Data Types || **Project 2**  | Feedr - Your Personalized Feed Reader |
-| Lesson 3| Collections and Loops || Lesson 12 | Prototypical Inheritance |
+| Lesson 3| Collections and Loops || Lesson 12 | Prototypal Inheritance |
 | Lesson 4 | Functions and Scope || Lesson 13 | Closures and This |
-| **Project 1** | Slackbot ||Lesson 14| Intro to Crud and Parse |
+| **Project 1** | Slackbot ||Lesson 14| Intro to Crud and Firebase |
 | Lesson 5 | Objects and JSON ||Lesson 15| Deploying Your App |
 | Lesson 6 | Intro to DOM & jQuery || Lesson 16 |  Instructor Student Choice |
 | Lesson 7 | DOM & jQuery Continued || Lesson 17 | Lab Time |
 | Lesson 8 | AJAX and APIs ||Lesson 18 | Lab Time |
 | Lesson 9| Asynchronous JS and Callbacks ||**Project 3** | Your Single Page App |
-| | | || Lesson 19 | Final Project Presentations |
+| | || Lesson 19 | Final Project Presentations |
 
 
 ---
-<a name="install1"></a>
+
 ### Set Up Slack (15 minutes)
 
-We'll be using Slack to communicate in class. We will also use this as the primary means to take attendance. Follow the instructions below to sign up for slack.
+We'll be using Slack to communicate in class. Follow the instructions below to sign up for slack.
 
 * Visit the following [site](https://slack.com/downloads) to download the application.
 * Sign up using your email and join your class Slack channel.
 * Upload a profile picture to Slack.
 
 ---
-<a name="install2"></a>
-### Brew, Git, Node and Sublime Text (45 min)
+
+### Brew, Git, Node and Atom (45 min)
 
 We'll need to install a couple of tools that will be used through out the course. The instructions will vary depending on whether you have a Mac, Windows or Linux machine.
 
-#### Mac OS X
+#### [Mac OS X](./brew-git-node-atom/readme.md#mac-os-x)
 
-1. __Install Brew__
+#### [Windows](./brew-git-node-atom/readme.md#windows)
 
-    Brew is a package manager that we use to install various command line applications to your computer.
-
-    Open your terminal (`Applications > Utilities > Terminal`), paste the following command, and then hit enter:
-
-    ```bash
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ```
-
-2. __Install Git__
-
-    Git is a tool used to track the state of your code over time.
-    [GitHub](https://github.com) is a company that has made a business on top of
-    the Git technology. We will be using both Git and GitHub in this class to distribute
-    code, submit assignments and offer feedback.
-
-    Once brew is installed, it's easy to install command line applications. The
-    following command can be entered to install Git:
-
-    ```bash
-    brew install git
-    ```
-
-3. __Configure Git__
-
-    Please copy and paste the following two commands (separately) into your
-    terminal. You'll want to replace the name and email address values with your
-    own.
-
-    ```bash
-    git config --global user.name "Steve Jobs"
-    git config --global user.email "steve@apple.com"
-    ```
-
-4. __Install Node__
-
-    Next up is installing Node.js. The best way to install it is from the package installer on their [website](https://nodejs.org/en/). Follow the steps to get it set up.
-
-5. __Make sure NPM is updated__
-
-    Node has a handy package manager that we will use frequently in our class. It comes with Node, but NPM is updated more frequently and we want to have the right one.
-
-    ```bash
-    npm install npm -g
-    ```
-
-6. __Install Atom__
-
-    [Atom](http://atom.io) - you are free to use any code editor that you are comfortable with. Another popular choice is  Sublime Text and can be found [here](http://www.sublimetext.com/3).
+#### [Linux (Ubuntu)](./brew-git-node-atom/readme.md#linux-ubuntu)
 
 Once complete, please raise your hand and ask a member of the instructional team to verify that the installation was successful.
 
-#### Windows
-
-2. __Install Git__
-
-    Git is a tool used to track the state of your code over time.
-    [GitHub](https://github.com) is a company that has made a business on top of
-    the Git technology. We will be using both Git and GitHub in this class to distribute
-    code, submit assignments and offer feedback.
-
-    Git can be downloaded and installed from
-    [this](https://git-scm.com/download/win) URL.
-
-3. __Configure Git__
-
-    In order to interact with Git, you'll need to first open the Git Bash utility.
-    A quick way to access this terminal is by right clicking your desktop and
-    choosing "Git Bash".
-
-    Please copy and paste the following two commands (separately) into your
-    terminal. You'll want to replace the name and email address values with your
-    own.
-
-    ```bash
-    git config --global user.name "Steve Jobs"
-    git config --global user.email "steve@apple.com"
-    ```
-
-3. __Install Node__
-
-    Next up is installing Node.js. The best way to install it is from the package installer on their [website](https://nodejs.org/en/). Follow the steps to get it set up.
-
-4. __Install Atom__
-
-    Atom can be found [here](http://atom.io), but you are free to use any code editor that you are comfortable with. Another popular choice is [Sublime Text](http://www.sublimetext.com/3).
-
-Once complete, please raise your hand and ask a member of the instructional team to verify that the installation was successful.
-
-#### Linux (Ubuntu)
-
-1. __Install Git__
-
-    Git is a tool used to track the state of your code over time.
-    [GitHub](https://github.com) is a company that has made a business on top of
-    the Git technology. We will be using both Git and GitHub in this class to distribute
-    code, submit assignments and offer feedback.
-
-    Git can be installed by running the following command:
-
-    ```bash
-    sudo apt-get install build-essential git-core curl
-    ```
-
-2. __Configure Git__
-
-    Please copy and paste the following two commands (separately) into your
-    terminal. You'll want to replace the name and email address values with your
-    own.
-
-    ```bash
-    git config --global user.name "Steve Jobs"
-    git config --global user.email "steve@apple.com"
-    ```
-
-3. __Install Node.js__
-
-    ```bash
-    curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
-    sudo apt-get install --yes nodejs
-    apt-get install --yes build-essential
-    ```
-
-4. __Installing Atom__
-
-    [Atom](http://atom.io).
-
-
-Once complete, please raise your hand and ask a member of the instructional team to verify that the installation was successful.
+## Break (15 mins)
 
 ## Introduction to Git/GitHub (40 min)
 
@@ -266,13 +136,16 @@ In this codealong, students will create their first GitHub repository and push t
 
 1. Create a new repository on GitHub.com titled "username.github.io" (where "username" is your GitHub username)
 2. ```cd``` into your ```~/Sites``` folder
-3. Clone the repository (hint: GitHub tells you how to do this with git clone ... on the newly created repository page)
+3. Clone the repository (hint: GitHub tells you how to do this with git clone ... on the newly created repository page) - use the SSH link.
 4. ```cd``` into your ```~/Sites/username.github.io``` folder
-5. Move the files from your "goals" folder from the previous exercise into your ```~/Sites/username.github.io``` folder
+5. Create a simple webpage, named index.html in your ```~/Sites/username.github.io``` folder
 6. Add all files in the ```~/Sites/username.github.io``` folder to the Git stage
+  - `git add .`
 7. Commit your changes in Git with the message "Initial commit"
+  - `git commit -m "Initial commit"`
 8. Push your changes to GitHub and verify that the changes were received in the web interface
-9. Try visiting https://username.github.io/goals (where "username" is your actual GitHub username)
+  - `git push origin master`
+9. Try visiting https://username.github.io/ (where "username" is your actual GitHub username)
 
 ---
 
@@ -311,6 +184,8 @@ Even experienced programmers Google error messages. If you have an error, there 
 Garnet is an application we use to track student attendance and progress. Please join
 this class by clicking this link: https://garnet.wdidc.org/github/authorize?invite_code=d3a4640111f44b2dbd0b9811c417ac65
 
+Then, visit https://garnet.wdidc.org/ , click "JS DC 1", then click "Check In"
+
 
 ## Exit Ticket
 
@@ -318,10 +193,20 @@ Before you leave, please take ~3 minutes to complete [this exit ticket](https://
 
 This helps us help you! We'll review responses for each exit ticket before the next lesson.
 
-<a name="conclusion"></a>
 ## Conclusion (10 min)
-
-Make sure the lesson objectives have been met.
 
 * How was this installation process different than using a GUI? Why did we do it this way?
 * What questions do you have about the course or the specific tools we installed today?
+* What are the main components of a git repository and how do they relate?
+
+## Further Resources
+
+* [Try git](try.github.com)
+* [Interactive Git Cheetsheet](http://ndpsoftware.com/git-cheatsheet.html)
+* [Syncing with Git](https://www.atlassian.com/git/tutorials/syncing/)
+* [Github Guides](https://guides.github.com)
+* [Github Training](https://training.github.com/kit/)
+* [Git Immersion - Interactive Course](http://gitimmersion.com/lab_05.html)
+* [Pro Git](http://git-scm.com/book/en/v2) - An in-depth free PDF book for those wanting to understand git deeper
+* [GitUp - Interactive Commit Visualizer](http://gitup.co)
+* [Practice with Git](https://github.com/grayghostvisuals/practice-git)
