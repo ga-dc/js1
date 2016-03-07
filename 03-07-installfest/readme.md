@@ -200,9 +200,6 @@ a publicly (sometimes privately) accessible copy of a local repository.
 Garnet is an application we use to track student attendance and progress. Please join
 this class by clicking this link: https://garnet.wdidc.org/github/authorize?invite_code=d3a4640111f44b2dbd0b9811c417ac65
 
-Then, visit https://garnet.wdidc.org/ , click "JS DC 1", then click "Check In"
-
-
 ## Exit Ticket
 
 Before you leave, please take ~3 minutes to complete [this exit ticket](https://docs.google.com/forms/d/1LNeV7Vf043jg_4A1cBlHvFQkT_GiQAsl2a14jJjgYO0/viewform?c=0&w=1).
