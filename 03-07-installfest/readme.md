@@ -41,7 +41,7 @@ In addition to in-class participation, students are expected to complete three p
 
 | Class | Title |  | Class | Title |
 | --- | :---: | --- |  --- | :---: |
-| Lesson 0 | Installfest || Lesson 10 | Advanced APIs|
+| Lesson 0 | Installfest and Git(Hub) || Lesson 10 | Advanced APIs|
 | Lesson 1 | JS on the Command Line || Lesson 11 | Lab Time |
 | Lesson 2 | Data Types || **Project 2**  | Feedr - Your Personalized Feed Reader |
 | Lesson 3| Collections and Loops || Lesson 12 | Prototypal Inheritance |
@@ -81,50 +81,97 @@ Once complete, please raise your hand and ask a member of the instructional team
 
 ## Break (15 mins)
 
-## Introduction to Git/GitHub (40 min)
+## Introduction to Git (40 min)
 
-#### What is Git? What is Github?
+### What is Git?
 
-* GitHub is a platform makes it easy to share and manage code and for multiple engineers to collaborate on the same project. It is now commonplace in any company that works with engineers.
-* Stores files like Dropbox or Google Drive, but stores code.
-* Stores a history of files and the changes that happens within each changed document (like Apple's Time Machine software).
-* Hosts files on the web so you can share the finished product with other people.
-* Git - the technology that Github is built on top of - was designed to allow for multiple engineers to work on the same project.
+**So what is Git, and why does it help us?**
+Above all else, Git is a fast version control system, that allows you to efficiently handle projects large and small.
 
-#### Why is GitHub Valuable? Why do developers use GitHub?
+Here are some problems we face as developers, and how git solves them:
 
-* Since GitHub stores a history of the code, it allows developers to go back in time if something breaks.
-* GitHub allows multiple developers to work on the same project. Much like Dropbox or Google Drive lets multiple people collaborate on the same document, GitHub allows this for code.
-* GitHub tracks changes so you can see who worked on what.
-* GitHub allows for feedback to be given on the code, which hopefully, increases code quality. Much like an editor updates a Word document using Track Changes, GitHub allows a similar environment.
+**Reverting to past versions**
 
-#### How does GitHub work in a collaborative environment?
+Git allows us to make save points at any time. These save points are called
+'commits'. Once a save point is made, it's permanent, and allows us to go back
+to that save point at any time.
+<!-- From there, we can see what the code looked like at that point, or even start building off that version. -->
 
-GitHub's collaborative process can work many different ways, but this is the most common:
+**Keeping track of what each version 'meant'**
 
-1. Each GitHub project is called a "repository". Engineers joining a team start by "cloning" the repository (or repo, for short).
-    - "Clone" means that we are copying our GitHub repository from the cloud and saving it as a local folder on our computer.
-2. The main, stable version of the codebase is on the default "branch" in GitHub which is called "master".
-    - Engineers typically create new branches for certain features or portions of the code they will work on, but we won't be creating branches in this class.
-3. As engineers are working on a project, they "add" and "commit" their changes. This establishes a saved version of a project and creates a history of what they are working on.  With these saved versions, engineers are able to revert to an earlier version if an issue arises that cannot be fixed.
-4. If there are multiple engineers working on a project, other engineers can review the code that is committed and provide feedback.  For this class, the instructors will be reviewing and providing feedback on your code.
-  - We will be working with our own default "master" branch for each of our projects.
+Every commit has a description (commit message), which allows us to describe
+what changes were made between the current and previous commit. This is usually a description of what features
+were added or what bugs were fixed.
 
-#### Git/GitHub Vocabulary
+Additionally, git supports tagging, which allows us to mark a specific commit
+as a specific version of our code (e.g. '2.4.5').
 
-* **git** - A version control program that saves the state of your project's files and folders; basically, it takes a "snapshot" of what all your files look like at that moment and stores a reference to that "snapshot".
+**Comparing changes to past versions**
 
-* **repository** - A central location in which data - typically about a project - is stored and managed.
-* **clone** - Download data from the cloud to your local machine (laptop, computer, etc.).
-* **commit** - Save a version of your project to git.
+It's often important to see content of the actual changes that were made. This
+can be useful when:
+* tracking down when and how a bug was introduced
+* understanding the changes a team member made so you can stay up-to-date with progress
+* reviewing code as a team for correctness or quality/style
+
+Git allows us to easily see these changes (called a `diff`) for any given commit.
+
+**Fearlessness in making changes**
+
+In developing software, we often want to experiment in adding a feature or
+refactoring (rewriting) existing code. Because git makes it easy to go back to a
+known good state, we can experiment without worrying that we'll be unable to
+undo the experimental work.
+
+#### Three components of a git repository
 
 ![](https://raw.githubusercontent.com/ga-wdi-lessons/git-intro/master/git-local.jpg)
 
+1. The working directory
+  - `git init` creates a git repo inside current working directory
+  - `git init nameofrepo` creates a new folder and a git repo inside that
+  - `git status`
+2. The staging area
+  - `git add .` adds changes from the working directory to the staging area
+  - `git add <filename>` adds changes to filenames specified from the working directory to the staging area
+3. The repo or commit
+  - `git commit -m "commit message"` adds changes in staging area to the repository
+  - `git log` shows
+
+#### You do: Create a local git repository (5 mins)
+
+1. Initialize a new git repository named github.io && `cd github.io`
+  - `cd` allows you to change directories on the command line
+2. Create a file or make changes to existing file
+3. Stage your changes
+4. Commit your changes
+5. View list of changes
+6. Repeat 2-5 at least two more times
+
+### Intro to GitHub
+
+GitHub is a social network that allows developers to host remote repositories. A remote repository is
+a publicly (sometimes privately) accessible copy of a local repository.
+
+#### Key Terms
+
 ![](https://raw.githubusercontent.com/ga-wdi-lessons/git-intro/master/git06.jpg)
 
-### GitHub Exercise
+* **remote** - another repository that can be syncronized with a remote
+* **upstream** - the name for a remote read-only repository
+* **origin** - the name for a remote read-and-write repository
+* **github** - a service that hosts git remote repositories, and provides a web app to interact / collaborate on them
+* **fork** - make a copy of a remote repo on github.
+* **clone**  - download an entire remote repository, to be used as a local repository
+* **fetch**  - downloading the set of changes (commits) from a remote repository
+* **merge**  - taking two histories (commits),
+* **pull**   - fetching changes and merging them into the current branch
+* **push**   - sending changes to a remote repository and merging them into the specified branch
+* **pull request** - ask the upstream maintainer to pull in changes from origin.
+* **merge conflict** - when two commits conflict, and thus can't be merged automatically.
 
-In this codealong, students will create their first GitHub repository and push to it.
+#### We do: Connect local repo to github
+
 
 **Step 1: Creating and setting up a GitHub account**
 
@@ -136,46 +183,15 @@ In this codealong, students will create their first GitHub repository and push t
 
 1. Create a new repository on GitHub.com titled "username.github.io" (where "username" is your GitHub username)
 2. ```cd``` into your ```~/Sites``` folder
-3. Clone the repository (hint: GitHub tells you how to do this with git clone ... on the newly created repository page) - use the SSH link.
-4. ```cd``` into your ```~/Sites/username.github.io``` folder
-5. Create a simple webpage, named index.html in your ```~/Sites/username.github.io``` folder
-6. Add all files in the ```~/Sites/username.github.io``` folder to the Git stage
-  - `git add .`
-7. Commit your changes in Git with the message "Initial commit"
-  - `git commit -m "Initial commit"`
+3. Add the github repository as a remote and name it origin
+  - `git remote add origin git@github.com:username/username.github.io`
 8. Push your changes to GitHub and verify that the changes were received in the web interface
   - `git push origin master`
 9. Try visiting https://username.github.io/ (where "username" is your actual GitHub username)
 
 ---
 
-
-### Helpful Debugging Tips
-
-__Error installing due to permissions__
-
-It is common when you are installing things on the terminal to run into permissions issues. In order to install command line utilities, you will need to be signed into a user account on your computer that has administrator-level rights. If you have trouble with this, please ask a member of the instructional team for help.
-
-__Google is your friend__
-
-Even experienced programmers Google error messages. If you have an error, there is a very high likelihood that someone else had the error as well. Copy and paste the error message you received into Google. A good reference site is StackOverflow. Make sure to remove any reference to your computer since that will be unique to you. Try to hone in on just the error message itself.
-
-
->__Common Issues and Fixes:__
-
->The following remedies are recommended in order to help resolve common issues that might arise during the installation of command line utilities:
-
->* Some students with Macs may experience an issue where the outdated version of Git that was installed with Xcode is given precedence in the terminal. These students will need to adjust their shell path by following the instructions under "Trumping Xcode's Older Git" [in this article](http://coolestguidesontheplanet.com/install-update-latest-version-git-mac-osx-10-9-mavericks/).
-
->* Students with Macs running OS 10.11 and later may need to [disable the System Integrity Protection](http://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/) on their machine before installing certain command line utilities.
-
->* Students who run into an EACCES error, should [follow the instructions in this guide](http://www.wenincode.com/installing-node-jsnpm-without-sudo/) to install Node and npm without having to use sudo.
-
->* Students who have previously installed Homebrew on their machines will likely want to run `brew update` in order to update Homebrew to the latest version.
-
->* Students who need to update their installations of npm can run `npm install -g npm`.
-
->* Students with an existing, outdated installation of Node should be able to update their install by following the directions above (i.e. using the package installer).
+#### Extra Practice: [Haiku](https://github.com/ga-wdi-exercises/haiku)
 
 ---
 
