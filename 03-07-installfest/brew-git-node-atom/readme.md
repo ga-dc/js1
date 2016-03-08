@@ -139,18 +139,19 @@ Once complete, please raise your hand and ask a member of the instructional team
     Even experienced programmers Google error messages. If you have an error, there is a very high likelihood that someone else had the error as well. Copy and paste the error message you received into Google. A good reference site is StackOverflow. Make sure to remove any reference to your computer since that will be unique to you. Try to hone in on just the error message itself.
 
 
-    >__Common Issues and Fixes:__
+  >__Common Issues and Fixes:__
 
-    >The following remedies are recommended in order to help resolve common issues that might arise during the installation of command line utilities:
+  >The following remedies are recommended in order to help resolve common issues that might arise during the installation of command line utilities:
 
-    >* Some students with Macs may experience an issue where the outdated version of Git that was installed with Xcode is given precedence in the terminal. These students will need to adjust their shell path by following the instructions under "Trumping Xcode's Older Git" [in this article](http://coolestguidesontheplanet.com/install-update-latest-version-git-mac-osx-10-9-mavericks/).
+  >* Some students with Macs may experience an issue where the outdated version of Git that was installed with Xcode is given precedence in the terminal. These students will need to adjust their shell path by following the instructions under "Trumping Xcode's Older Git" [in this article](http://coolestguidesontheplanet.com/install-update-latest-version-git-mac-osx-10-9-mavericks/).
 
-    >* Students with Macs running OS 10.11 and later may need to [disable the System Integrity Protection](http://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/) on their machine before installing certain command line utilities.
+  >* Students with Macs running OS 10.11 and later may need to [disable the System Integrity Protection](http://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/) on their machine before installing certain command line utilities.
 
-    >* Students who run into an EACCES error, should [follow the instructions in this guide](http://www.wenincode.com/installing-node-jsnpm-without-sudo/) to install Node and npm without having to use sudo.
+  >* Students who run into an EACCES error, should change directory permissions to install Node and npm without having to use sudo:
+  `sudo chown -R $(whoami) /usr/local/lib/node_modules`
 
-    >* Students who have previously installed Homebrew on their machines will likely want to run `brew update` in order to update Homebrew to the latest version.
+  >* Students who have previously installed Homebrew on their machines will likely want to run `brew update` in order to update Homebrew to the latest version.
 
-    >* Students who need to update their installations of npm can run `npm install -g npm`.
+  >* Students who need to update their installations of npm can run `npm install -g npm`.
 
-    >* Students with an existing, outdated installation of Node should be able to update their install by following the directions above (i.e. using the package installer).
+  >* Students with an existing, outdated installation of Node should be able to update their install by following the directions above (i.e. using the package installer).
