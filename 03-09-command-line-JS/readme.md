@@ -306,6 +306,14 @@ Let's start off with a classic programming exercise, printing 'Hello World'.
 
 ---
 <a name="conclusion"></a>
+
+## Exit Ticket
+
+Before you leave, please take ~3 minutes to complete [this exit ticket](https://docs.google.com/forms/d/1LNeV7Vf043jg_4A1cBlHvFQkT_GiQAsl2a14jJjgYO0/viewform?c=0&w=1).
+
+This helps us help you! We'll review responses for each exit ticket before the next lesson.
+
+
 ## Conclusion (5 min)
 
 #### Review
