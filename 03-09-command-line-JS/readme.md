@@ -4,9 +4,7 @@
 | --- | --- | --- |
 | 25 min | [Opening](#opening) | JavaScript & Web Technology |
 | 35 min | [Codealong](#codealong1) | Introduction to the Terminal|
-| 10 min | [Discussion](#discussion) | Internet vs World Wide Web  |
 | 30 min | [Activity](#activity) | Client-Server Model |
-| 40 min | [Codealong](#codealong2)  | Introduction to Git/Github  |
 | 30 min | [Codealong](#codealong3)  | JS in the Terminal with Node |
 | 10 min | [Conclusion](#conclusion)| Final Questions & Exit Tickets |
 
@@ -53,6 +51,8 @@ Let's start by situating JavaScript in the broader web ecosystem and define a fe
 * JavaScript is flaky. Not the language itself but the environment it is implemented in. You don’t know what computer is on the receiving end of your web page, you don’t know how busy the computer is with other things and you don’t know if some other JavaScript open in another tab of the browser is grinding things down to a halt.
 * JavaScript (or some of its functions) is occasionally turned off in browsers because of security concerns, or because JavaScript is often used to annoy people rather than improving their experience. For example, you will still find a lot of sites that try to pop up new windows against your wishes, or cover the content with advertising until you click a link to get rid of it.
 
+[WAT](https://www.destroyallsoftware.com/talks/wat)
+
 Citation: [W3C](https://www.w3.org/community/webed/wiki/What_can_you_do_with_JavaScript)
 
 #### Node.js
@@ -87,89 +87,6 @@ Now imagine the paperboy throwing the newspaper on your porch but never stopping
 ---
 <a name="codealong1"></a>
 
-## Introduction to the Terminal (35 min)
-
-We learned how to execute some scripts on the command line during installfest. You'll soon find that the command line is the heart of your operating system. Almost anything that you can do from a GUI (Graphical User Interface), you can also do from the command line, but FASTER! We'll learn how to navigate computer files and folders using the terminal, because it'll help us get situated with pushing our projects to Github.  
-
-#### Command Line Basics
-
-Here are some common UNIX commands that you'll want to get familiar with as they'll be important for you to know as you're working on the terminal!
-
-
-| Command | Description | Command| Description |
-| --- | --- | --- | --- |
-| `ls` | List the contents of the directory | `subl` | Open sublime text|
-| `cd` | Change directories| `pwd`|Present working directory |
-| `mkdir` | Create a new folder | `say`| Make your computer talk |
-| `rmdir` | Remove an empty folder  | `open`|Open a particular file in their default application|
-| `rm` | Remove a file | `./`  | The current folder|
-| `touch` | Create an empty file | `../`| One folder above your current working directory
-| `echo` | Return a string |  `~/` | The home folder  |
-
-#### Command Line Codealong
-
-**For Macs**:
-  * Open the "Terminal" app (Applications > Utilities > Terminal)
-  * Optionally, download and install [iTerm 2](https://www.iterm2.com/), which is a replacement for the Terminal app that is more configurable.
-
-**For Windows**:
- * Open the "Command Prompt" application.
- * For a better experience, try [Console](http://sourceforge.net/projects/console/).
-
-
-**Get familiar with basic the basic commands on the terminal!**
-
-
-1.  Navigate to your Documents Folder from your root directory. ```cd ~``` and then ```cd Documents```
-
-2. Create a directory named advanced_js.  ```mkdir advanced_js```
-
-3. Change into this directory. ```cd Advanced_JS```
-
-4. Create a file named "index.html" using the touch command. ```touch index.html```
-
-5. Demonstrate how to open "index.html" in Sublime Text from the terminal. ```subl```
-
-6. Have students set up Sublime for their working environment. (Show them the open files side bar)
-
-7. Using HTML comments type "This is how you should take notes in class." Some students will need a refresher on how to write HTML comments (i.e. `<!-- comment -->`). Briefly explain comments and let them know we'll be talking more about comments in the next lesson.
-
-8. Create an empty directory within the Advanced JS folder and remove it. ```mkdir test_folder ``` and ```rmdir test_folder ```
-
->Note: Make sure to explain each command while students code along. Switch back to the finder often so students can make a connection to how the GUI and CLI function.
-
-#### More Independent Practice
-
-Complete the following instructions below in the Terminal application.
-
-1. Create a folder in your ~/Sites/ folder titled goals.
-
-2. Once inside that folder, create three empty files:
-  - goals.html
-  - worries.html
-  - index.html
-
-3. Open Sublime Text, click File > Open and navigate to your newly created ~/Sites/goals folder.
-  In the respective files (goals.html and worries.html), write your top 3 goals and top 3 worries for this course.
-
-4. Paste the following contents into index.html:
-
-  ```javascript
-  <html>
-  <head></head>
-  <body>
-    <a href="goals.html"><img src="http://i.imgur.com/dosK05U.gif" /></a>
-    <br>
-    <a href="worries.html"><img src="http://i.imgur.com/2s0HwpM.gif" /></a>
-  </body>
-  </html>
-  ```
-
-5. Open index.html with your browser and make sure you see your goals and worries.
-
----
-<a name="activity"></a>
-
 ## Client - Server Model (30 min)
 
 ***Question: How exactly does communication between computers and networks take place?***
@@ -182,7 +99,7 @@ A server may receive requests from many different clients in a very short period
 
 Of course, this is a somewhat abstract explanation of how this all works - there are a ton of intricacies that go into getting your request message to the right place and delivering the information you requested.
 
-![WebStack](img/Client-server-model.png)
+![WebStack](img/client-server.jpg)
 
 - **Host** - A computer or other device connected to a computer network; the host may offer information resources, services, and applications (via computer code!) to users or other computers on the network.
   - Ex: servers and web services
@@ -224,6 +141,115 @@ In real world terms, it's like how we use street addresses for finding a house, 
 ---
 
 <a name="codealong3"></a>
+
+## Introduction to the Terminal (35 min)
+
+We learned how to execute some scripts on the command line during installfest. You'll soon find that the command line is the heart of your operating system. Almost anything that you can do from a GUI (Graphical User Interface), you can also do from the command line, but FASTER! We'll learn how to navigate computer files and folders using the terminal, because it'll help us get situated with pushing our projects to Github.  
+
+#### Command Line Basics
+
+Here are some common UNIX commands that you'll want to get familiar with as they'll be important for you to know as you're working on the terminal!
+
+
+| Command | Description | Command| Description |
+| --- | --- | --- | --- |
+| `ls` | List the contents of the directory | `subl` | Open sublime text|
+| `cd` | Change directories| `pwd`|Present working directory |
+| `mkdir` | Create a new folder | `say`| Make your computer talk |
+| `rmdir` | Remove an empty folder  | `open`|Open a particular file in their default application|
+| `rm` | Remove a file | `./`  | The current folder|
+| `touch` | Create an empty file | `../`| One folder above your current working directory
+| `echo` | Return a string |  `~/` | The home folder  |
+
+#### Command Line Codealong
+
+**For Macs**:
+  * Open the "Terminal" app (Applications > Utilities > Terminal)
+  * Optionally, download and install [iTerm 2](https://www.iterm2.com/), which is a replacement for the Terminal app that is more configurable.
+
+**For Windows**:
+ * Open the "Command Prompt" application.
+ * For a better experience, try [Console](http://sourceforge.net/projects/console/).
+
+
+**Get familiar with basic the basic commands on the terminal!**
+
+
+1.  Navigate to your Documents Folder from your root directory. ```cd ~``` and then ```cd Documents```
+
+2. Create a directory named advanced_js.  ```mkdir advanced_js```
+
+3. Change into this directory. ```cd advanced_js```
+
+4. Create a file named "index.html" using the touch command. ```touch index.html```
+
+5. Demonstrate how to open "index.html" in Sublime Text from the terminal. ```subl```
+
+6. Have students set up Sublime for their working environment. (Show them the open files side bar)
+
+7. Using HTML comments type "This is how you should take notes in class." Some students will need a refresher on how to write HTML comments (i.e. `<!-- comment -->`). Briefly explain comments and let them know we'll be talking more about comments in the next lesson.
+
+8. Create an empty directory within the Advanced JS folder and remove it. ```mkdir test_folder ``` and ```rmdir test_folder ```
+
+>Note: Make sure to explain each command while students code along. Switch back to the finder often so students can make a connection to how the GUI and CLI function.
+
+**Bonus**
+
+1. Write a sentence with a directory structure and print it using the `pwd` command. Use your home directory as the starting point
+
+For example: `Johnny loves JavaScript`
+
+Create a directory structure that prints
+
+```/Users/johnny/loves/javascript```
+
+#### More Independent Practice
+
+Complete the following instructions below in the Terminal application.
+
+1. Create a folder in your ~/Sites/ folder titled goals.
+
+2. Once inside that folder, create three empty files:
+  - goals.html
+  - worries.html
+  - index.html
+
+3. Open Sublime Text, click File > Open and navigate to your newly created ~/Sites/goals folder.
+  In the respective files (goals.html and worries.html), write your top 3 goals and top 3 worries for this course.
+
+4. Paste the following contents into index.html:
+
+  ```javascript
+  <html>
+  <head></head>
+  <body>
+    <a href="goals.html"><img src="http://i.imgur.com/dosK05U.gif" /></a>
+    <br>
+    <a href="worries.html"><img src="http://i.imgur.com/2s0HwpM.gif" /></a>
+  </body>
+  </html>
+  ```
+
+5. Open index.html with your browser and make sure you see your goals and worries.
+
+---
+<a name="activity"></a>
+
+
+## Browser Rendering (15 min)
+Browser rendering doesn't happen all at once. JavaScript plays a BIG role in how quickly a page renders. Let's discuss.
+
+1. Script tags where ever
+
+![blocking](img/blocking.jpg)
+
+2. Script tags at the bottom
+
+![blocking](img/butter.jpg)
+
+---
+<a name ="browser-rendering"></a>
+
 ## JS in the Terminal (30 min)
 
 Typically you'd run JS in the browser, but in order to get comfortable with using the terminal and working like programmer, we'll be focusing on using JS on the command line during the first unit of this class. Remember when we installed Node and npm? We'll be using these runtime platforms to make scripts run in the terminal. Node.js is actually a JavaScript framework, however, for the purposes of this class, we'll only be using Node as a command line interpreter.
