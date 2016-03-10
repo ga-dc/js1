@@ -153,7 +153,7 @@ Here are some common UNIX commands that you'll want to get familiar with as they
 
 | Command | Description | Command| Description |
 | --- | --- | --- | --- |
-| `ls` | List the contents of the directory | `subl` | Open sublime text|
+| `ls` | List the contents of the directory | `atom` | Open Atom|
 | `cd` | Change directories| `pwd`|Present working directory |
 | `mkdir` | Create a new folder | `say`| Make your computer talk |
 | `rmdir` | Remove an empty folder  | `open`|Open a particular file in their default application|
@@ -183,9 +183,9 @@ Here are some common UNIX commands that you'll want to get familiar with as they
 
 4. Create a file named "index.html" using the touch command. ```touch index.html```
 
-5. Demonstrate how to open "index.html" in Sublime Text from the terminal. ```subl```
+5. Demonstrate how to open "index.html" in Atom from the terminal. ```atom```
 
-6. Have students set up Sublime for their working environment. (Show them the open files side bar)
+6. Have students set up Atom for their working environment. (Show them the open files side bar)
 
 7. Using HTML comments type "This is how you should take notes in class." Some students will need a refresher on how to write HTML comments (i.e. `<!-- comment -->`). Briefly explain comments and let them know we'll be talking more about comments in the next lesson.
 
@@ -214,7 +214,7 @@ Complete the following instructions below in the Terminal application.
   - worries.html
   - index.html
 
-3. Open Sublime Text, click File > Open and navigate to your newly created ~/Sites/goals folder.
+3. Open Atom, click File > Open and navigate to your newly created ~/Sites/goals folder.
   In the respective files (goals.html and worries.html), write your top 3 goals and top 3 worries for this course.
 
 4. Paste the following contents into index.html:
