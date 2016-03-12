@@ -1,34 +1,14 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) JS Data Types
 
-| Timing | Type | Topic |
-| --- | --- | --- |
-| 10 min | [Opening](#opening) |What is a Data Type?  |
-| 15 min | [Codealong](#codealong1)  | Data Types  |
-| 15 min | [Codealong](#codealong2)  | Variables and Keywords|
-| 10 min | [Introduction](#introduction) | Intro to Arrays|
-| 15 min | [Codealong](#codealong3)  | Working with Arrays|
-| 20 min | [Codealong](#codealong4)  | Accessing Values in Arrays |
-| 20 min | [Codealong](#codealong5) | Array Helper Methods |
-| 20 min | [Codealong](#codealong6) | Iterating through an Array |
-| 25 min | [Lab](#lab1) | Independent Practice For Arrays|
-| 25 min | [Lab](#lab2) |Independent practice for Startup Generator|
-| 5 min | [Conclusion](#conclusion) | Final Questions & Exit Tickets|
 
-### Objectives
-*After this lesson, students will be able to:*
+
+## Learning Objectives
 
 - Describe the concept of a "data type" and how it relates to variables.
 - Declare, assign to, and manipulate data stored in a variable.
 - Iterate over and and manipulate values in an array.
 
-### Preparation
-*Before this lesson, students should already be able to:*
-
-- Understand the client-server model.
-- Be comfortable navigating between folders on the command line.
-- Run JavaScript on the command line using Node.js and use basic variables.
-
->Last class, we worked on using basic commands in the terminal, writing some JavaScript and working with Git and Github. Check with students to make sure that everyone is comfortable with the materials covered in the last class.
+>Last class, we worked on using basic commands in the terminal, writing some JavaScript and working with Git and Github.
 
 Take a look at some simple keyboard shortcuts to practice:
 
@@ -62,10 +42,10 @@ Maybe you've already encountered data types before! Data types are really simila
 | Integers | Whole numbers, with no delimiter. Can optionally have underscores to make large numbers easier to read | `42`, `1024`, `1\_000\_000` |
 | Floats | Decimals, with no delimiter | `3.14`, `3.0` |
 | Booleans | Represents either true or false | `true`, `false` |
-| Arrays | Collections of Data | [ superman, batman, spiderman] |
-| Objects | ------ | ----- |
+| Arrays | Ordered collections of Data | [ "superman", "batman", "spiderman"] |
+| Objects | Unordered collections of Data | {name: "Jesse", age: 27} |
 
-We'll elaborate all these- except Booleans, Arrays and Objects (for now) - and talk about how they differ in JavaScript, show you how to work with each type, and then, practice what are known as helper methods to manipulate this data.
+We'll elaborate on all these- except Booleans, Arrays and Objects (for now) - and talk about how they differ in JavaScript, show you how to work with each type, and then, practice what are known as helper methods to manipulate this data.
 
 *Citation: [Wikipedia](https://en.wikipedia.org/wiki/Data_type)*
 
@@ -73,9 +53,17 @@ We'll elaborate all these- except Booleans, Arrays and Objects (for now) - and t
 
 JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements...client-side JavaScript extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.
 
->Note: This would be a good place to show students examples of browser based JavaScript applications. You can pull up the [General Assembly](www.generalassemb.ly) website and take them to the interest form section. Pull up the source code to show students how client-side JavaScript works.
+### Think-Pair-Share: Identify JS Features in Cookie Clicker
 
-*Citation: [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)*
+Think: Spend three minutes playing around with Cookie Clicker and think about the following questions...
+
+What Cookie Clicker features are (or are not!) powered by Javascript?
+What categories of functionality does Javascript give a web app?
+Why would you say a particular feature is powered by Javascript as opposed to HTML or CSS?
+Pair: Spend another three minutes discussing and comparing your findings with a partner.
+
+Share: We'll discuss our findings as a class.
+
 
 ---
 <a name="codealong1"></a>
@@ -83,31 +71,29 @@ JavaScript contains a standard library of objects, such as Array, Date, and Math
 
 For this lesson, we're going to use the Terminal and Node to run some basic scripts to understand the types of data we're working with.  Open the terminal and type in ```node```.
 
-#### Part 1: typeof( )
+#### Part 1: typeof
 
-The computer knows what type of data we're working with, so why don't we ask it? To know what type of data we're dealing with, we can use [`typeof()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof).  Let's try it out in the terminal with the following:
+The computer knows what type of data we're working with, so why don't we ask it? To know what type of data we're dealing with, we can use [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof).  Let's try it out in the terminal with the following:
 
   ```javascript
-  typeof(37) === 'number';
+  typeof 37 === 'number';
   => true
 
-  typeof({}) === 'object';
+  typeof {} === 'object';
   => true
 
-  typeof('hi there') === 'string';
+  typeof 'hi there' === 'string';
   => true
 
   ```
-  `typeof()` returns a string with the type of the operand, or expression of the object you're looking at.
+  `typeof` returns a string with the type of the operand, or expression of the object you're looking at.
 
-  >Note: At this point we haven't explained exactly what objects are. Give a brief overview of objects as a  collections of properties, and a property as an association between a key and a value. Objects in JavaScript are used in two ways:
-    >1. As simple structured data store, similar to arrays, the main difference being that instead of accessing our values by index, we access them by a key.
-    >2. As a fundamental programming paradigm that helps us structure and categorize our code.
-  >More about objects in the second half of this class!
+
+>More about objects in the second half of this class!
 
 #### Part 2: Numbers
 
-Numbers are divided into two classes or objects:
+Numbers are divided into two classes:
 
 * Integers (a.k.a. "whole numbers")
 
@@ -119,13 +105,6 @@ Numbers are divided into two classes or objects:
 
   ```javascript
    2.718, 3.14, .5, .25, etc
-  ```
-
-All numbers in JavaScript are **"double-precision 64-bit format IEEE 754 values"** - read this as "There's really no such thing as an integer in JavaScript."  You have to be a little careful with your arithmetic if you're used to math in other programming languages. Let's take a look at what happens when we do this:
-
-  ```javascript
-  0.1 + 0.2
-  => 0.30000000000000004
   ```
 
 In JavaScript, these data points are the same **type** of object, which it calls *Numbers*, so don't be surprised when ``typeof( )`` doesn't return 'float' and 'integer.'
@@ -147,6 +126,15 @@ Operators are used to work with data in JavaScript. The standard [arithmetic ope
 
 6 * 2
 => 12
+
+6 % 3
+=> 0
+
+7 % 3
+=> 1
+
+8 % 3
+=> 2
 ```
 
 #### Part 4: Special Number Operators
@@ -253,6 +241,8 @@ var x = 1;
 
 x += 5
 => 6
+
+// (x += 5) === (x = x + 5)
 ```
 
 You can use `++` and `--` to increment and decrement by 1, respectively. These can be used as prefix or postfix operators.
@@ -261,20 +251,9 @@ In Javascript, we just discussed two types of values we can use. We call these v
 
 * If you want to turn a number into a string you can use a helpful method called `toString`.
 
-```javascript
-(1).toString()
-=> "1"
-/**
-  be careful though,
-  since numbers can be floats
-  javascript might
-  misunderstand you.
-*/
-1.toString()
-=> Float Error
-// but the following works
-1..toString()
-```
+## You do: data types practice
+
+[exercise here](./data-types-exercise.md)
 
 ---
 <a name="introduction"></a>
@@ -284,7 +263,7 @@ You will find that strings and numbers are often not enough for most programming
 
 Arrays are great for:
 
-* Storing data
+* Storing ordered data
 * Enumerating data, i.e. using an index to find them
 * Quickly reordering data
 
@@ -317,69 +296,7 @@ We can even use strings like arrays:
   friend.length
   ```
 ---
-<a name="codealong3"></a>
-## Working with Arrays (15 min)
 
-Using the JavaScript Keyword `new`, is one way of creating arrays:
-
-#### Part 1: var new
-
-  ```javascript
-  var a = new Array();
-  => undefined
-
-  a[0] = "dog";
-  => "dog"
-
-  a[1] = "cat";
-  => "cat"
-
-  a[2] = "hen";
-  => "hen"
-
-  a
-  => ["dog", "cat", "hen"]
-
-  a.length;
-  => 3
-  ```
-
-A more convenient notation is to use an array literal:
-
-  ```javascript
-  var a = ["dog", "cat", "hen"];
-
-  a.length;
-  => 3
-  ```
-
-#### Part 2: Length method
-
-The `length` method works in an interesting way in Javascript. It is always one more than the highest index in the array.
-
-So `array.length` isn't necessarily the number of items in the array. Consider the following:
-
-  ```javascript
-  var a = ["dog", "cat", "hen"];
-  a[100] = "fox";
-  a.length;
-  => 101
-  ```
-
-**Remember**: the length of the array is one more than the highest index.
-
-#### Part 3: Getting data from an array
-
-If you query a non-existent array index, you get `undefined`:
-
-  ```javascript
-  var a = ["dog", "cat", "hen"];
-  => undefined
-
-  typeof a[90];
-  => undefined
-  ```
----
 <a name="codealong4"></a>
 ## Accessing Values in Arrays (20 min)
 
@@ -452,8 +369,6 @@ Now it's time to access various combinations of the two array's elements and con
 
 Arrays come with a number of methods. Here's a list of some popular helpers:
 
-- `a.toString()` - Returns a string with the `toString()` of each element separated by commas.
-
 - `a.pop()` - Removes and returns the last item.
 
 - `a.push(item1, ..., itemN)` - `Push` adds one or more items to the end.
@@ -466,8 +381,20 @@ Arrays come with a number of methods. Here's a list of some popular helpers:
 
 Remember, though, you will never remember _every_ method.  Explore the the [full documentation for array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and other helper methods given to you for particular objects.
 
+#### Bonus!
 
-The goal of this exercise is for students to utilize their knowledge of array helper methods in order to decode a secret message.
+Sort the following array using [`.sort`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort):
+
+```javascript
+  var countries = [
+    ["Cambodia", 15140000],
+    ["Vietnam", 89710000],
+    ["Laos", 6770000]
+  ]
+  // 1. sort by population
+  // 2. sort alphabetically
+  // 3. sort by the last letter of the country
+```
 
 #### Part 1: Array Creation and the `.push()` method
 
@@ -689,7 +616,7 @@ In the [starter code](starter-code/array.js) you'll find an array.js file that w
 <a name="lab2"></a>
 ## Data Types: Lab (25 min)
 
-https://github.com/ga-wdi-exercises/js-data-types
+[View exercise](./lab.md)
 
 ---
 <a name="conclusion"></a>
