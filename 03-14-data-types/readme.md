@@ -580,7 +580,7 @@ timesTen
 ---
 
 <a name="lab2"></a>
-## Data Types: Lab (25 min)
+## Arrays: Lab (25 min)
 
 [View exercise](./lab.md)
 
