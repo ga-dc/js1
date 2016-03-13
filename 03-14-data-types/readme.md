@@ -246,7 +246,7 @@ var x = 1;
 x += 5
 => 6
 
-// (x += 5) === (x = x + 5)
+// (x += 1) === (x = x + 1) === (x++)
 ```
 
 You can use `++` and `--` to increment and decrement by 1, respectively. These can be used as prefix or postfix operators.
@@ -277,7 +277,7 @@ Arrays, ultimately, are a data structure that is similar in concept to a list. E
   => ['Moe', 'Larry', 'Curly']
   ```
 
-Items in an array are stored in sequential order, and indexed starting at `0` and ending at `length - 1`. To be clear, JavaScript starts counting at zero, so the first position in the array will be `[0]`, the second position in the array will be `[1]` and sor forth.
+Items in an array are stored in sequential order, and indexed starting at `0` and ending at `length - 1`. To be clear, JavaScript starts counting at zero, so the first position in the array will be `[0]`, the second position in the array will be `[1]` and so forth.
 
   ```javascript
   // First friend
@@ -339,7 +339,7 @@ Note to the students the differences in array creation (new keyword vs array lit
     c = ['foo', 'bar'],           // these are the same
     d = new Array('foo', 'bar'),  // c and d are arrays with 2 strings
 
-    ```
+```
 
 * Citation: [StackOverflow](http://stackoverflow.com/questions/1094723/what-is-array-literal-notation-in-javascript-and-when-should-you-use-it)
 
