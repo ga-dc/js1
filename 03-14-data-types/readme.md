@@ -502,8 +502,6 @@ Notice how much clearer this syntax is than that of the `for` loop?
 
 Here are some other iterator methods for you to research and practice with:
 
-- `Array.every()`
-- `Array.some()`
 - `Array.filter()`
 - `Array.map()`
 
@@ -522,37 +520,8 @@ odds.push(1,3,5,7,9)
 => 5
 ```
 
-#### Part 2: Array.every( )
 
-The `.every()` method tests whether all elements in the array pass the test implemented by the provided function. [[Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)]
-
-```javascript
-evens.every(function (num) {
-  return num % 2 === 0
-})
-
-=> true
-
-evens.every(function (num) {
-  return num % 4 === 0
-})
-
-=> false
-```
-
-#### Part 3: Array.some( )
-
-The `.some()` method tests whether some element in the array passes the test implemented by the provided function. [[Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)]
-
-```javascript
-evens.some(function (num) {
-  return num % 4 === 0
-})
-
-=> true
-```
-
-#### Part 4: Array.filter( )
+#### Part 1: Array.filter( )
 
 The `.filter()` method creates a new array with all elements that pass the test implemented by the provided function.
 [[Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)]
@@ -584,7 +553,7 @@ smallNums
 => [1, 3]
 ```
 
-#### Part 5: Array.map( )
+#### Part 2: Array.map( )
 
 The `.map()` method creates a new array with the results of calling a provided function on every element in this array.
 [[Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)]
@@ -609,12 +578,7 @@ timesTen
 => [10, 30, 50, 70, 90]
 ```
 ---
-<a name="lab1"></a>
-## Arrays: Independent Practice
 
-In the [starter code](starter-code/array.js) you'll find an array.js file that will help you get some more practice in the console with arrays!
-
----
 <a name="lab2"></a>
 ## Data Types: Lab (25 min)
 
