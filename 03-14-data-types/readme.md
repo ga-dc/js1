@@ -55,15 +55,15 @@ JavaScript contains a standard library of objects, such as Array, Date, and Math
 
 ### Think-Pair-Share: Identify JS Features in Cookie Clicker
 
-Think: Spend three minutes playing around with Cookie Clicker and think about the following questions...
+Think: Spend three minutes playing around with [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/) and think about the following questions...
 
-What Cookie Clicker features are (or are not!) powered by Javascript?
-What categories of functionality does Javascript give a web app?
-Why would you say a particular feature is powered by Javascript as opposed to HTML or CSS?
+- What Cookie Clicker features are (or are not!) powered by Javascript?
+- What categories of functionality does Javascript give a web app?
+- Why would you say a particular feature is powered by Javascript as opposed to HTML or CSS?
+
 Pair: Spend another three minutes discussing and comparing your findings with a partner.
 
 Share: We'll discuss our findings as a class.
-
 
 ---
 <a name="codealong1"></a>
@@ -191,6 +191,10 @@ Strings are collections of letters and symbols known as *characters*, and we use
   "123"
   ```
 
+## You do: data types practice
+
+[exercise here](./data-types-exercise.md)
+
 ---
 <a name="codealong2"></a>
 ## Variables and Keywords (15 min)
@@ -251,9 +255,7 @@ In Javascript, we just discussed two types of values we can use. We call these v
 
 * If you want to turn a number into a string you can use a helpful method called `toString`.
 
-## You do: data types practice
 
-[exercise here](./data-types-exercise.md)
 
 ---
 <a name="introduction"></a>
