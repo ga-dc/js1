@@ -17,6 +17,12 @@
     - office hours:
       - Wednesdays 5:30 - 6:30
       - Sundays 6:00pm - 7:00pm [remote](https://hangouts.google.com/hangouts/_/generalassemb.ly/ga-js-oh)
+- TA
+  - John Master
+    - [john.master@generalassemb.ly](john.master@generalassemb.ly)
+    - Office hours:
+      - Mondays 5:30 - 6:30 (General Assembly)
+      - Sundays 7:00 - 8:00 Remote - Will put appear.in link in slack
 
 ## Course information
 
