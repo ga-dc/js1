@@ -1,4 +1,4 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Collections and Loops (3:00)
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Collections, Loops and Conditionals (3:00)
 
 | Timing | Topic |Description|
 | --- | --- | --- |
@@ -55,14 +55,14 @@ When you need to test more than one case, you may use `else if`:
 
 ```javascript
 var name = "kittens";
-if (name == "puppies") {
+if (name === "puppies") {
   name += "!";
-} else if (name == "kittens") {
+} else if (name === "kittens") {
   name += "!!";
 } else {
   name = "!" + name;
 }
-name == "kittens!!"
+name === "kittens!!"
 //=> true
 ```
 
@@ -73,7 +73,7 @@ student = "Jamie";
 //=> "Jamie"
 ```
 
-The expression above will return the value (as shown on the second line), so if you assign a truthy value inside a conditional statement, then this condition will always be true, or if you assign something undefined, it will make the conditional statement false (because undefined is falsy). Another potential issue with this is that it can be confused with equality(`==`). The example below is the illustration of WHAT NOT TO DO, in general:
+The expression above will return the value (as shown on the second line), so if you assign a truthy value inside a conditional statement, then this condition will always be true, or if you assign something undefined, it will make the conditional statement false (because undefined is falsy). Another potential issue with this is that it can be confused with equality(`===`). The example below is the illustration of WHAT NOT TO DO, in general:
 
 ```javascript
 if (x = 3) {
@@ -117,10 +117,12 @@ var name = "gerry";
 {
   var name = "jay";
 }
-console.log(name); // outputs gerry
+console.log(name); // outputs jay
 ```
 
 Only functions introduce scope in Javascript.
+
+**Bonus** ES6 (The next version of JavaScript) introduces block scoping. Read more about it [here](http://ariya.ofilabs.com/2013/05/es6-and-block-scope.html)
 
 ---
 
@@ -180,7 +182,7 @@ However, there are some incidents when `===` does not behave like we expect, for
 
 ```javascript
 {} === {}
-//=> Uncaught SyntaxError: Unexpected token ===
+//=> false
 
 [] === []
 //=> false
