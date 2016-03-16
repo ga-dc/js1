@@ -628,6 +628,11 @@ Relying on your newfound knowledge of loops and if/else statements, incrementall
 
 Open the [fizzbuzz.js](starter-code/fizzbuzz.js) to get started.
 
+### Bonus
+
+- In your code, use the word "fizz" and word "buzz" only once each.
+
+
 >Who wants to share code?!!
 
 ---
