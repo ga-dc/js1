@@ -640,10 +640,6 @@ Make sure the lesson objectives have been met.
 * Be able to explain if/else and switch statements as well as use cases.
 * Differentiate between true, false, 'truth-y', and 'false-y'.
 
-### Before Next Class
-|   |   |
-|---|---|
-| **UPCOMING PROJECTS**  | [Project 1: Slackbot](../../projects/unit1) |
 
 #### Further Resources
 - [Control Flow](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
