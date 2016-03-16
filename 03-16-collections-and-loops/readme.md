@@ -169,6 +169,9 @@ When verifying equality using double equal `==`, JavaScript does a lot of the "t
 
 1 == true;
 //=> true
+
+1 == "1";
+//=> true
 ```
 
 #### Equality Operator `===`
@@ -640,6 +643,11 @@ Make sure the lesson objectives have been met.
 * Be able to explain if/else and switch statements as well as use cases.
 * Differentiate between true, false, 'truth-y', and 'false-y'.
 
+#### Additional exercises / practice
+
+- https://github.com/ga-wdi-exercises/temperature_converter
+- https://github.com/ga-wdi-exercises/luhn_algorithm#challenge-validating-credit-card-numbers
+- https://projecteuler.net/archives
 
 #### Further Resources
 - [Control Flow](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
