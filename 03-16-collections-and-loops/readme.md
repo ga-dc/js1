@@ -96,6 +96,18 @@ allowed
 //=> "no"
 ```
 
+### Practice
+
+Given the object below, do the following
+
+```javascript
+	var johnny = {
+		favoriteFood: "spaghetti",
+		age: 17
+	};
+```
+
+
 #### Block Statements
 
 Statements meant to be executed after a control flow operation will be grouped into what is called a **block statement**. These statements are wrapped into a pair of curly braces:
@@ -196,6 +208,22 @@ However, there are some incidents when `===` does not behave like we expect, for
 The examples in the second set fail equality tests because both **object literals** and **arrays** are objects, and not just "primitive" values like strings, numbers, and booleans. Objects and arrays are complex collections of values, and when we refer to them, we're actually referencing where they live in memory. That's why we call them "reference types," while things like strings and numbers are "value types."
 
 What this means is that when we go to compare two objects or arrays with `===`, JavaScript doesn't care if they look like similar collections. It only compares whether or not they are the exact same object in memory. In each of the cases above, when checking for equality, we're actually comparing two objects that are in two different places in memory. They're not exactly "the same."
+
+**Talk about memory**
+All variables live in some memory address on a computer. Triple equals tells you whether or not two objects actually live in the same place
+
+```javascript
+var foo = []
+
+foo === []
+//=> false
+
+var beep = foo
+
+beep === foo
+//=> true
+```
+
 
 #### != and !==
 
@@ -335,7 +363,7 @@ Further reference: [Mozilla Developer Network article on Logical operators](http
 ---
 
 <a name="practice1"></a>
-## Independent Practice (25 min)
+## Independent Practice (Verify Age) (25 min)
 
 Often, when programming user interfaces, you will want to display results to a user based on a certain input. In this exercise you will work the students to design a program what will alert users as to what privileges - in the U.S. - they are afforded based on their age.
 
@@ -353,31 +381,7 @@ Students can work in pairs to complete the exercise. Check out the solution belo
 
 >Note: If you are outside of the U.S., feel free to adjust the conditions above to reflect the  laws in your country.
 
-**Solution**
-
-```javascript
-var age = 25
-
-if (age < 16) {
-  console.log('You can go to school!')
-} else if (age >= 16 && age < 18) {
-  console.log('You can drive!')
-} else if (age >= 18 && age < 21) {
-  console.log('You can vote!')
-} else if (age >= 21 && age < 25) {
-  console.log('You can drink alcohol!')
-} else if (age >= 25 && age < 35) {
-  console.log('You can rent a car!')
-} else if (age >= 35 && age < 62) {
-  console.log('You can run for president!')
-} else if (age >= 62) {
-  console.log('You can collect social security!')
-} else {
-  console.log('Please enter a correct age value')
-}
-
-=> You can rent a car!
-```
+>Show some code!
 
 ---
 <a name="codealong4"></a>
@@ -621,83 +625,8 @@ Relying on your newfound knowledge of loops and if/else statements, incrementall
 
 Open the [fizzbuzz.js](starter-code/fizzbuzz.js) to get started.
 
-> Note: Instructors should guide students with solutions below as they complete each step.
+>Who wants to share code?!!
 
-##### Step 1:
-
-Construct a for loop that iterates through, and `console.log()`'s out, numbers 1 - 100:
-
-```javascript
-for (var num = 1; num <= 100; num++) {
-  console.log(num);
-}
-```
-
-##### Step 2:
-
-Add an `if/else` statement that logs the string `"fizz"` if the value being iterated over is divisible by `3`; otherwise, log out the value:
-
-```javascript
-for (var num = 1; num <= 100; num++) {
-  if (num % 3 === 0) {
-    console.log('fizz');
-  } else {
-    console.log(num)
-  }
-}
-```
-
-##### Step 3:
-
-Add an `else if` clause that logs the string `"buzz"` if the value being iterated over is divisible by `5`:
-
-```javascript
-for (var num = 1; num <= 100; num++) {
-  if (num % 3 === 0) {
-    console.log('fizz');
-  } else if (num % 5 === 0) {
-    console.log('buzz')
-  } else {
-    console.log(num)
-  }
-}
-```
-
-##### Step 4:
-
-Add an additional `else if` clause that logs the string `"fizzbuzz"` if the value being iterated over is divisible by both `3` and `5`. __Note:__ this step is intentionally broken! Place the new `else if` __below__ the evaluations for `fizz` and `buzz`; after running the code, and experiencing the undesired results, prompt the students as to why the `fizzbuzz` evaluation never occurred.
-
-```javascript
-for (var num = 1; num <= 100; num++) {
-  if (num % 3 === 0) {
-    console.log('fizz');
-  } else if (num % 5 === 0) {
-    console.log('buzz')
-  } else if (num % 15 === 0) {
-    console.log('fizzbuzz')
-  } else {
-    console.log(num)
-  }
-}
-```
-
-##### Step 5:
-
-Fix the above code to evaluate the `fizzbuzz` condition:
-
-```javascript
-for (var num = 1; num <= 100; num++) {
-  if (num % 15 === 0) {
-    console.log('fizzbuzz');
-  } else if (num % 5 === 0) {
-    console.log('buzz')
-  } else if (num % 3 === 0) {
-    console.log('fizz')
-  } else {
-    console.log(num)
-  }
-}
-```
 ---
 <a name="conclusion"></a>
 ## Conclusion (5 min)
