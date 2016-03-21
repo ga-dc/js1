@@ -8,7 +8,7 @@ For our first project, we are going to keep things simple. We will build a Slack
 
 Hubot scripts are generally written in CoffeeScript, which is a JavaScript scripting language. They also take vanilla JavaScript, which is what we will be using. Your bot can respond to whatever you like, but should do at least 3 different things.
 
->Instructors will need to configure Hubot integrations and generate API tokens for your students to use. [Click here](https://my.slack.com/services/new/hubot) to configure a new Hubot. Once your Hubot has been configured, edit that configuration in order to access its API token.
+>Instructors will need to configure Hubot integrations and generate API tokens for students to use. [Click here](https://my.slack.com/services/new/hubot) to configure a new Hubot. Once your Hubot has been configured, edit that configuration in order to access its API token.
 
 Hubot has a few basic functions:
 
