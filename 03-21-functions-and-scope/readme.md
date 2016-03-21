@@ -46,6 +46,8 @@ Functions are a critical component of programming because it allows us to execut
 
 Another interesting thing about functions is that they are just like objects or strings. You can pass a function into other functions as an argument, and can also use it just like any other object we've been working with.
 
+>Note: DRY doesn't mean you never do the same thing twice, it means you __never write the same code__ to do the same thing
+
 ---
 <a name="codealong1"></a>
 ## Function Declaration (20 min)
@@ -54,25 +56,25 @@ Before we call, or "use", a function, we must define it. In JavaScript, function
 
 __Function Declarations:__
 ```javascript
-function speak (words) {
-  console.log(words);
+function speak () {
+  console.log('hello');
 }
 ```
 
 __Function Expressions:__
 ```javascript
-var speak = function (words) {
-  console.log(words);
+var speak = function () {
+  console.log('hello');
 }
 ```
 
 While both methods are similar, an important difference between function declarations and function expressions involves the concept of __hoisting__. In JavaScript, function declarations are always moved, or "hoisted", to the top of their scope by the interpreter. In other words, you can call a function declaration before defining it:
 
 ```javascript
-speak('hello, world!')
+speak()
 
-function speak(words) {
-  console.log('words')
+function speak() {
+  console.log('hello')
 }
 
 // DOES NOT RESULT IN ERROR
@@ -81,10 +83,10 @@ function speak(words) {
 Function expressions, however, must be defined before they are called:
 
 ```javascript
-speak('hello, world!')
+speak()
 
-var speak = function (words) {
-  console.log('words')
+var speak = function () {
+  console.log('hello')
 }
 
 // RESULTS IN ERROR:
@@ -327,11 +329,11 @@ When a function is defined inside another function, it is possible to access var
 var a = 1;
 
 function getScore () {
-  var b = 2,
-  c = 3;
+  var b = 2;
+  var c = 3;
 
   function add() {
-  return a + b + c;
+    return a + b + c;
   }
 
   return add();
