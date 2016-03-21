@@ -368,7 +368,7 @@ For this lab, we'll set up Hubot locally by installing the necessary files. Foll
  * Bot Adapter: `slack` _This step is very important!_
  * `npm install hubot-slack --save`
 
- Test your bot locally:
+ Test your bot locally:b
 
  `HUBOT_SLACK_TOKEN=TOKEN-GOES-HERE ./bin/hubot --adapter slack`
 
@@ -376,7 +376,7 @@ For this lab, we'll set up Hubot locally by installing the necessary files. Foll
 
  The example.coffee file is a good file to look at for inspiration. This is a CoffeeScript file so you will need to use a CoffeeScript to JS converter like [JS2Coffee](http://js2.coffee/) to see the expected format.
 
->Note: Additional information on building and running Slackbots is available in the [Unit 1 Project Prompt](../../projects/unit1/project-01.md)
+>Note: Additional information on building and running Slackbots is available in the [Unit 1 Project Prompt](../03-22-project-1/readme.md)
 
 ---
 
@@ -393,7 +393,7 @@ Make sure the lesson objectives have been met.
 ### Before Next Class
 |   |   |
 |---|---|
-| **UPCOMING PROJECTS**  | [Project 1: Slackbot](../../projects/unit1/project-01.md) |
+| **UPCOMING PROJECTS**  | [Project 1: Slackbot](../03-22-project-1/readme.md) |
 
 ---
 <a name="lab2"></a>
