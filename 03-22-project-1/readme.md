@@ -79,6 +79,8 @@ Use an array to store a number of your favorite quotes. When you ping your bot, 
 
 ### Useful Resources
 
+* How to set up! - https://vimeo.com/159850260
+
 Key Resources
 * [Hubot Slack](https://github.com/slackhq/hubot-slack)
 * [Slack API Documentation](https://api.slack.com/bot-users)
