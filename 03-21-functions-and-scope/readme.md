@@ -376,7 +376,7 @@ For this lab, we'll set up Hubot locally by installing the necessary files. Foll
 
  The example.coffee file is a good file to look at for inspiration. This is a CoffeeScript file so you will need to use a CoffeeScript to JS converter like [JS2Coffee](http://js2.coffee/) to see the expected format.
 
->Note: Additional information on building and running Slackbots is available in the [Unit 1 Project Prompt](../03-22-project-1/readme.md)
+>Note: Additional information on building and running Slackbots is available in the [Unit 1 Project Prompt](../03-23-project-1/readme.md)
 
 ---
 
@@ -393,7 +393,7 @@ Make sure the lesson objectives have been met.
 ### Before Next Class
 |   |   |
 |---|---|
-| **UPCOMING PROJECTS**  | [Project 1: Slackbot](../03-22-project-1/readme.md) |
+| **UPCOMING PROJECTS**  | [Project 1: Slackbot](../03-23-project-1/readme.md) |
 
 ---
 <a name="lab2"></a>
