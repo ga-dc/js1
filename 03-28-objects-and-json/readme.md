@@ -1,5 +1,11 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Objects and JSON (3:00)
 
+## Submitting Project 1
+
+Please submit your first project by creating an issue here: https://github.com/ga-dc/js1/issues/new
+
+Include your name and link to your code.
+
 ### Objectives
 
 - Explain how objects are defined as data structures
