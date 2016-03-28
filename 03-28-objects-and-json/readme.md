@@ -31,6 +31,8 @@ being that instead of accessing our values by index, we access them by a key.
 2. As a fundamental programming paradigm that helps us structure and categorize 
 our code.
 
+>What kinds of things in the world are grouped by key-value pairs?
+
 ---
 
 <a name = "codealong1"></a>
@@ -84,9 +86,7 @@ myMotorcycle[speed] // returns 300
 delete myMotorcycle.owners
 ```
 
-
 We have the ability to iterate through all enumerable properties of objects.
-This is however a costly operation in performance, that should not be abused;
 
 ```js
   for (var key in myMotorcycle) {
@@ -134,6 +134,21 @@ var car = {
 1. "Neutral"
 1. "6 horses"
 
+## You do: The Reading List
+
+Keep track of which books you read and which books you want to read!
+
+Create an array of objects, where each object describes a book and has
+properties for the title (a string), author (a string), and alreadyRead (a
+boolean indicating if you read it yet).
+
+Iterate through the array of books. For each book, log the book title and book
+author like so: "The Hobbit by J.R.R. Tolkien".
+
+Now use an if/else statement to change the output depending on whether you read 
+it yet or not. If you read it, log a string like 'You already read "The Hobbit" 
+by J.R.R. Tolkien', and if not, log a string like 'You still need to read "The
+Lord of the Rings" by J.R.R. Tolkien.'
 
 ## Introduction to JSON (15 min)
 
@@ -205,13 +220,17 @@ car.paint( "blue" );
 console.log( "Car color is: " + car.color );
 ```
 
-With methods as part of our Javascript toolbox, we now have a cool interface with which we can interact with our objects.
+With methods as part of our Javascript toolbox, we now have a cool interface
+with which we can interact with our objects.
 
-- Why would custom methods be a preferred way to modify object properties vs. using object literal notation?
+- Why would custom methods be a preferred way to modify object properties vs.
+using object literal notation?
 
-We've only scratched the surface for objects. We're going to dive much deeper into them later on in the course.
+We've only scratched the surface for objects. We're going to dive much deeper
+into them later on in the course.
 
->If you're looking for a sneak peak into the power of objects and functions, we recommend reading The Secret Life of JS Objects chapter in Eloquent JS
+>If you're looking for a sneak peak into the power of objects and functions, we
+recommend reading [The Secret Life of JS Objects chapter in Eloquent JS](http://eloquentjavascript.net/06_object.html)
 
 ### Additional Exercise
 
