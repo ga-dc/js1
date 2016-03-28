@@ -2,26 +2,37 @@
 
 ### Objectives
 
-- Identify likely objects, attributes, and methods in real-world scenarios
-- Write a constructor for a JavaScript object
-- Write a prototype method for a JavaScript object
-- Implement and interface with JSON data
-
+- Explain how objects are defined as data structures
+- Create objects using object literal syntax.
+- Practice interacting with properties of literal objects.
+- Explain nested data structures.
+- Explain the difference between object properties and methods.
+- Write an object method.
 
 ---
 <a name = "opening"></a>
 
 ## Objects: Introduction (10 minutes)
-So far we have learned about fairly simple data types. We have learned to store data in arrays that allow us to associate values in an ordered list. However, as our applications grow to be more complex, we will increasingly need more structure in our code. Objects allow us to do just that in JavaScript. Objects are collections of properties, and a property is an association between a key and a value. Objects in JavaScript are used in two ways:
-1. As simple structured data store, similar to arrays, the main difference being that instead of accessing our values by index, we access them by a key.
-2. As a fundamental programming paradigm that helps us structure and categorize our code.
+So far we have learned about fairly simple data types. We have learned to store 
+data in arrays that allow us to associate values in an ordered list. However,
+as our applications grow to be more complex, we will increasingly need more
+structure in our code. Objects allow us to do just that in JavaScript. Objects
+are collections of properties, and a property is an association between a key
+and a value. Objects in JavaScript are used in two ways:
+
+1. As simple structured data store, similar to arrays, the main difference
+being that instead of accessing our values by index, we access them by a key.
+2. As a fundamental programming paradigm that helps us structure and categorize 
+our code.
 
 ---
 
 <a name = "codealong1"></a>
 
 ## Object Properties (30 minutes)
-An object is an associative array, also known as a hash or a dictionary in other languages. It stores key-value pairs, and unlike arrays, is not ordered. Object properties are variables attached to a specific object.
+An object is an associative array, also known as a hash or a dictionary in
+other languages. It stores key-value pairs, and unlike arrays, is not ordered.
+Object properties are variables attached to a specific object.
 
 ```js
 // We can also create objects populated with data
@@ -33,7 +44,8 @@ var myMotorcycle = {
 }
 ```
 
-We can get and set object properties with either dot notation or square brackets and parenthesis.
+We can get and set object properties with either dot notation or square brackets
+and parenthesis.
 
 **Accessing object properties:**
 ```js
@@ -48,7 +60,8 @@ myMotorcycle[speed] // returns 300
 
 **Setting object properties:**
 ```js
-  // We can set object properties via the key in dot notation (more common for simple scenarios)
+  // We can set object properties via the key in dot notation (more common for
+  simple scenarios)
   myMotorcycle.color = "red";
 
   // We can also set object properties via square brackets with the key as a string.
@@ -66,7 +79,8 @@ delete myMotorcycle.owners
 ```
 
 
-We have the ability to iterate through all enumerable properties of objects. This is however a costly operation in performance, that should not be abused;
+We have the ability to iterate through all enumerable properties of objects.
+This is however a costly operation in performance, that should not be abused;
 
 ```js
   for (var key in myMotorcycle) {
@@ -80,7 +94,6 @@ Create a variable named `gaStudent` and assign it to an object literal.
 
 1. Give your student at least three properties.
 1. One must have a key that contains a hyphen.
-1. One must contain an array or object.
 1. Update two properties, one of which is the hyphenated key.
 1. Give your student a new property using dot or bracket notation.
 1. Delete one attribute.
@@ -117,11 +130,22 @@ var car = {
 
 
 ## Introduction to JSON (15 min)
-[JSON](http://json.org/) (JavaScript Object Notation) is a lightweight text-based data format that's based on JavaScript (specifically, a subset of Standard ECMA-262 3rd Edition - December 1999). Because it's text, and it looks like JavaScript, JSON is simultaneously both easy for humans to read and write AND easy for programs to parse and generate.
 
-> JSON is completely language-independent, but it uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
+[JSON](http://json.org/) (JavaScript Object Notation) is a lightweight
+text-based data format that's based on JavaScript (specifically, a subset of
+Standard ECMA-262 3rd Edition - December 1999). Because it's text, and it looks 
+like JavaScript, JSON is simultaneously both easy for humans to read and write
+AND easy for programs to parse and generate.
 
-We use JSON objects to transfer data between applications and Javascript. To keep everything consistent, all JSON code must follow a number of strict conventions (_stricter even than normal JavaScript!_) in order to be syntactically correct. For instance:
+> JSON is completely language-independent, but it uses conventions that are
+familiar to programmers of the C-family of languages, including C, C++, C#,
+Java, JavaScript, Perl, Python, and many others. These properties make JSON an
+ideal data-interchange language.
+
+We use JSON objects to transfer data between applications and Javascript. To
+keep everything consistent, all JSON code must follow a number of strict
+conventions (_stricter even than normal JavaScript!_) in order to be
+syntactically correct. For instance:
 
 - Property names must be double-quoted strings.
 - Trailing commas are forbidden.
@@ -182,6 +206,10 @@ With methods as part of our Javascript toolbox, we now have a cool interface wit
 We've only scratched the surface for objects. We're going to dive much deeper into them later on in the course.
 
 >If you're looking for a sneak peak into the power of objects and functions, we recommend reading The Secret Life of JS Objects chapter in Eloquent JS
+
+### Additional Exercise
+
+- https://github.com/ga-wdi-exercises/js-calculator
 
 
 #### Additional JavaScript Object Resources
