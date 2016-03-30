@@ -6,7 +6,7 @@
 | 30 min | [Codealong](#codealong1) | Working the DOM |
 | 25 min | [Lab](#lab1) | DOM Manipulation: Independent Practice |
 | 30 min | [Introduction](#introduction) | jQuery and DOM |
-| 50 min | [Codealong](#codealong2) | Trading JavaScript for jQuery |
+| 50 min | [Codealong](#codealong2) | Augmenting JavaScript with jQuery |
 | 30 min | [Lab](#lab2)| Create a Checklist: Independent Practice |
 | 5 min | [Conclusion](#conclusion) | Final Questions & Exit Tickets  |
 
