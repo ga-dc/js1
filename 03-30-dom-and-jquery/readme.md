@@ -39,13 +39,15 @@ The Document Object Model (DOM) is a programming interface for HTML [and XML] do
 
 So, the DOM is a (potential) large object that describes the structure of our content. Since it's an object, we can use normal techniques to get and set data! In the browser, the DOM is represented by the `document` object. JS specifies some built-in methods that make using the DOM easier. Take a minute to review the [summary of the DOM at MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document). Pay particular attention to the following methods:
 
-- `Document.getElementById(String id)`
-- `Document.querySelector(String selector)`
-- `Document.querySelectorAll(String selector)`
+- `document.getElementById(String id)`
+- `document.querySelector(String selector)`
+- `document.querySelectorAll(String selector)`
 
 When reading these methods, try to get a sense of what they're trying to accomplish. We aren't going to ask you to memorize documentation. Don't worry about the details, since we're going to observe some examples.
 
 Each of these methods returns an element from the DOM. What can we do with an [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)? Let's write a few suggestions down on the board.
+
+>Note to self: Draw DOM Hierarchy
 
 ---
 <a name = "codealong1"></a>
@@ -77,10 +79,10 @@ We can manipulate the DOM in 3 different ways:
    window.onload = function() {
 
      // create a couple of elements in an empty HTML page
-     var main_heading = document.createElement("h1");
-     var heading_text = document.createTextNode("Hello dynamic world!");
-     main_heading.appendChild(heading_text);
-     document.body.appendChild(main_heading);
+     var mainHeading = document.createElement("h1");
+     var headingText = document.createTextNode("Hello dynamic world!");
+     mainHeading.appendChild(headingText);
+     document.body.appendChild(mainHeading);
   }
 ```
 
@@ -106,7 +108,7 @@ Below are a few of the core interfaces to target existing elements in the DOM.
 </body>
 ```
 
-```js
+```javascript
    // run this function when the document is loaded
    window.onload = function() {
      // Target items by id via the getElementById() method
@@ -136,12 +138,13 @@ Finally, we can set certain events to execute based on user interaction. A commo
 
 ```javascript
   window.onload = function() {
-    button = document.getElementById('my-input-button');
+    var button = document.getElementById('my-input-button');
     // Event parameter is the default object event that would have happened on user click
     button.onclick = function(event) {
       // The preventDefault() method lets us disable the default action, allowing us to override with our on functionality.
+      // In this case, we're preventing the "submit" action on the form
       event.preventDefault();
-      MyApp.do_something("world");
+      MyApp.doSomething("world");
     };
   };
 
@@ -149,10 +152,12 @@ Finally, we can set certain events to execute based on user interaction. A commo
   // only when called.
   MyApp = {};
 
-  MyApp.do_something = function(name) {
+  MyApp.doSomething = function(name) {
     console.log("Hello " + name);
   }
 ```
+>Note: Anything strange about how `MyApp` is declared?
+
 ---
 
 <a name = "lab1"></a>
@@ -191,8 +196,8 @@ Enter jQuery. jQuery is an open-source project that was released in 2006, and it
 
 jQuery allows us to query (i.e. select elements from) the DOM using the exact same selector syntax that we've used in CSS. To select the element described above, we would write
 
-```js
-jQuery(".specialList li:first-child")
+```javascript
+$(".specialList li:first-child")
 ```
 
 jQuery allows us to query (i.e. select elements from) the DOM using the exact same selector syntax that we've used in CSS. To select the element described above, we would write
@@ -205,13 +210,17 @@ This will return a 'jQuery Object' - think of it as an abstraction for the searc
 
 Writing 'jQuery' every time we want to make a query is a little tedious, though, so the jQuery team kindly created a shorthand reference that you can use to refer to jQuery : `$`. We can rewrite our jQuery code above as follows.
 
-```js
+```javascript
 $(".specialList li:first-child")
 ```
 
 ---
 <a name = "codealong2"></a>
 ## Augmenting JavaScript with jQuery: Codealong (50 min)
+
+```html
+	<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+```
 
 When reading the jQuery documentation, be sure to scroll through the whole document to ensure you're looking at the correct method signature. Most jQuery methods change their behavior depending on the number of arguments they have when called.
 
@@ -233,13 +242,12 @@ Here is a list of many commonly used jQuery API functions:
 1. **[attr()](http://api.jquery.com/attr)**
 1. **[val()](http://api.jquery.com/val)**
 1. **[text()](http://api.jquery.com/text)**
-1. **[each()](http://api.jquery.com/each)**
 
 We can use jQuery to find elements, manipulate the returned elements, change styles, and add event listeners.
 
 Targeting DOM elements in jQuery is a little easier to read than the JavaScript counterpart.
 
-```js
+```javascript
   // Target item by id
   $('#item');
 
@@ -251,16 +259,15 @@ Targeting DOM elements in jQuery is a little easier to read than the JavaScript 
 ```
 
 Setting CSS properties is just as easy
-```js
+```javascript
   // It is good practice to prefix items we have selected via jQuery with a $ in front of the variable name
   var $item = $('#item');
   // Setting the css property requires us to pass the property we are changing and the value we are changing it to as parameters (strings) in the css() method
   $item.css('color', 'red');
 ```
-*** NOTE: We often don't update styles through the css property. This should be done by adding and removing classes appropriately through the `addClass()` and `removeClass()` methods. ***
 
 We can update the internal html of an element with the html() method. Whatever we pass through the method will replace the current content of the selected element.
-```js
+```javascript
   var $item = $('#item');
   // We can replace the content of the element either with text or with additional html.
   var htmlContent = "<p>Hello world</p>";
@@ -268,7 +275,7 @@ We can update the internal html of an element with the html() method. Whatever w
 ```
 
 jQuery also gives us access to many events making dealing with user interaction significantly easier.
-```js
+```javascript
   var $button = $('#my-button');
 
   // Most events we will work with will pass as the first parameter in the on() method
@@ -278,7 +285,9 @@ jQuery also gives us access to many events making dealing with user interaction 
   });
 ```
 
-Now let's use jQuery to refactor some JS code! You may either follow along as or you may focus on taking notes.
+>Note to self: Discuss method chaining
+
+It's time for a code a long!
 
 ---
 
