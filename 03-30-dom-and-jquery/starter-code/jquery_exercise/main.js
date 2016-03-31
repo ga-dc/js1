@@ -12,8 +12,6 @@ You'll add the ability to complete tasks in your favorite things list. Your prog
 
 'use strict';
 
-var $ = require('jquery');
-
 $(function() {
   var yourName = prompt('What is your name?');
 
