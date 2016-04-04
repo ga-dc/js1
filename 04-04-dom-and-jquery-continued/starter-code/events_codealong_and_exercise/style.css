@@ -1,3 +1,11 @@
 #name {
   color: blue;
 }
+
+.inactive, .complete{
+  color:#ccc;
+}
+
+.complete{
+  text-decoration: line-through;
+}

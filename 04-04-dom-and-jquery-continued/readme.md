@@ -1,18 +1,6 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) DOM/jQuery Continued and Templating (3:00)
 
-| Timing | Topic | Description |
-| --- | --- | --- |
-| 15 min | [Opening](#opening) | Events Continued |
-| 30 min | [Codealong](#codealong1) | Event Delegation and Best Practices|
-| 30 min | [Lab](#lab1) | Appending  |
-| 30 min | [Introduction](#introduction) | Separation of Concerns and Templating |
-| 35 min | [Codealong](#codealong2)  | Templating  |
-| 35 min | [Lab](#lab2) | To Do List: Independent Practice |
-| 5 min | [Conclusion](#conclusion) | Final Questions & Exit Tickets |
-
-
 ### Objectives
-*After this lesson, students will be able to:*
 
 - Implement advanced jQuery events.
 - Use event delegation to manage dynamic content.
@@ -21,18 +9,13 @@ chaining to place methods on selectors.
 - Add a templating language to our projects for better and more abstracted
 content manipulation.
 
-### Preparation
-*Before this lesson, students should already be able to:*
-
-- Register and trigger event handles for jQuery click event.
-- Manipulate the DOM by using jQuery selectors and functions.
-
-> Note: Last class, we learned how to manipulate the DOM using jQuery
-selectors! Check with students to make sure that everyone is comfortable with
-the materials covered in the last class.
-
 ---
 <a name = "opening"></a>
+
+## Warmup
+
+https://github.com/ga-wdi-exercises/pixart_js
+
 ## Events Continued (15 minutes)
 Last lesson we learned what the DOM was and how to manipulate it with vanilla
 JavaScript and jQuery. We got a taste of jQuery's power in making our
@@ -85,17 +68,21 @@ We started covering mouse events with the click event. We can add additional
 mouse events in the same manner.
 
 ```js
-  var $thingList = $('#fav-list li');
+  var $listItem = $('#fav-list li');
 
-  $thingList.on('mouseenter', function(e) {
+  $listItem.on('mouseenter', function(e) {
     $(this).removeClass('inactive');
     $(this).siblings().addClass('inactive');
   });
 
-  $thingList.on('mouseleave', function(e) {
+  $listItem.on('mouseleave', function(e) {
     $(this).siblings().removeClass('inactive');
   });
 ```
+
+`this` refers to the element that triggered the event. We'll talk more
+about this in a few weeks.
+
 The above code listens for two events:
 
 1. User's mouse set to enter the list item element. In this case, it removes
@@ -118,8 +105,6 @@ element our event handler executes for, to the right side. Take the above
 code and modify to:
 
 ```js
-  var $thingListItems = $('#fav-list');
-
   $thingList.on('mouseenter', 'li', function(e) {
     $(this).removeClass('inactive');
     $(this).siblings().addClass('inactive');
@@ -153,7 +138,7 @@ the bullets). jQuery gives us a convenience method to iterate through a list
 of elements.
 
 ```js
-  var $thingListItems = $('#fav-list');
+  var $thingList = $('#fav-list');
 
   $thingList.find('li').each(function() {
     $(this).prepend(' - ');
@@ -173,6 +158,13 @@ in the in the events_codealong folder to get started.
 
 - The complete task event handler should toggle a 'completed' class on the
 list item
+
+### Bonus
+
+When the user clicks on a list item, replace the <li> with a form and input.
+When the form is submitted, replace the input with the text, like:
+
+![](http://jshawl.com/s/inline-editing.gif)
 
 ---
 
@@ -197,7 +189,7 @@ store in actual JavaScript objects, before adding it to the DOM. There are
 many JavaScript templating libraries like [Handlebars](http://handlebarsjs.com/),
 [Mustache](http://mustache.github.io/), and
 [Underscore templates](http://underscorejs.org/). Today we will be working with
-[Handlebars](http:// handlebarsjs.com/).
+[Handlebars](http://handlebarsjs.com/).
 
 ---
 
