@@ -162,7 +162,7 @@ list item
 
 ### Bonus
 
-When the user clicks on a list item, replace the <li> with a form and input.
+When the user clicks on a list item, replace the `li` with a form and input.
 When the form is submitted, replace the input with the text, like:
 
 ![](http://jshawl.com/s/inline-editing.gif)
