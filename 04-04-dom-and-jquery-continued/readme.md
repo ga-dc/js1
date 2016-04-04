@@ -14,7 +14,7 @@ content manipulation.
 
 ## Warmup
 
-https://github.com/ga-wdi-exercises/pixart_js
+starter_code/pixart_js
 
 ## Events Continued (15 minutes)
 Last lesson we learned what the DOM was and how to manipulate it with vanilla
