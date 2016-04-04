@@ -60,6 +60,7 @@ to mouse events.
 ## Warmup
 
 starter_code/pixart_js
+
 ---
 
 <a name = "codealong1"></a>
