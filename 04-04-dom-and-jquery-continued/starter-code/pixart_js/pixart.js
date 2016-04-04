@@ -1,7 +1,5 @@
 // Step 1
 //When I click the "Set Color" button, it should change the color of the "brush" box to the color I specify in the input field. (Hint: You will need to use event.preventDefault() somewhere in your code.)
-//Use jQuery to select the element, and addEventListener to handle clicks
-//$("body")[0].addEventListener...
 
 // Step 2
 //The same thing should happen when I press the enter key from inside the input field
