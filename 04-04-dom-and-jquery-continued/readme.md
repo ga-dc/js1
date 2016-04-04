@@ -12,9 +12,6 @@ content manipulation.
 ---
 <a name = "opening"></a>
 
-## Warmup
-
-starter_code/pixart_js
 
 ## Events Continued (15 minutes)
 Last lesson we learned what the DOM was and how to manipulate it with vanilla
@@ -60,6 +57,9 @@ to mouse events.
 - scroll
 - unload
 
+## Warmup
+
+starter_code/pixart_js
 ---
 
 <a name = "codealong1"></a>
