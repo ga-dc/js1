@@ -15,7 +15,7 @@ app.post('/thing', function(req, res) {
   var newThing = req.body.newThing;
   if (myFavThings.indexOf(newThing) === -1) {
     myFavThings.push(newThing);
-    res.status(200).json(myFavThings);
+    res.status(200).json(newThing);
   } else {
     res.status(500).json({ message: `Thing ${newThing} is already in your list` });
   }
@@ -43,3 +43,9 @@ app.listen(3000, function() {
   console.log(`   I believe in you :-)\n   Go to http://localhost:3000`);
   console.log('**********************************\n');
 })
+
+// function exists(thingText) {
+//   return myFavThings.some(function(item) {
+//     return item.text === thingText
+//   })
+// }

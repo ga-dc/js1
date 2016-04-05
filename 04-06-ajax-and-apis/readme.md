@@ -91,6 +91,8 @@ All **Web Servers** receive **HTTP Requests** and generate **HTTP Responses**. *
 
 Often Web Servers are just the middleman, passing HTTP Request and Responses between the client and web application.
 
+> CFU client/server
+
 ### Web Applications
 
 Are programs built by a developer, sometimes using a framework like Rails or Express. These programs plug into a web server, process the **HTTP requests** that the server receives, and generate **HTTP Responses**.
@@ -146,7 +148,6 @@ The first word in the request line, **GET**, is the **HTTP Request's Method**.
 * **POST** => Create a resource.  
 * **PATCH** (_or **PUT**, but **PATCH** is recommended_) => Update an existing resource.  
 * **DELETE** => Delete a resource.  
-* **HEAD** => Retrieve the headers for a resource.
 
 Of these, **GET** and **POST** are the most widely used.
 
@@ -199,6 +200,9 @@ When a client sends a request, the server sends back a response; the standard fo
 |403| Forbidden
 |404| Not Found
 |500| Internal Server Error
+
+> CFU req/res
+> CFU verbs
 
 ---
 <a name = "codealong"></a>
