@@ -17,7 +17,11 @@
 
 
   <script id="to-do-template" type="text/x-handlebars-template">
+    {{#if completed}}
+    <li class="todo-item todo-item--completed">
+    {{else}}
     <li class="todo-item">
+    {{/if}}
     	<span class="todo-text">{{ text }}</span>
     	<a href="#" class="complete">Complete</a>
     	<a href="#" class="delete">Delete</a>

@@ -14,26 +14,34 @@ MyApp.addToList = function(text) {
 	  	text: text
 	  };	
 	  appendItem(context);
+	  $newItemInput.val('');
   });
 };
 
+MyApp.markComplete = function(text) {
+	markComplete(text, function(items) {
+		replaceItems(items);
+	});
+}
+
 $(function() {
 
-	function onClick(event) {
+	function onClickOrSubmit(event) {
     event.preventDefault();
     var newItemText = $newItemInput.val();
     MyApp.addToList(newItemText);		
 	}
 
-	$button.on('click', onClick);
-	$form.on('submit', onClick);
+	$button.on('click', onClickOrSubmit);
+	$form.on('submit', onClickOrSubmit);
 
   $thingList.on('click', 'a.complete', function(e) {
     e.preventDefault();
+
     var $listItem = $(this).parent('li');
     var $textSpan = $listItem.find('.todo-text');
 
-    $listItem.addClass('todo-item--completed');
+    MyApp.markComplete($textSpan.text());
   });
 
   $thingList.on('click', 'a.delete', function(e) {
@@ -45,15 +53,12 @@ $(function() {
   // After we receive all the items replace the empty list with
   // the items we found on the server
   fetchThings(function(items) {
-  	var contexts = items.map(function(item) {
-  		return {
-  			text: item
-  		};
-  	});
-  	replaceItems(contexts);
-  })
+  	replaceItems(items);
+  });
 
 });
+
+// ======================== helper functions ===============
 
 function appendItem(context) {
 	var source = $("#to-do-template").html();
@@ -64,10 +69,23 @@ function appendItem(context) {
 
 function replaceItems(items) {
 	// empty out the current list
-	$thingList.html();
+	$thingList.html('');
 	// append each item in the items array to the list
 	items.forEach(function(item) {
 		appendItem(item);
+	});
+}
+
+function markComplete(thingText, onMarkComplete) {
+	$.ajax({
+		method: 'PATCH',
+		url: '/thing/' + thingText,
+		data: {
+			completed: true
+		},
+		success: function(items) {
+			onMarkComplete(items);
+		}
 	});
 }
 
@@ -97,9 +115,12 @@ function fetchThings(onItemsFetched) {
 */
 function addThing(thing, onThingAdded) {
 	// send a POST request to the API
-	$.post('/thing', { newThing: thing }, onAddSuccess);
-	function onAddSuccess(things) {
-		onThingAdded(thing);
-	}
+	$.ajax({
+		url: '/thing/' + thing,
+		method: 'PUT',
+		success: function(things) {
+			onThingAdded(thing);	
+		}
+	});
 }
 
