@@ -1,9 +1,7 @@
-
-
-.todo-item--completed .complete {
+.todo-item.complete .complete {
 	display: none;
 }
 
-.todo-item--completed .todo-text {
+.todo-item.complete .todo-text {
 	text-decoration: line-through;	
 }

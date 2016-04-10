@@ -1,38 +1,15 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) AJAX & APIs (3:00)
 
-| Timing | Type | Topic |
-| --- | --- | --- |
-| 15 min | [Opening](#opening) | APIs: Introduction |
-| 25 min | [Introduction](#introduction1) | HTTP: Recap |
-| 30 min | [Demo](#demo) | HTTP |
-| 35 min | [Codealong](#codealong)  | jQuery AJAX  |
-| 40 min | [Lab](#lab1) | Fav Things List - API-ify  |
-| 30 min | [Lab](#lab2) | Open Weather Map: Independent Practice |
-| 5 min |  [Conclusion](#conclusion)| Final Questions & Exit Tickets |
-
-
 ###  Objectives
-*After this lesson, students will be able to:*
 
 - Identify all the HTTP Verbs & their uses.
 - Describe APIs and how to make calls and consume API data.
 - Access public APIs and get information back.
-- Implement an AJAX request with Vanilla JS.
 - Implement a jQuery AJAX client for a simple REST service.
 - Reiterate the benefits of separation of concerns – API vs. Client.
 
-### Preparation
-*Before this lesson, students should already be able to:*
-
-- Implement advanced jQuery events.
-- Use event delegation to manage dynamic content.
-- Use implicit iteration to update elements of a jQuery selection and
-chaining to place methods on selectors.
-- Add a templating language to our projects for better content manipulation.
-
 > Note: Last class, we learned how to manipulate the DOM using jQuery and
-even learned some handlebars.js! Check with students to make sure that
-everyone is comfortable with the materials covered in the last class.
+even learned some handlebars.js!
 
 ---
 
@@ -87,9 +64,56 @@ into account:
 - [Representational state transfer (REST)](https://en.wikipedia.org/wiki/Representational_state_transfer)
 is the most common architecture style for passing information to and from these API endpoints.
 
-Before we start consuming these services however, it's important to
-understand the fundamentals of the underlying communication layer. This
-communication layer (HTTP) will be responsible for transporting our API calls.
+---
+
+## jQuery AJAX (20 minutes)
+
+Vanilla JavaScript AJAX functionality gives us everything we need to make
+http requests, however it takes 4-5 steps to make the call and get the
+information back, without much other added benefit. Furthermore, certain
+older browsers handle AJAX calls differently. We are already familiar with
+jQuery's DOM helper methods. Just like with the DOM, jQuery has some very
+useful convenience methods to interact with cross platform requests.
+
+jQuery allows us to create quick get and post requests in one step, as
+opposed to the above multiple steps.
+
+```js
+  // All we need to create a get or post request is use the get or post method
+  $.get( 'http://www.omdbapi.com/?s=Star+Wars', function( r ) {
+      // We get the data back from the request in the parameter we pass in the function
+      console.log(r);
+  });
+```
+
+> Why is the console.log inside a callback? How is that related to asynchronicity?
+
+Get and post methods are very useful and easy to work with, however there
+will be scenarios where we need more granularity to handle our requests. The
+`$.ajax()` method allows us significantly more granularity.
+
+```js
+  $.ajax({
+      url: "http://www.omdbapi.com/?s=Star+Wars",
+      type: "json"
+
+      // Work with the response
+      success: function( response ) {
+          console.log( response ); // server response
+      }
+
+      /* More Options from http://www.sitepoint.com/use-jquerys-ajax-function/ */
+  });
+```
+
+## We do: Pseudocode the Movie Browser together
+
+```
+$ git clone https://github.com/ga-wdi-exercises/movie-browser.git
+$ cd movie-browser/
+$ atom .
+# open index.html in browser
+```
 
 ---
 <a name = "introduction1"></a>
@@ -142,25 +166,12 @@ that the server receives, and generate **HTTP Responses**.
 
 Lost? Here's the play-by-play.
 
-1. A client sends a **HTTP Request** to a **HTTP Server** running on a remote machine. 
-  * The **hostname**, given in the URL, indicates which server will receive the request. 
+1. A client sends a **HTTP Request** to a **HTTP Server** running on a remote machine.
+  * The **hostname**, given in the URL, indicates which server will receive the request.
 2. The **HTTP server** processes the **HTTP Request**. This may entail
 passing the request to some **Web Application**, which creates a **HTTP Response**.
 3. The response gets sent back to the client.
 4. The client processes the response.
-
-**How does the server know what the request is asking for? This is specified
-by the URL**, a special kind of path that specifies where a **resource** can
-be found on the web.
-
-![URL](images/http1-url-structure.png)
-
-> Technically, the term 'resource' refers to an abstraction that your
-application uses; depending on what the application does. A resource might be
-a 'Car', a 'Person', a 'User', or an 'Order Cart'. A single resource can be
-represented in multiple different ways by the server, including a HTML, JSON,
-PDF files, and images. What we really mean when we say 'resource' above is a
-specific **representation** of a resource.
 
 ---
 
@@ -177,7 +188,6 @@ responses using the Chrome Inspector.
 
 ![Chrome Inspector](images/chrome_inspector.png)
 
-* Next, go to the **URL** https://generalassemb.ly/
 
   You should be able to see a few HTTP Requests and Responses in the Network
   tab; for each request you'll see a **Path**, **Method**, **Status**, **Typ **,
@@ -187,7 +197,7 @@ responses using the Chrome Inspector.
 
   * Some HTTP requests are for CSS, JavaScript and images that are referenced
   by the HTML.
-  * Select `generalassemb.ly` in the Path column on the far left.
+  * Select `index.html` in the Path column on the far left.
   * Select the Headers tab. **Headers** are meta-data properties of an HTTP
   request or response, separate from the body of the message.
 
@@ -197,53 +207,15 @@ The first word in the request line, **GET**, is the **HTTP Request's Method**.
 
 ![HTTP Request](./images/http_request.jpeg "HTTP Request")
 
-**HTTP Request Methods:**  
+**HTTP Request Methods:**
 
-* **GET** => Retrieve a resource. 
-* **POST** => Create a resource. 
+* **GET** => Retrieve a resource.
+* **POST** => Create a resource.
 * **PATCH** (_or **PUT**, but **PATCH** is recommended_) => Update an
-existing resource. 
-* **DELETE** => Delete a resource. 
+existing resource.
+* **DELETE** => Delete a resource.
 
 Of these, **GET** and **POST** are the most widely used.
-
-**HTTP Request Structure:**
-
-```
-[http request method] [URL] [http version] 
-[list of headers]
-
-[request body]
-```
-
-*Notice, that the Request Header is separated from the Request Body by a new
-line.*
-
-
-**HTTP Request Method Example: (No Body)**
-
-    GET http://vermonster.com HTTP/1.1 
-    Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8 
-    Accept-Encoding:gzip,deflate,sdch
-    Accept-Language:en-US,en;q=0.8 
-    Connection:keep-alive 
-    Host:vermonster.com 
-    User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) 
-    AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1659.2 Safari/537.36 
-
-### HTTP Response
-
-![HTTP Response](./images/http_response.jpeg "HTTP Response")
-
-When a client sends a request, the server sends back a response; the standard
-format for this response is:
-
-```
-[http version] [status] [reason] 
-[list of headers]
-
-[response body] # typically HTML, JSON, ... 
-```
 
 * HTTP version should be 1.1
 
@@ -264,85 +236,7 @@ have standard meanings; here are a few.
 > CFU verbs
 
 ---
-<a name = "codealong"></a>
 
-## jQuery AJAX (20 minutes)
-
-Vanilla JavaScript AJAX functionality gives us everything we need to make
-http requests, however it takes 4-5 steps to make the call and get the
-information back, without much other added benefit. Furthermore, certain
-older browsers handle AJAX calls differently. We are already familiar with
-jQuery's DOM helper methods. Just like with the DOM, jQuery has some very
-useful convenience methods to interact with cross platform requests.
-
-jQuery allows us to create quick get and post requests in one step, as
-opposed to the above multiple steps.
-
-```js
-  // All we need to create a get or post request is use the get or post method
-  $.get( 'https://data.cityofnewyork.us/api/views/jb7j-dtam/rows.json?accessType=DOWNLOAD', function( r ) {
-      // We get the data back from the request in the parameter we pass in the function
-      console.log(r);
-  });
-```
-
-Get and post methods are very useful and easy to work with, however there
-will be scenarios where we need more granularity to handle our requests. The
-`$.ajax()` method allows us significantly more granularity.
-
-```js
-  $.ajax({
-      url: "https://data.cityofnewyork.us/api/views/jb7j-dtam/rows.json?accessType=DOWNLOAD",
-
-      // Tell YQL what we want and that we want JSON
-      data: {
-          // q: "select title,abstract,url from search.news where query=\"cat\"",
-          format: "json"
-      },
-
-      // Work with the response
-      success: function( response ) {
-          console.log( response ); // server response
-      }
-
-      // Full list of options includes:
-      // accepts: The content type sent in the request header that tells the server what kind of response it will accept in return
-      // async: Set this options to false to perform a synchronous request
-      // beforeSend: A pre-request callback function that can be used to modify the jqXHR object before it is sent
-      // cache: Set this options to false to force requested pages not to be cached by the browser
-      // complete: A function to be called when the request finishes (after success and error callbacks are executed)
-      // contents: An object that determines how the library will parse the response
-      // contentType: The content type of the data sent to the server
-      // context: An object to use as the context (this) of all Ajax-related callbacks
-      // converters: An object containing dataType-to-dataType converters
-      // crossDomain: Set this property to true to force a cross-domain request (such as JSONP) on the same domain
-      // data: The data to send to the server when performing the Ajax request
-      // dataFilter: A function to be used to handle the raw response data of XMLHttpRequest
-      // dataType: The type of data expected back from the server
-      // error: A function to be called if the request fails
-      // global: Whether to trigger global Ajax event handlers for this request
-      // headers: An object of additional headers to send to the server
-      // ifModified: Set this option to true if you want to force the request to be successful only if the response has changed since the last request
-      // isLocal: Set this option to true if you want to force jQuery to recognize the current environment as “local”
-      // jsonp: A string to override the callback function name in a JSONP request
-      // jsonpCallback: Specifies the callback function name for a JSONP request
-      // mimeType: A string that specifies the mime type to override the XHR mime type
-      // password: A password to be used with XMLHttpRequest in response to an HTTP access authentication request
-      // processData : Set this option to false if you don’t want that the data passed in to the data option (if not a string already) will be processed and transformed into a query string
-      // scriptCharset: Sets the charset attribute on the script tag used in the request but only applies when the “script” transport is used
-      // statusCode: An object of numeric HTTP codes and functions to be called when the response has the corresponding code
-      // success: A function to be called if the request succeeds
-      // timeout: A number that specifies a timeout (in milliseconds) for the request
-      // traditional: Set this to true if you wish to use the traditional style of param serialization
-      // type: The type of request to make, which can be either “POST” or “GET”
-      // url: A string containing the URL to which the request is sent
-      // username: A username to be used with XMLHttpRequest in response to an HTTP access authentication request
-      // xhr: A callback for creating the XMLHttpRequest object
-      // xhrFields: An object to set on the native XHR object
-
-      /* Options definition referenced from http://www.sitepoint.com/use-jquerys-ajax-function/ */
-  });
-```
 ---
 
 <a name = "lab1"></a>
@@ -351,9 +245,8 @@ will be scenarios where we need more granularity to handle our requests. The
 - Refactor your favorite things code to work with an API. In the starter code,
 there is a small [nodejs server](starter-code/post_requests/server.js) which
 has all of the API code. You **do not need to change or even understand this code**.
-It's only there to provide functionality. You should replace the index.html
-file with your index.html file from the fav things list assignment. You
-should also bring in your main.js file from that assignment as well.
+It's only there to provide functionality. 
+
 - Your program should:
   - Populate your list based on the data returned from the API
   - When you add things to the list, they should also be added to the API data
@@ -373,7 +266,6 @@ Getting started:
 - You will see an inspirational message!
 
 At this point, you can now start editing the `index.html` - happy coding!
-
 
 <a name = "lab2"></a>
 ## Open Weather Map: Independent Practice (30 min)
@@ -395,8 +287,6 @@ far we have worked with just pulling static URLs. Follow the steps below.
 ---
 <a name = "conclusion"></a>
 ## Conclusion (5 min)
-
-Make sure class objectives have been met:
 
 - Reiterate the benefits of separation of concerns – API vs. Client.
 - Identify all the HTTP Verbs & their uses.
