@@ -243,7 +243,7 @@ have standard meanings; here are a few.
 ## My Favorite Things: API-ify it! (40 min)
 
 - Refactor your favorite things code to work with an API. In the starter code,
-there is a small [nodejs server](starter-code/post_requests/server.js) which
+there is a small [nodejs server](starter-code/posts_requests/server.js) which
 has all of the API code. You **do not need to change or even understand this code**.
 It's only there to provide functionality. 
 
@@ -259,7 +259,7 @@ It's only there to provide functionality.
 
 Getting started:
 
-- cd into `starter-code/post_requests`
+- cd into `starter-code/posts_requests`
 - Enter the command `npm install`
   - This will install all the server code for you (this may take a minute or so)
 - When this completes you can now start your server with the command `node server.js`
