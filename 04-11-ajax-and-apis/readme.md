@@ -261,7 +261,7 @@ have standard meanings; here are a few.
 ---
 
 <a name = "lab1"></a>
-## My Favorite Things: API-ify it! (40 min)
+## My Favorite Things: API-ify it! (20 min)
 
 - Refactor your favorite things code to work with an API. In the starter code,
 there is a small [nodejs server](starter-code/posts_requests/server.js) which
@@ -291,7 +291,7 @@ At this point, you can now start editing the `index.html` - happy coding!
 <a name = "lab2"></a>
 ## Open Weather Map: Independent Practice (30 min)
 
-Let's bring it all together. Open the [main.js](starter-code/jquery_ajax/main.js)
+Let's bring it all together. Open the [main.js](starter-code/04-open-weather-map/main.js)
 file. We will talk with a weather API, and retrieve weather information. Thus
 far we have worked with just pulling static URLs. Follow the steps below.
 
