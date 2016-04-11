@@ -19,18 +19,13 @@
 - Write functions that take other functions as arguments.
 - Return functions from functions.
 
-### Preparation
-*Before this lesson, students should already be able to:*
-
-- Implement an AJAX request with Vanilla JS.
-- Reiterate the benefits of separation of concerns – API vs. Client.
-- Understand the difference between function declarations and function expressions.
-- Understand scope and hoisting.
 
 > Note: Last class, we learned how to implement an AJAX request with Vanilla JS and a jQuery AJAX client. Check with students to make sure that everyone is comfortable with the materials covered in the last class.
 
 <a name = "opening"></a>
 ## Introduction to Asynchronous JavaScript (10 min)
+
+![async-joke](knock-knock.png)
 
 As our programs start relying on user input/behavior and data that might not be available right away, we need to increasingly start thinking about manipulating our program behavior spread out over a period of time. We refer to this "now and later" programming as asynchronous programming. Believe it or not, we have already used asynchronous programming in our code in previous lessons:
 
@@ -39,6 +34,8 @@ As our programs start relying on user input/behavior and data that might not be 
 - We have used native JavaScript functions such as `setTimeout` that ran code after a number of milliseconds.
 
 Although we have used asynchronous programming in our code, we have not discussed _how_ this is all happening. Before we can truly understand how asynchronous programming works in JavaScript, we need to take a deeper look at functions and scope.
+
+### Async flow code along with `setTimeout` and `setInterval`
 
 ---
 <a name = "recap"></a>
@@ -110,8 +107,8 @@ Callback functions can also take arguments, even though we don't specify the nee
     }
   }
 
-  function launchRocket(countDownFn, rocketName) {
-    countDownFn("Counting");
+  function launchRocket(countDownFunc, rocketName) {
+    countDownFunc("Counting");
   }
 
   launchRocket(countDown, "Falcon");
@@ -127,8 +124,8 @@ Just like we can pass functions as parameters, we can also return functions:
     }
   }
 
-  function launchRocket(countDownFn, rocketName) {
-    countDownFn();
+  function launchRocket(countDownFunc, rocketName) {
+    countDownFunc();
 
     return function() {
       console.log("Launching " + rocketName);
@@ -154,8 +151,8 @@ Finally let's put everything we've learned the past two lessons together, and se
     }
   }
 
-  function launchRocket(countDownFn, rocketName) {
-    countDownFn();
+  function launchRocket(countDownFunc, rocketName) {
+    countDownFunc();
 
     return function() {
       return "Launching " + rocketName;
