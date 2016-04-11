@@ -79,6 +79,9 @@ jQuery allows us to create quick get and post requests in one step, as
 opposed to the above multiple steps.
 
 ```js
+
+  //starter_code/01-jquery-ajax/index.html
+
   // All we need to create a get or post request is use the get or post method
   $.get( 'http://www.omdbapi.com/?s=Star+Wars', function( r ) {
       // We get the data back from the request in the parameter we pass in the function
@@ -114,6 +117,8 @@ $ cd movie-browser/
 $ atom .
 # open index.html in browser
 ```
+
+## You do: Movie Browser
 
 ---
 <a name = "introduction1"></a>
@@ -269,10 +274,6 @@ At this point, you can now start editing the `index.html` - happy coding!
 
 <a name = "lab2"></a>
 ## Open Weather Map: Independent Practice (30 min)
-
-> Note: the following exercise is fairly challenging--if there's not enough
-time for students to complete the exercise in class, you can have them start
-it in class and complete it as homework.
 
 Let's bring it all together. Open the [main.js](starter-code/jquery_ajax/main.js)
 file. We will talk with a weather API, and retrieve weather information. Thus
