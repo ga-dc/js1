@@ -14,19 +14,34 @@ var FavoriteThings = {
     FavoriteThings.elements.$newItemInput.val('');
     // send a post request to "/things"
     // data: { newThing: thing.text }
+    $.ajax({
+      url: "/things",
+      method: "post",
+      data: {
+        newThing: thing.text
+      }
+    })
   },
   markComplete: function(event){
     event.preventDefault();
     $(this).parent().addClass("completed");
     var thing = $(this).siblings(".todo-text").html()
     // send a patch request to /things/thing-text
-    // e.g. /things/
+    // e.g. /things/my+favorite+thing
+    $.ajax({
+      url: "/things/" + thing,
+      method: "patch",
+      data: {
+        completed: true 
+      }
+    })
   },
   delete: function(event){
     event.preventDefault();
     $(this).parent().remove();
     // send a delete request to /thing
     // data: { thing: thing.text }
+    // modify server.js to delete the thing
   },
   listen: function(){
     FavoriteThings.elements.$form.on("submit", function(event){
