@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Do It</h1>
+
+  <h2>Todo List</h2>
+  <ul id="todo-list"></ul>
+
+  <form id="new-thing-form">
+    <input id="new-thing" />
+    <input id="new-thing-button" type="submit" value="Create new thing"></submit>
+  </form>
+
+
+  <script id="to-do-template" type="text/x-handlebars-template">
+    {{#if completed}}
+    <li class="todo-item todo-item--completed">
+    {{else}}
+    <li class="todo-item">
+    {{/if}}
+    	<span class="todo-text">{{ text }}</span>
+    	<a href="#" class="complete">Complete</a>
+    	<a href="#" class="delete">Delete</a>
+    </li>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>
