@@ -83,9 +83,9 @@ opposed to the above multiple steps.
   //starter_code/01-jquery-ajax/index.html
 
   // All we need to create a get or post request is use the get or post method
-  $.get( 'http://www.omdbapi.com/?s=Star+Wars', function( r ) {
+  $.get( 'http://www.omdbapi.com/?s=Star+Wars', function(response) {
       // We get the data back from the request in the parameter we pass in the function
-      console.log(r);
+      console.log(response);
   });
 ```
 
@@ -112,10 +112,26 @@ will be scenarios where we need more granularity to handle our requests. The
 ## We do: Pseudocode the Movie Browser together
 
 ```
-$ git clone https://github.com/ga-wdi-exercises/movie-browser.git
-$ cd movie-browser/
+$ cd starter_code/02-movie-browser/
 $ atom .
 # open index.html in browser
+```
+
+```js
+// hide #movie-select
+// on form submit
+  // construct url with input value
+  // get search from api
+    // loop through each result
+      // create an <option> 
+      // set innerHTML to the current movie title
+      // set id to imdbID
+      // append that <option> to the select tag
+// on select change (delegated event)
+  // construct url with selected option
+  // get results from api
+  // show poster and movie title
+
 ```
 
 ## You do: Movie Browser
