@@ -310,6 +310,11 @@ far we have worked with just pulling static URLs. Follow the steps below.
 - Implement an AJAX request with Vanilla JS.
 - Implement a jQuery AJAX client for a simple REST service.
 
+## Homework
+
+- Please fork and clone this exercise - https://github.com/ga-wdi-exercises/spotify-me
+- Submit a pull request with your solution by 6:30pm April 20th
+
 #### Additional Resources
 
 - [jQuery: Ajax][1]
