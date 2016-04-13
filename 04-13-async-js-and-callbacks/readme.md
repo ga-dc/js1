@@ -35,7 +35,11 @@ As our programs start relying on user input/behavior and data that might not be 
 
 Although we have used asynchronous programming in our code, we have not discussed _how_ this is all happening. Before we can truly understand how asynchronous programming works in JavaScript, we need to take a deeper look at functions and scope.
 
-### Async flow code along with `setTimeout` and `setInterval`
+### Async flow code along with `setTimeout`
+
+`world. Hello,`
+
+> Note: Sentence example
 
 ---
 <a name = "recap"></a>
@@ -62,109 +66,38 @@ Taking a close look at the jQuery `on()` method, we notice two very important ov
 
 Functions as "first-class objects" is one of JavaScript's most powerful superpowers. It allows us to pass functions as parameters, store them as variables (function expressions), return them from other functions, or just run them ad-hoc without the need to define anything. A function that takes another function or returns a function is called a `higher-order function`.
 
-In the above example we saw a function being passed through jQuery event, but JavaScript also has a plethora of built functions that allow us to pass functions as parameters. Let's take a look at the setTimeout function:
+### Passing functions to functions
 
 ```js
-  setTimeout( function(){
-      console.log( "Hello world" );
-  }, 1000 );
+  function doGreeting(name) {
+    console.log('hello, ' + name)
+  }
+  
+  function greeter(aGreeterFunc) {
+  	aGreeterFunc('johnny');
+  }
+  
+  greeter(doGreeting)
 ```
-
-In this scenario setTimeout is taking a function as its first parameter, and the timer (in milliseconds) as its second parameter. The syntax for defining our own function that takes a function parameter is not any different than the syntax of a function that takes an argument:
-
-```js
-  var countDown = function() {
-    var counter;
-    for(counter = 3; counter > 0; counter--) {
-      console.log(counter);
-    }
-  }
-
-  function launchRocket(countDownFn, rocketName) {
-    countDownFn();
-
-    function printRocketMessage() {
-      console.log( "Launching " + rocketName);
-    }
-
-    printRocketMessage();
-  }
-
-  launchRocket(countDown, "Falcon");
-```
-
-The above should all look familiar. There is however one thing to note with the printRocketMessage. This is referencing the `rocketName` argument that's defined on its parent's scope. Although this is not different from overall scope that we've already covered, this piece of functionality of a function keeping reference to variables from parent scope, even when parent has returned, is called a _closure_.
-
-Nomenclature: **callbacks**. It's important to understand the nomenclature around the above example, as this will become a fundamental pattern in our asynchronous programming. The function being passed into `launchRocket` is acting as a `callback`, because it serves as the target for the event loop to call back into the program, whenever the item in the queue has processed.
-
-Callback functions can also take arguments, even though we don't specify the need for arguments when we're passing the function expression variable, since this acts as a reference:
-
-```js
-  var countDown = function(verb) {
-    var counter;
-    for(counter = 3; counter > 0; counter--) {
-      console.log(verb + ": " + counter);
-    }
-  }
-
-  function launchRocket(countDownFunc, rocketName) {
-    countDownFunc("Counting");
-  }
-
-  launchRocket(countDown, "Falcon");
-```
+### Returning functions
 
 Just like we can pass functions as parameters, we can also return functions:
 
 ```js
-  var countDown = function() {
-    var counter;
-    for(counter = 3; counter > 0; counter--) {
-      console.log(counter);
+  function greeterFactory(name) {
+    var returnedFunc = function() {
+      console.log('hello, ' + name);
     }
+    return returnedFunc;
   }
-
-  function launchRocket(countDownFunc, rocketName) {
-    countDownFunc();
-
-    return function() {
-      console.log("Launching " + rocketName);
-    }
+  
+  function greeter(aGreeterFunc) {
+    aGreeterFunc();
   }
-
-  var firstRocket = launchRocket(countDown, "Falcon");
-  firstRocket();
-
-  var secondRocket = launchRocket(countDown, "Dragon");
-  secondRocket();
+  
+  greeter( greeterFactory('johnny') );
 ```
 
-The above pattern of returning functions allows our functions and callbacks to become more powerful in that we can generate much more dynamic and flexible functions.
-
-Finally let's put everything we've learned the past two lessons together, and separate our concerns:
-
-```js
-  var countDown = function() {
-    var counter;
-    for(counter = 3; counter > 0; counter--) {
-      console.log(counter);
-    }
-  }
-
-  function launchRocket(countDownFunc, rocketName) {
-    countDownFunc();
-
-    return function() {
-      return "Launching " + rocketName;
-    }
-  }
-
-  var firstRocket = launchRocket(countDown, "Falcon");
-  console.log(firstRocket());
-
-  var secondRocket = launchRocket(countDown, "Dragon");
-  console.log(secondRocket());
-```
 ---
 
 <a name = "lab1"></a>
@@ -172,8 +105,8 @@ Finally let's put everything we've learned the past two lessons together, and se
 
 Open the [main.js](starter-code/functions-callbacks-exercise/js/main.js) file.
 
-- Write a function, `makeCountWhereTrue()`, that returns a function returning the number of odd integers in an array.
-- `makeCountWhereTrue()` should take a predicate/filter function and return a function, allowing us to enter an array of numbers.
+- Write a function, `countWhereTrue()`, that returns a function returning the number of odd integers in an array.
+- `countWhereTrue()` should take a predicate/filter function and return a function, allowing us to enter an array of numbers.
 
 ---
 
@@ -183,9 +116,9 @@ Open the [main.js](starter-code/functions-callbacks-exercise/js/main.js) file.
 By this point we have seen various examples of function expressions being passed as callback parameters. Taking the first setTimeout example:
 
 ```js
-  setTimeout( function(){
+  setTimeout(function(){
       console.log( "Hello world" );
-  }, 1000 );
+  }, 1000);
 ```
 
 The above is called an **anonymous function expression** because the function we're passing into `setTimeout()` has no name identifier in it. This is important to understand that function expressions can be anonymous, but function declarations cannot omit the name.
@@ -193,10 +126,12 @@ The above is called an **anonymous function expression** because the function we
 Although it is perfectly legal for us to use anonymous function expressions, and many examples take advantage of them them, including ones we have used up to date, we need to set a new best practice in place. As we increasingly work with function expressions, we should from this point on start naming all of our function expressions because it makes it much easier to stack trace and our code becomes much more readable. So let's change the above code to no longer be an anonymous function:
 
 ```js
-  setTimeout( function timer(){
+  setTimeout(function timer(){
       console.log( "Hello world" );
-  }, 1000 );
+  }, 1000);
 ```
+
+> Note: Error example
 
 **Invoking Function Expressions Immediately**
 
@@ -241,6 +176,47 @@ IIFEs are just functions, so we can also pass arguments to them:
 ```
 
 The above example highlights a common stylistic practice. Although IIFEs are commonly used with global objects, they can certainly be used inside an enclosing scope.
+
+**What the heck for?**
+
+IIFE's are useful for creating self-contained modules that support private variables. The use of IIFE's are slowly declining due to increase reliance on JS transpilers and preprocessors. Also ES6 (the new version of JS has _actual_ modules. Here's an example
+
+```javascript
+	// Since JS doesn't support native private variables, developers (by convention)
+	// will precede data they want to regard as "private" by and underscore
+	var anObj = {
+	  _foo: 'beep',
+	
+	  getFoo: function() {
+	    return this._foo;
+	  }
+	};
+	
+	// In this example, we want `anObj._foo` to be treated privately and developers
+	// should NOT access this property directly. Instead, they should utilize the 
+	// property's getter - `getFoo()`
+	var foo = anObj.getFoo(); // 'beep'
+	
+	// unfortunately there's nothing stopping a dev from doing
+	var foo = anObj.getFoo(); // 'beep'
+	
+
+	// Using an IIFE we can "hide" the property _foo in the constructor function's scope
+	var anotherOne = function() {
+	  var _foo = 'bar';
+	
+	  return {
+	    getFoo: function() {
+	      return _foo;
+	    }
+	  };
+	}();
+	
+	var foo = anotherOne.getFoo(); // 'beep'
+	
+	var foo = anotherOne._foo; // undefined
+	
+```
 
 ---
 <a name = "lab2"></a>
