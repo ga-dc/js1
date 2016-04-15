@@ -1,48 +1,37 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Closures and This (3:00)
 
-| Timing | Type | Topic |
-| --- | --- | --- |
-| 5 min | [Opening](#opening) | Introduction to Closures and Context |
-| 10 min | [Review](#review) | A Review of Scope |
-| 30 min | [Codealong](#codealong1) | Closures |
-| 15 min | [Lab](#lab1) | Create a Closure: Independent Practice |
-| 25 min | [Lab](#lab2)  | Closure Brain Teaser: Independent Practice |
-| 25 min | [Codealong](#codealong2) | Context...The Meaning and Purpose of this  |
-| 25 min | [Codealong](#codealong3) | Manipulating Context  |
-| 20 min | [Lab](#lab3) | The Brainteasers |
-| 5 min |  [Conclusion](#conclusion)| Final Questions & Exit Tickets |
-
 ### Objectives
 
-_After this lesson, students will be able to:_
 
 - Understand and explain Javascript context.
 - Understand and explain closures.
 - Implement the module pattern in their code.
 
-### Preparation
-
-_Before this lesson, students should already be able to:_
-
-- Create a function.
-- Explain scope.
-- Manipulate the DOM with jQuery.
-
->Note: Last class, we learned how prototypical inheritance differs from classical inheritance. Check with students to make sure that everyone is comfortable with the materials covered in the last class.
+>Note: Last class, we learned how prototypical inheritance differs from
+classical inheritance.
 
 ---
 
-<a name = "opening"></a>
 ## Introduction to Closures and Context (5 min)
 
-Today we are going to talk about a couple features of Javascript that make it unique from other languages, _closures_ and _context_. Now, closures and context are definitely used in many languages other than Javascript, but it is the way Javascript handles these two concepts that makes them unique. Context and closures are often thought of as the most hard to grasp concepts of JS, but we will break down this lesson covering them one topic at a time, followed by enough independent practice and brainteasers to give you a mastery of them. Let's get cracking!
+Today we are going to talk about a couple features of Javascript that make it
+unique from other languages, _closures_ and _context_. Now, closures and context
+are definitely used in many languages other than Javascript, but it is the way
+Javascript handles these two concepts that makes them unique. Context and
+closures are often thought of as the most hard to grasp concepts of JS, but we
+will break down this lesson covering them one topic at a time, followed by
+enough independent practice and brainteasers to give you a mastery of them.
+Let's get cracking!
 
 ---
 
-<a name = "review"></a>
 ## A Review of Scope (10 mins)
 
-As we have learned from Unit 1, Javascript implements a concept of scope. If you don't fully remember, scope is synonymous with variable access, meaning, the scope of our executed code will dictate which variables we have access to and can ultimately use at the time of execution. The two types of scope we've touched on were global and local.
+As we have learned from Unit 1, Javascript implements a concept of scope. If
+you don't fully remember, scope is synonymous with variable access, meaning,
+the scope of our executed code will dictate which variables we have access to
+and can ultimately use at the time of execution. The two types of scope we've
+touched on were global and local.
 
 Global scope:
 
@@ -56,7 +45,9 @@ function foo() {
 foo() // 1
 ```
 
-If you declare a variable _outside_ of a function it becomes globally scoped meaning it can be accessed from anywhere within the file. In the example above, `foo()` logs the value for the global variable `a`.
+If you declare a variable _outside_ of a function it becomes globally scoped
+meaning it can be accessed from anywhere within the file. In the example above,
+`foo()` logs the value for the global variable `a`.
 
 Local scope:
 
@@ -71,40 +62,59 @@ bar() // 'local value'
 console.log(b) // b is not defined
 ```
 
-Variables declared _inside_ of a function are given a local scope and can only be accessed from within the function they were declared. This is why when we run `bar()` our log of `b` gives us `'local value'` but when we try to access `b` in the global scope we get `b is not defined`.
+Variables declared _inside_ of a function are given a local scope and can only
+be accessed from within the function they were declared. This is why when we run
+`bar()` our log of `b` gives us `'local value'` but when we try to access `b`
+in the global scope we get `b is not defined`.
 
 ---
 
-<a name = "codealong1"></a>
 ## Closures (30 mins)
 
-This is all fine and dandy, and we are now masters of global and local scopes, but naturally, a new question arises, how does scope work for functions within functions? This type of scope is known as lexical scope, more commonly referred to as _closure_.
+This is all fine and dandy, and we are now masters of global and local scopes,
+but naturally, a new question arises, how does scope work for functions within
+functions? This type of scope is known as lexical scope, more commonly referred
+to as _closure_.
 
-> You can nest a function within a function. The nested (inner) function is private to its containing (outer) function. It also forms a closure. A closure is an expression (typically a function) that can have free variables together with an environment that binds those variables (that "closes" the expression).
+> You can nest a function within a function. The nested (inner) function is
+private to its containing (outer) function. It also forms a closure. A closure
+is an expression (typically a function) that can have free variables together
+with an environment that binds those variables (that "closes" the expression).
 
-> Since a nested function is a closure, this means that a nested function can "inherit" the arguments and variables of its containing function. In other words, the inner function contains the scope of the outer function. - MDN
+> Since a nested function is a closure, this means that a nested function can
+"inherit" the arguments and variables of its containing function. In other
+words, the inner function contains the scope of the outer function. - MDN
 
-In other words, closure is a function within a function that exists alongside declared variables. These variables help to create an environment for the inner function and because of lexical scope, the inner function is able to remember this environment, retaining state and scope even after it executes.
+In other words, closure is a function within a function that exists alongside
+declared variables. These variables help to create an environment for the inner
+function and because of lexical scope, the inner function is able to remember
+this environment, retaining state and scope even after it executes.
 
 This can best be explained with an example:
 
 ```js
-$(document).ready(function() {
+(function() {
   var a = 1
-
   $('.button').on('click', function() {
     alert(a)
   })
-})
+})()
 ```
 
-In this example we have two functions, one that is executed when `document` is ready and an event handler that is triggered by a click on a button. The structure of these two functions forms a closure giving our inner function, the click handler, _state_. The state in this case is a reference to `a` and if a user were to click on `.button` they would be alerted with `1`.
+In this example we have two functions, one that is immediately invoked
+and an event handler that is triggered by a click on a button. The
+structure of these two functions forms a closure giving our inner function,
+the click handler, _state_. The state in this case is a reference to `a` and if
+a user were to click on `.button` they would be alerted with `1`.
 
 There are two key takeaways here. The first being:
 
-**Closures have access to the outer function’s variable even after the outer function returns**
+**Closures have access to the outer function’s variable even after the outer
+function returns**
 
-Even though our outer function, which handles the document ready event, has been executed and returned, our inner function is still able to call upon the variables declared by the outer function at any future time in the program!
+Even though our outer function has been executed and returned, our inner
+function is still able to call upon the variables declared by the outer function
+at any future time in the program!
 
 To further prove this point, we could update the code to look like:
 
@@ -119,15 +129,34 @@ To further prove this point, we could update the code to look like:
 ...
 ```
 
-Now if a user were to click on `.button` what value do you think they would be alerted with? If you said `2` you'd be correct. What about if they clicked on `.button` a second time? Yes, the value would increase to `3`. Once again, even though the outer function has been returned our program is still able to reference its declared variable, `a`, because of closure. So how is this possible? When our wrapper function was executed its variable, `a`, was stored into memory and subsequently, our inner function was able to create a reference to `a`. Because of this reference, as long as the inner function exists (meaning the reference exists), the value of `a` will exist in memory. Further, all value changes the inner function performs on `a` will also be saved to memory. By creating this lexical scope, Javascript is told to remember the state/environment that the inner function lives in. And this is the first key takeaway of closure, the ability for functional variables to outlive their original functional scope.
+Now if a user were to click on `.button` what value do you think they would be
+alerted with? If you said `2` you'd be correct. What about if they clicked on
+`.button` a second time? Yes, the value would increase to `3`. Once again, even 
+though the outer function has been returned our program is still able to
+reference its declared variable, `a`, because of closure. So how is this possible?
+When our wrapper function was executed its variable, `a`, was stored into memory
+and subsequently, our inner function was able to create a reference to `a`.
+Because of this reference, as long as the inner function exists (meaning the
+reference exists), the value of `a` will exist in memory. Further, all value
+changes the inner function performs on `a` will also be saved to memory. By
+creating this lexical scope, Javascript is told to remember the
+state/environment that the inner function lives in. And this is the first key
+takeaway of closure, the ability for functional variables to outlive their
+original functional scope.
 
-*note:* If we were to remove our event handler, thereby removing our reference to `a`, Javascript would automatically remove `a` from memory because it knows the program no longer has a use for the variable. This helpful memory task is known as _garbage collection_.
+*note:* If we were to remove our event handler, thereby removing our reference
+to `a`, Javascript would automatically remove `a` from memory because it knows
+the program no longer has a use for the variable. This helpful memory task is
+known as _garbage collection_.
 
 The second takeaway is:
 
 **Closures store references to the outer function’s variables**
 
-Closures do **not** store the actual value, but rather a **reference** to it. This is a fundamental difference as seen in our button clicking example. Our inner function referred to the value of `a` initially and with each click was able to update its value incrementing it by one.
+Closures do **not** store the actual value, but rather a **reference** to it.
+This is a fundamental difference as seen in our button clicking example. Our
+inner function referred to the value of `a` initially and with each click was
+able to update its value incrementing it by one.
 
 Take a look at the following example to help further explain:
 
@@ -151,16 +180,28 @@ user.setUserId(555) // Changes the outer function's variable
 user.getUserId() // 555; returns the updated userId variable
 ```
 
-Here we have a function `user` that sets a variable `userId` and returns an object full of methods. The first method, `getUserId`, returns `userId`, and the second method, `setUserId`, allows you to set the `userId` with an argument. As expected, when we call `user.getUserId()` we are returned with the value of `999`. Then when we call `user.setUserId(555)` the outer function's variable value is set to the given argument, `555`. Consequently, the `userId`'s reference has been updated and now when we call `.getUserId()` we are returned with the updated **reference** to the variable and **not** its originally stored value.
+Here we have a function `user` that sets a variable `userId` and returns an
+object full of methods. The first method, `getUserId`, returns `userId`, and
+the second method, `setUserId`, allows you to set the `userId` with an argument.
+As expected, when we call `user.getUserId()` we are returned with the value of
+`999`. Then when we call `user.setUserId(555)` the outer function's variable
+value is set to the given argument, `555`. Consequently, the `userId`'s
+reference has been updated and now when we call `.getUserId()` we are returned
+with the updated **reference** to the variable and **not** its originally stored
+value.
 
-*note:* The ability of reference by closures can be as harmful as it is helpful. For example, because closures have access to the updated values of the outer function’s variables, you must be conscious of which version of the variable your closure (inner function) is using if it does in fact get updated.
+*note:* The ability of reference by closures can be as harmful as it is helpful.
+For example, because closures have access to the updated values of the outer
+function’s variables, you must be conscious of which version of the variable
+your closure (inner function) is using if it does in fact get updated.
 
 ---
 
 <a name = "lab1"></a>
 ## Create a Closure: Independent Practice (15 mins)
 
-What better way to learn something than by doing it?! For the next 15 minutes, create a closure that will help you create colored sticky notes dynamically in your DOM with the click of a button. The results should look something like:
+Create a closure that will help you create colored sticky notes dynamically in
+your DOM with the click of a button. The results should look something like:
 
 ![](https://s3.amazonaws.com/f.cl.ly/items/30342l3m3N151L442S1Z/Image%202015-12-03%20at%207.23.15%20PM.png)
 
@@ -169,14 +210,17 @@ The CSS is all setup for you in the start index.html, but you will have to add:
 - create input and button elements
 - run Javascript code only after document is "ready"
 - sticky note color and message should both be dictated by user input
-- each sticky note message should start with a number representing the order of its creation
+- each sticky note message should start with a number representing the order of
+its creation
 
 ---
 
 <a name = "lab2"></a>
 ## Closure Brain Teaser: Independent Practice (25 mins)
 
-As mentioned earlier, the ability for closure to reference an outer function variable can be dubious if that variable updates. Take a look at the following code.
+As mentioned earlier, the ability for closure to reference an outer function
+variable can be dubious if that variable updates. Take a look at the following
+code.
 
 ```js
 function queueCreator(waitList){
