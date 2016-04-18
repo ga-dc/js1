@@ -10,8 +10,7 @@
   - Johnny Austin
     - [johnny@isl.co](johnny@isl.co)
     - Office hours:
-      - Thursdays 6:00pm -7:00pm [ISL Office](https://isl.co/contact/)
-      - Sundays 5:00pm - 6:00pm Remote - Hangout Link Coming!
+      - Thursdays 6:00pm -8:00pm [ISL Office](https://isl.co/contact/)
   - Jesse Shawl
     - [jesse@ga.co](jesse@ga.co)
     - office hours:
