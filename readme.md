@@ -14,8 +14,7 @@
   - Jesse Shawl
     - [jesse@ga.co](jesse@ga.co)
     - office hours:
-      - Wednesdays 5:30 - 6:30
-      - Sundays 6:00pm - 7:00pm [remote](https://hangouts.google.com/hangouts/_/generalassemb.ly/ga-js-oh)
+      - Sundays 10:00am - 12:00pm @ GA
 - TA
   - John Master
     - [john.master@generalassemb.ly](john.master@generalassemb.ly)
