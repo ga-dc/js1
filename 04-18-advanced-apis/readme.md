@@ -1,4 +1,4 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Advanced APIs (3:00)
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Advanced APIs
 
 | Timing | Type | Topic |
 | --- | --- | --- |
@@ -7,11 +7,9 @@
 | 30 min | [Set Up](#setup) | LocalGram: Let's Get to Building! |
 | 10 min | [Demo](#demo) | Starter Code Review |
 | 20 min | [Codealong](#codealong1)  | Instagram OAuth |
-| 15 min | [Lab (Part 1)](#lab1) | Conditional Views: Independent Practice  |
-| 20 min | [Codealong](#codealong2) | Get User's Location  |
-| 15 min | [Codealong](#codealong3) | Call Instagram Endpoint |
-| 20 min | [Lab (Part 2)](#lab2) | Handle Instagram Response: Independent Practice |
-| 20 min | [Lab (Part 3)](#lab3) | Storage and User Experience: Independent Practice |
+| 1 hour | [Lab](#lab) | Lab |
+| 20 min | [Share](#code-reviews) | Share Code
+| - | [Bonuse](#bonus) | Local Storage
 | 5 min |  [Conclusion](#conclusion)| Final Questions & Exit Tickets |
 
 ### Objectives
@@ -100,8 +98,6 @@ After you fill out the form you'll have:
 ![register client form](https://s3.amazonaws.com/f.cl.ly/items/2B2g2J1d1l200q190h44/Image%202015-11-08%20at%2012.57.36%20PM.png)
 
 Most of the fields values should be pretty self-explanatory. However, _Valid Redirect URIs_ may not be as obvious. If you can recall the OAuth flow we went over earlier, do you remember the process of obtaining our beloved access token? After our user leaves our app to log in to Instagram, Instagram redirects them back to our app with the access token. So how does Instagram know where to send the authenticated user? Well that input value, `http://localhost:3000`, is how. We have not yet covered what `http://localhost:3000` is, but for now just know that it is the URI that our app will be connected to and so it is the URI we want Instagram to redirect to.
-
-> Note: Make sure students don't miss the colon (":") in `http://localhost:3000`. This will likely trip up some students who haven't run a local server before!
 
 The last step is to turn on implicit Oauth flow, which we'll be needing for our app. Hit the "edit" button on your newly-created application. Next, hit the "security" button. You should see the screen below. What you're looking for is the checkbox that says "Disable implicit Oauth" next to it. **If this box is checked, make sure to uncheck it**. If you neglect to uncheck this box, your app will not work!
 
@@ -217,156 +213,26 @@ We've configured the `href` attribute of `a` so that a user can be taken to Inst
 Make sure you are signed out of Instagram and go ahead and refresh your browser window and click on the button. You will be sent to an Instagram login page where after a successful login you'll be redirected back to our app. When redirected, you'll notice that the URI is a little bit different than what it was originally. It'll look something like, http://localhost:3000/#access_token=1116277938.0c3e98c.06688425d4724646852e007784a46025. Bam! We have our access token!
 
 ---
-
 <a name = "lab"></a>
-## Conditional Views - Independent Practice (15 min)
-
-Before we start using our access token to make requests to Instagram, let's first take care of our view. We know that once our app has the access token in the URI, we no longer need to prompt User to log in. Knowing that we want our code to run when the DOM is fully loaded, use the javascript [window location object](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) to check if the URI has an access token. Hint, look into `location`'s property `hash`. If there is no access token, be sure to hide `.image-results-view` and show `.sign-in-view` and if there _is_ an access create the opposite affect. Use as much jQuery as possible.
-
-
-#### Conditional Views Review - Demo
-
-You should have something that looks like:
-
-```javascript
-$.ready(isRedirectedURI())
-
-function isRedirectedURI() {
-  // get access token from hash/fragment
-  var uriHash = window.location.hash
-
-  if (uriHash.length > 0) {
-    $('.sign-in-view').hide()
-  } else {
-    // if not yet redirected hide results view
-    $('.image-results-view').hide()
-  }
-}
-```
-
-When our DOM is ready we run the function `isRedirectedURI`. In this function we grab the `hash` value from `window.location` and we check to see if it's length is greater than zero. We know that if its length is greater than zero, an access token is present so we can hide the sign-in view. Else, if the token is not present we'll hide the image results view. Pretty cool stuff! We only have one "page" but we're utilizing it to look like two pages!
-
----
-<a name = "codealong2"></a>
-## Get User's Location (20 min)
-
-Remember, our prompt is to find posted Instagram photos based off our user's location. To do so we are going to use the endpoint, https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&access_token=ACCESS-TOKEN. Examining the query, we know we need to provide three values: latitude, longitude and an access token. So let's make things a little more interesting and find out our user's current location.
-
-This task may actually be easier than it seems, the reason being is that majority of browsers offer a [`navigator` object](https://developer.mozilla.org/en-US/docs/Web/API/Navigator)  which we can use to get location data. Let's go ahead and further our conditional logic to grab the user's location after they have been redirected.
-
-```javascript
-...
-  if (uriHash.length > 0) {
-    // check if navigator geolocation is available from the browser
-    if (navigator.geolocation) {
-
-      // if it is use the getCurrentPosition method to retrieve the Window's location
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var lat = position.coords.latitude
-        var lng = position.coords.longitude
-        console.log(lat)
-        console.log(lng)
-      })
-    }
-  } else {
-...
-```
-
-The first thing we do is check to see if the browser has the `navigator.geolocation object` we need. Then if it does we can go ahead and call on its method `getCurrentPosition`. `getCurrentPostion` takes a callback as an argument which will return a `position` object. `position` contains a `coords` object which will have the latitude and longitude values we're looking for. Go into your app and follow the appropriate user flow to see the logs.
-
-After being redirected you should see:
-
-![geolocation request](https://s3.amazonaws.com/f.cl.ly/items/0d190z1c413n1m2j1A1h/Image%202015-11-08%20at%209.17.15%20PM.png)
-
-Then after you allow the app to know your location, check your console for the logs:
-
-![lat lng logs](https://s3.amazonaws.com/f.cl.ly/items/1L1m2j3Q0c3R1t421J18/Image%202015-11-08%20at%209.20.30%20PM.png)
-
----
-
-<a name = "codealong3"></a>
-## Call Instagram Endpoint (15 min)
-
-Now that we have all the pieces of the puzzle needed to ping our Instagram endpoint (lat, lng and access token), let's make an AJAX request!
-
-```javascript
-...
-    var accessToken = uriHash.replace('#access_token=', '')
-    var lat = position.coords.latitude
-        var lng = position.coords.longitude
-
-        // configure instagram endpoint with accessToken and user's location data
-        var instagramEndpoint = 'https://api.instagram.com/v1/media/search?lat=' + lat + '&lng=' + lng + '&access_token=' + accessToken
-
-        // call the instagram with configured URI
-        $.ajax({
-          url: instagramEndpoint,
-          method: 'GET',
-          dataType: 'jsonp',
-          success: handleResponseSuccess
-        })
-      }
-...
-```
-
-Most of this code should look pretty standard. First, we use the `replace` method to remove `#access_token=` from our `window.location.hash` value and return the resulting access token to our newly declared variable `accessToken`. Then we configure the Instagram URI we are going to ping with the window's latitude and longitude as well as our new `accessToken` variable. Then we setup our AJAX call...and here's where things get interesting.
-
-In the object argument we pass to `$.ajax()` we have a key value pair, `dataType: 'jsonp'`. Since it is not normally possible to obtain JSON from another domain (i.e. https://api.instagram.com) due to Cross Origin Resource Sharing ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) restrictions, we must clarify that our AJAX call will return JSONP data, JSON with padding. JSONP gives our request the ability to return JSON to us within a callback, thereby [bypassing](http://www.sitepoint.com/jsonp-examples/) CORS. Woo! We can get our data from the third-party API!
-
----
-<a name = "lab2"></a>
-## Handle Instagram Response: Independent Practice (20 min)
-
-Now that we can successfully call upon the Instagram API for resources, it is up to you to define the `handleResponseSuccess` function. Your function should iterate through your response data (which will consist of an array of post data), creating a div element each time with a CSS `background-image` property set to be the Instagram post's standard_resolution image url. Add a class `image` to the div and append it to `.images` which already exists in the HTML. Once again, use as much jQuery as possible.
-
-***hint:*** The data you're looking for is somewhere in `response.data`.
-
-#### Handle Instagram Response Review
-
-Your code should look something like the following:
-
-```javascript
-function handleResponseSuccess(response) {
-  var allData = response.data
-
-  // iterate through each piece of data
-  allData.forEach(function(data) {
-    var imageUrl = 'url(' + data.images.standard_resolution.url + ')'
-
-    // create element
-    var element = $('<div></div>').css({'background-image': imageUrl}).addClass('image')
-
-    // append element to .images node
-    $('.images').append(element)
-  })
-}
-```
-
-And your app should be rendering the response images!
-
+## Code it up! (1 Hour)
 ![handleResponseSuccess()](https://s3.amazonaws.com/f.cl.ly/items/1b1U153E281w3M0r3N29/Image%202015-11-08%20at%2010.19.21%20PM.png)
 
-> Note: If students do not see any images and their code appears to be correct, it is likely because their API credentials are sandboxed (see note at the top of this lesson) and they are only pulling in photos from their own account. If they haven't previously posted any photos to Instagram from nearby, the API call will return no results. There's a simple fix for this: have the students post a photo to their account from the classroom! This should allow them to display a result on their page--they can always delete the test photo afterward.
+> Note: If you do not see any images and your code appears to be correct, it is likely because your API credentials are sandboxed (see note at the top of this lesson) and you are only pulling in photos from your own account. If you haven't previously posted any photos to Instagram from nearby, the API call will return no results. There's a simple fix for this: have post a photo to your account from the classroom! This should allow you to display a result on your page - you can always delete the test photo afterward.
 
 ---
+<name ="code-reviews"></a>
+## Show Code!
 
-<a name = "lab3"></a>
-## Storage and User Experience: Independent Practice (20 min)
-
-Keeping the user experience in mind, if we have our user close the window after already seeing the image results, do we really want them to have to click on the OAuth button again or should they be able to go back to where they left off? Let's go with the latter experience. In order to implement this functionality, we must first understand storage. The window of our browser provides us with the ability to store whatever data we like and for different lengths of time.
-
-There are two types of storage, [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage). The main difference between them is that data saved in localStorage will exist until it is explicitly deleted whereas sessionStorage data's lifetime is only as long as the window stays open. Once the window is closed, the session is over and all sessionStorage data will be deleted. Knowing this, which type of storage do you think we'll want to implement? If you said `localStorage` you're right!
-
-Go ahead and store the access token in your window's `localStorage` and add a conditional that sends the user to the image results view if the access token already already exists in the URI or in `localStorage`.
-
-***tip:*** You can look at your window's Resources to see if your data was saved. You can also right click on the data and manually delete it.
-
-![localStorage](https://s3.amazonaws.com/f.cl.ly/items/142l1S0C1a3N3B032K06/Image%202015-11-08%20at%2010.47.46%20PM.png)
-
-***note:*** It is never safe to store secure data on the client-side (i.e. passwords).
+![baby](https://media.giphy.com/media/Eri9d5pto0X60/giphy.gif)
 
 ---
+<name ="bonus"></a>
+## Bonus
 
+Every time we refresh the page, we need to reauthorize the app. Try to use local storage to store the access token. That way, we can check local storage for the token when the page loads. If we find the token, we can skip the sign in! Otherwise, business as usual!
+
+
+---
 <a name = "conclusion"></a>
 ## Conclusion (5 min)
 
