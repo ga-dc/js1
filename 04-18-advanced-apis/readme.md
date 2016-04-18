@@ -9,7 +9,7 @@
 | 20 min | [Codealong](#codealong1)  | Instagram OAuth |
 | 1 hour | [Lab](#lab) | Lab |
 | 20 min | [Share](#code-reviews) | Share Code
-| - | [Bonuse](#bonus) | Local Storage
+| - | [Bonus](#bonus) | Local Storage
 | 5 min |  [Conclusion](#conclusion)| Final Questions & Exit Tickets |
 
 ### Objectives
