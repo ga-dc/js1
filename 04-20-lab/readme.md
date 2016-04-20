@@ -45,11 +45,16 @@ git clone https://github.com/<your-username-here>/JS-Unit-2-Project-Starter-Code
 cd JS-Unit-2-Project-Starter-Code
 ```
 
+Or, download the zip file - https://dl.dropbox.com/s/fot2copsfr7lk9q/JS-Unit-2-Project-Starter-Code.zip
+ 
 ## Suggested Ways to Get Started
 
 > Below are some more specific ways for ways in which you can get started on the project.
 
   - Start by adding all the DOM functionality first.
+    - When the user clicks on the news source, change the innerhtml of the top link
+    - console.log( the innerhtml of the top link)
+    - empty out the existing articles
   - Map out all of the needed fields/properties from each respective feed.
   - Start by doing a console.log of the incoming feeds to confirm you have a
     successful transaction before you start mapping anything out.
