@@ -29,9 +29,9 @@ the provided site architecture.
 You'll give the user the ability to pull from a minimum of three news sources. You can
 select the three provided news sources and/or add your own:
 
-- [Mashable: http://mashable.com/stories.json](http://mashable.com/stories.json)
+- [Mashable: http://feedr-api.wdidc.org/mashable.json](http://feedr-api.wdidc.org/mashable.json)
 - [Reddit: https://www.reddit.com/top.json](https://www.reddit.com/top.json)
-- [Digg: http://digg.com/api/news/popular.json](http://digg.com/api/news/popular.json)
+- [Digg: http://feedr-api.wdidc.org/digg.json](http://feedr-api.wdidc.org/digg.json)
 
 ### Getting Started
 
