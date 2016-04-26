@@ -180,18 +180,15 @@ your closure (inner function) is using if it does in fact get updated.
 <a name = "lab1"></a>
 ## Create a Closure: Independent Practice (15 mins)
 
-Create a closure that will help you create colored sticky notes dynamically in
-your DOM with the click of a button. The results should look something like:
+Create a `makePerson` function which accepts two parameters (name, age) and returns an object that has methods on it. These methods should behave like closures and use the outer `makePerson` scope perform the following operations:
 
-![](https://s3.amazonaws.com/f.cl.ly/items/30342l3m3N151L442S1Z/Image%202015-12-03%20at%207.23.15%20PM.png)
+- getName()
+- getAge()
+- celebrateBirthday()
+- haveAKid()
+- getKids()
 
-The CSS is all setup for you in the start index.html, but you will have to add:
-
-- create input and button elements
-- run Javascript code only after document is "ready"
-- sticky note color and message should both be dictated by user input
-- each sticky note message should start with a number representing the order of
-its creation
+Use [this starter code](starter-code/make-a-person.js) to get you going!
 
 ---
 
