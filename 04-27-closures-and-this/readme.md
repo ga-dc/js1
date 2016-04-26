@@ -7,9 +7,6 @@
 - Understand and explain closures.
 - Implement the module pattern in their code.
 
->Note: Last class, we learned how prototypical inheritance differs from
-classical inheritance.
-
 ---
 
 ## Introduction to Closures and Context (5 min)
@@ -32,6 +29,8 @@ you don't fully remember, scope is synonymous with variable access, meaning,
 the scope of our executed code will dictate which variables we have access to
 and can ultimately use at the time of execution. The two types of scope we've
 touched on were global and local.
+
+>Note: Review scope diagram
 
 Global scope:
 
@@ -93,19 +92,18 @@ this environment, retaining state and scope even after it executes.
 This can best be explained with an example:
 
 ```js
-(function() {
-  var a = 1
-  $('.button').on('click', function() {
-    alert(a)
-  })
-})()
+function printMessage() {
+  var message = 'hello johnny';
+  setTimeout(function onSetTimeout() {
+    console.log(message);
+  }, 1000);
+}
+
+printMessage();
 ```
 
 In this example we have two functions, one that is immediately invoked
-and an event handler that is triggered by a click on a button. The
-structure of these two functions forms a closure giving our inner function,
-the click handler, _state_. The state in this case is a reference to `a` and if
-a user were to click on `.button` they would be alerted with `1`.
+and a `setTimeout` callback function (onSetTimeout). The structure of these two functions forms a closure giving our inner function (onSetTimeout), _state_. The state in this case is a reference to `message` and when 1 second has passed, we print the message declared in our outer function.
 
 There are two key takeaways here. The first being:
 
@@ -119,49 +117,31 @@ at any future time in the program!
 To further prove this point, we could update the code to look like:
 
 ```js
-...
-  var a = 1
+function printMessage() {
+  var message = 'hello johnny';
+  setTimeout(function onSetTimeout() {
+    console.log(message);
+  }, 1000);
+  return 'gonna do it';
+}
 
-  $('.button').on('click', function() {
-    a = a + 1
-    alert(a)
-  })
-...
+var response = printMessage();
+console.log(response);
 ```
 
-Now if a user were to click on `.button` what value do you think they would be
-alerted with? If you said `2` you'd be correct. What about if they clicked on
-`.button` a second time? Yes, the value would increase to `3`. Once again, even 
-though the outer function has been returned our program is still able to
-reference its declared variable, `a`, because of closure. So how is this possible?
-When our wrapper function was executed its variable, `a`, was stored into memory
-and subsequently, our inner function was able to create a reference to `a`.
-Because of this reference, as long as the inner function exists (meaning the
-reference exists), the value of `a` will exist in memory. Further, all value
-changes the inner function performs on `a` will also be saved to memory. By
-creating this lexical scope, Javascript is told to remember the
-state/environment that the inner function lives in. And this is the first key
-takeaway of closure, the ability for functional variables to outlive their
-original functional scope.
+Notice we _immediately_ return the outer function (printMessage) and print the response. The response prints on the console immediately - _proving_ the outer function has returned (finished executing). But 1 second later, the inner function still prints the correct message. This is because the inner function "remembers" the outer function's scope and can _always_ reference it.
 
-*note:* If we were to remove our event handler, thereby removing our reference
-to `a`, Javascript would automatically remove `a` from memory because it knows
-the program no longer has a use for the variable. This helpful memory task is
-known as _garbage collection_.
 
 The second takeaway is:
 
 **Closures store references to the outer function’s variables**
 
 Closures do **not** store the actual value, but rather a **reference** to it.
-This is a fundamental difference as seen in our button clicking example. Our
-inner function referred to the value of `a` initially and with each click was
-able to update its value incrementing it by one.
 
 Take a look at the following example to help further explain:
 
 ```js
-function user() {
+function createUser() {
   var userId = 999
 
   return {
@@ -174,10 +154,10 @@ function user() {
   }
 }
 
-var user = user()
-user.getUserId() // 999
+var user = createUser()
+console.log( user.getUserId() ) // 999
 user.setUserId(555) // Changes the outer function's variable
-user.getUserId() // 555; returns the updated userId variable
+console.log( user.getUserId() ) // 555; returns the updated userId variable
 ```
 
 Here we have a function `user` that sets a variable `userId` and returns an
