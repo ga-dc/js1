@@ -253,24 +253,20 @@ Now that we know the ins-and-outs and quirks of closure, how exactly is it usefu
 Well, closures can help us hide state by creating _modules_:
 
 ```js
-var car;
-function carFactory(kind) {
+var car = (function(kind) {
   var wheelCount = 4;
+
+	// a closure
   var start = function() {
-    console.log('started with ' + wheelCount + ' wheels.');
+    console.log('started with ' + wheelCount + ' wheels - vroom, vroom baby! Oh wait, I need gas :( help me I\'m poor');
   };
 
-  // Closure created here.
-  return (function() {
-    return {
-      make: kind,
-      wheels: wheelCount,
-      startEngine: start
-    };
-  }());
-}
-
-car = carFactory('Tesla');
+  return {
+    make: kind,
+    wheels: wheelCount,
+    startEngine: start
+  };
+})('Tesla');
 
 // => Tesla
 console.log(car.make);
@@ -278,6 +274,11 @@ console.log(car.make);
 // => started with 4 wheels.
 car.startEngine();
 ```
+
+### Quick practice
+
+Modify the module above to have a new function which fills the gas tank. Use a `boolean` value to keep track of whether or not the tank has gas or not. Make another modification to the start method which will only start the car if the gas tank has gas otherwise, print an error message.
+
 
 Unlike most other object-oriented languages, Javascript doesn't have a true concept of private context. However, closures allow us to abstract away private variables and functions so that the public doesn't need to worry about the complicated details of how the program works, but rather, they can just use the module pattern to simply get what they need done accomplished. In terms of this example, `wheelCount` and `start` expressions are private. The module is solely concerned with returning an object for the public to use while hiding how the values for the object properties were created. This is the main idea behind the module pattern, that it returns an object literal which through its use, is the only way to access the private functions and variables. Another benefit of the module pattern, is that it helps keep your codebase cleaner by organizing relevant code together which in turn also helps with testing and reuse.
 
@@ -365,24 +366,21 @@ Inspecting the `printASL` function we can see that we can refer to the object th
 
 ---
 
-<a name = "codealong3"></a>
-## Manipulating Context (25 mins)
+<a name = "practice"></a>
+## Convert makePerson (15 mins)
 
-Before we go into how to manually change context, we must remember that all objects, which includes functions, have properties. And when a function object executes, the value of _this_ is set to the object that invokes said function.
+Convert your `makePerson()` code to a JS module
+ 
+- Be a JS module
 
-Let's take a look the following code to cement what we already know:
+*OR*
 
-```js
-var user = {
-  firstName: 'Chelsea',
-  lastName: 'Logan',
-  showFullName: function() {
-    console.log(this.firstName, this.lastName)
-  }
-}
+- Utilize _this_ instead of local variables
 
-user.showFullName() // Chelsea Logan
-```
+*Bonus*
+
+- Do both!
+
 
 <a name = "conclusion"></a>
 ## Conclusion (5 min)
@@ -395,9 +393,3 @@ Review class objectives and the following questions:
 - What is a more commonly used to term for lexical scope?
 - Explain one ability closure has upon variable scope that makes it special.
 - How does closure work?
-
-### Before Next Class
-|   |   |
-|---|---|
-| **DUE NEXT CLASS**  | [Project 2: Feedr](../../projects/unit2) |
-| **UPCOMING PROJECTS**  | [Project 3: Final Project](../../projects/unit4) |
