@@ -201,11 +201,10 @@ code.
 
 ```js
 function queueCreator(waitList){
-  var positionInQueue = 0
 
   for (var i=0; i<waitList.length; i++) {
     waitList[i].id = function() {
-      return positionInQueue + i
+      return i + 1
     }
   }
 
@@ -216,40 +215,33 @@ var people = [{name:'George'},{name:'Chris'}]
 
 var queueList = queueCreator(people)
 
-queueList[0].id() // 2?!
+console.log(queueList[0].id()) // 3?!
+
 ```
+
+With 
+
+- `c(i) = The condition under which we execute the loop`
+- `u(i) = The update state of i`
+- `cwlp = Calculated waiting list position (i + 1)`
+
+
+| i | c(i) | u(i)  | cwlp (i + 1) |
+|---|------|-------|--------------|
+| 0 |i < 2 | 1     | 1            |
+| 1 |i < 2 | 2     | 3            |
+| 2 |i < 2 | **X** | 3            |
+
 
 Here we have a `queueCreator` function that helps us order all of our guests upon arrival. However, as we can see the first person in our `queueList` is given the second position! Your job for the next 15 minutes is to help fix this `queueCreator` so that each guest is given his/her correct position in the list.
 
-*hint:* You will need to implement a immediately invoked function expression.
+*hint:* You will need to implement an immediately invoked function expression.
 
-#### Closure Brain Teaser Solution
+Before we can cover the solution, we must first be able to explain the problem. Since, the closure accesses the outer function's variable by reference and not by value it grabs the latest updated value of `i`. And because the value of `i` was incremented in a for loop that ran twice, its referenced value ended up being `2`. So, how can we fix the code so that our closure uses the correct reference? The answer lies within _immediately invoked function expressions_ (IIFE).
 
-Before we can cover the solution, we must first be able to explain the problem. Since, the closure accesses the outer function's variable by reference and not by value it grabs the latest updated value of `positionInQueue`. And because the value of `positionInQueue` was incremented in a for loop that ran twice, its referenced value ended up being `2`. So, how can we fix the code so that our closure uses the correct reference? The answer lies within _immediately invoked function expressions_ (IIFE).
+#### Let's discuss the solution
 
-```js
-function queueCreator(waitList){
-  var positionInQueue = 1
-
-  for (var i=0; i<waitList.length; i++) {
-    waitList[i].id = function() {
-      return function() {
-        return positionInQueue + i
-      }() // IIFE
-    }() // IIFE
-  }
-
-  return waitList
-}
-
-var people = [{name:'George'},{name:'Chris'}]
-
-var queueList = queueCreator(people)
-
-queueList[0].id // 1
-```
-
-By immediately invoking the first function commented with IIFE we are immediately evaluating and returning `positionInQueue + i` so that we do not need to refer to `positionInQueue` later when its value will have changed. The other immediately invoked function serves a similar purpose. It is executed so that the value of `waitList[i].id`, a function, can be executed immediately so as to use and return the current state of `positionInQueue`. To sum it up, in order to avoid bugs caused by changing references in closure, you must use IIFE to capture the proper state of your referenced variable.
+By immediately invoking the first function commented with IIFE we are immediately evaluating and returning `i + 1` so that we do not need to refer to `positionInQueue` later when its value will have changed. The other immediately invoked function serves a similar purpose. It is executed so that the value of `waitList[i].id`, a function, can be executed immediately so as to use and return the current state of `positionInQueue`. To sum it up, in order to avoid bugs caused by changing references in closure, you must use IIFE to capture the proper state of your referenced variable.
 
 ---
 
@@ -263,9 +255,8 @@ Well, closures can help us hide state by creating _modules_:
 ```js
 var car;
 function carFactory(kind) {
-  var wheelCount, start;
-  wheelCount = 4;
-  start = function() {
+  var wheelCount = 4;
+  var start = function() {
     console.log('started with ' + wheelCount + ' wheels.');
   };
 
@@ -295,7 +286,10 @@ Unlike most other object-oriented languages, Javascript doesn't have a true conc
 <a name = "codealong2"></a>
 ## Context...The Meaning and Purpose of _this_ (25 mins)
 
+
 The next thing we will be covering is one of Javascript's most confusing concepts, _context_. However, don't fear, this concept may be a little confusing to grasp at first, but once you start to get it you'll know context like the back of your hand. So, what exactly is context? Well, in Javascript when a function is invoked there is an execution context associated with it. This _context_ is what makes up the value of the keyword _this_, which is a reference to the object that "owns" the currently executing code. In other words, _this_ is a reference to an object, an object that is the subject in context. Knowing that context is determined by how a function is invoked, we can infer that context is decided at runtime when the function is called.
+
+![meaning](https://media2.giphy.com/media/3osxYcV5w9iN15pQPK/200.gif)
 
 Confused? Here's some code to help bring some clarity:
 
@@ -307,23 +301,48 @@ If we were to run this single line of code by itself, in the global variable sco
 
 Here's one more example to further the point:
 
-```js
-function foo() {
-  console.log(this === window)
+```
+function aFunc() {
+	console.log(this); // whoa! All kinds of stuff. Recognize anything?
 }
 
-foo() // true
+aFunc();
 ```
-By default a function runs within the scope of the object it sits in, so in this case _this_ is still equivalent to the window object.
 
-In fact:
+The above example prints the _global_ _this_ context. This is because `aFunc()` functions as a normal function. Functions can also be objects with their own _this_ context. In order to achieve this, you need to utilize the `new` operator
 
-```js
-foo() === window.foo() // true
 ```
-Here you can see that `foo()` is a property of the object it's running in.
+function aFunc() {
+	console.log(this); // aFunc {}
+}
 
-*note:* In the real world, we would never need to explicitly code the `window` object like this, but this example illustrates the point that the function `foo` does in fact exist within `window` when it runs in the global scope.
+new aFunc();
+```
+
+Now when we print _this_ within `aFunc()` we get an empty object with name `aFunc` next to it. This tells us we're referencing `aFunc`'s _this_ context and it's empty because we haven't put anything in it!
+
+```
+function aFunc() {
+	this.foo = 'bar';
+	console.log(this); // aFunc { foo: 'bar' }
+}
+
+new aFunc();
+```
+
+Now we see that `aFunc` _this_ has the `property` on it because we just added it. Lets observe how _this_ works with closures
+
+```
+function aFunc() {
+	this.foo = 'bar';
+	function inner() {
+		console.log(this);
+	}
+	inner();
+}
+
+new aFunc();
+```
 
 OK, OK, OK...you have a basic understanding of _this_ now and how it refers to the object it's being executed within, but what's its purpose and why would we use it to refer to an object opposed to calling on the actual object itself? To answer these questions check out the following code:
 
@@ -364,128 +383,6 @@ var user = {
 
 user.showFullName() // Chelsea Logan
 ```
-
-Looking at the example above, the first thing you may notice is that we have declared an object, `user`, which contains a few properties, one of them being a method. Because this method, `showFullName`, is defined on `user`, we also know that the context of _this_ within the method is `user`. So, when we run `user.showFullName()`, _this_ serves as a reference to `user` allowing us to access the `firstName` and `lastName` properties.
-
-This is fine and dandy, but what if we want to be able to choose what object _this_ refers to, is it possible? In fact, with the help of a few built-in Javascript methods it is.
-
-But before we dive into examples of how to use these methods, why do you think we would need to change our context in the first place? Well, when it comes to the use of event handlers, the value of _this_ is not always what we want.
-
-For example:
-
-```js
-var user = {
-  firstName: 'Chelsea',
-  lastName: 'Logan',
-  showFullName: function() {
-    console.log(this.firstName, this.lastName)
-  }
-}
-
-$('.button').click(user.showFullName) // undefined undefined
-```
-
-With what we know so far, we would expect to see `Chelsea Logan` upon a click, but instead we are returned with `undefined undefined`. Why is this? Well, if you're thinking its because our context has changed you're absolutely right! In Javascript, the context of an event listener is set to the element it is listening to. So for this example, _this_ is actually equal to the `button` element which is why we get `undefined undefined`, since `.button` doesn't have any `firstName` or `lastName` properties upon itself. And alas, this is a real-world example of why you would want to change the context of a function.
-
-Here are the methods that allow us to control context:
-
-- `call`: The call() method calls a function with a given this value and arguments provided individually
-- `apply`: The apply() method calls a function with a given this value and arguments provided as an array (or an array-like object)
-- `bind`: The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called
-
-`call`:
-
-```js
-$('.button').click(function() {
- user.showFullName.call(user) // Chelsea Logan
-})
-```
-
-`apply`:
-
-```js
-$('.button').click(function() {
- user.showFullName.apply(user) // Chelsea Logan
-})
-```
-
-`call` and `apply` are identical in their service, but they differ in how many arguments they take. `call` can accept many arguments, the first argument always being the setting context and the rest being arguments that are to be passed to the function whose context is being set in a respective order. `apply` only accepts two arguments, like `call` the first argument is the setting context, but the second argument is an array of all the arguments to be passed to the function whose context you are setting.
-
-Their implementations with arguments looks like this:
-
-```js
-var user = {
-  firstName: 'Chelsea',
-  lastName: 'Logan',
-  showFullName: function(one, two, three) {
-    console.log(this.firstName, this.lastName, one, two, three)
-  }
-}
-
-$('.button').click(function() {
- user.showFullName.call(user, 1, 2, 3) // Chelsea Logan 1 2 3
-})
-
-$('.button').click(function() {
- user.showFullName.apply(user, [1, 2, 3]) // Chelsea Logan 1 2 3
-})
-```
-
-Pretty straightforward stuff. `bind` is different than `call` and `apply` in the sense that it doesn't set the context of a function, but rather `bind` creates a whole new function with the context you supply it.
-
-```js
-var user = {
-  firstName: 'Chelsea',
-  lastName: 'Logan',
-  showFullName: function() {
-    console.log(this.firstName, this.lastName)
-  }
-}
-
-// declare a new variable whose value is the user.showFullName function with a context set to user
-var contextSetUser = user.showFullName.bind(user)
-$('.button').click(contextSetUser) // Chelsea Logan
-
-$('.button').click(user.showFullName) // undefined undefined
-```
-
----
-
-<a name = "lab3"></a>
-## This Brainteasers (20 mins)
-
-Let's go ahead and test out all of our freshly acquired knowledge with a couple of fun brainteasers! Feel free to work independently or with a partner.
-
-1. Explain the results of the following code:
-
-```js
-var fullName = 'John Doe';
-var obj = {
-   fullName: 'Colin Ihrig',
-   prop: {
-      fullName: 'Aurelio De Rosa',
-      getFullName: function() {
-         return this.fullName;
-      }
-   }
-};
-
-console.log(obj.prop.getFullName());
-
-var test = obj.prop.getFullName;
-
-console.log(test());
-```
-
-2. Make `console.log(test())` return `Aurelio De Rosa`
-
-#### Brainteasers Solution
-
-1. Context of a function is dependent on how a function is invoked, not how it's defined. For the first log, we execute `obj.prop.getFullName()` invoking `.getFullName()` upon the `prop` object, thereby setting the context of the function to `prop` and logging `prop`'s `fullName` property, `Aurelio De Rosa`. For the second log, `.getFullName()` is set to the variable `test` which is in declared in the context of the `window` object, similar to the first example we saw earlier. Hence, when `test` is called, the log returns the value of the `fullName` property of the `window` object, `John Doe`.
-
-2. `console.log(test.call(obj.prop))` or `console.log(test.apply(obj.prop))`
-
----
 
 <a name = "conclusion"></a>
 ## Conclusion (5 min)
