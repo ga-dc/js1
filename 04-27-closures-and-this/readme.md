@@ -1,5 +1,7 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Closures and This (3:00)
 
+![magic](https://media.giphy.com/media/CK6Izn4LCSy0E/giphy.gif)
+
 ### Objectives
 
 
