@@ -221,7 +221,7 @@ console.log(queueList[0].id()) // 3?!
 
 ```
 
-With 
+With
 
 - `c(i) = The condition under which we execute the loop`
 - `u(i) = The update state of i`
@@ -231,7 +231,7 @@ With
 | i | c(i) | u(i)  | cwlp (i + 1) |
 |---|------|-------|--------------|
 | 0 |i < 2 | 1     | 1            |
-| 1 |i < 2 | 2     | 3            |
+| 1 |i < 2 | 2     | 2            |
 | 2 |i < 2 | **X** | 3            |
 
 
@@ -372,7 +372,7 @@ Inspecting the `printASL` function we can see that we can refer to the object th
 ## Convert makePerson (15 mins)
 
 Convert your `makePerson()` code to a JS module
- 
+
 - Be a JS module
 
 *OR*
