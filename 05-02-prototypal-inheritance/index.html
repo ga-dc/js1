@@ -237,53 +237,6 @@ me.name = &quot;Adam&quot;;
 me.speak()
 me.species
 </code></pre>
-<p><a name = "lab2"></a></p>
-<h2 id="build-a-virtual-farm-independent-practice-35-mins-">Build a Virtual Farm - Independent Practice (35 mins)</h2>
-<p><img src="https://s3.amazonaws.com/f.cl.ly/items/1m2r3Y2A2J2S2q2N040v/Image%202015-11-21%20at%206.59.54%20PM.png" alt="farm project"></p>
-<p>With all the knowledge you&#39;ve acquired thus far, it&#39;s time to put it all together and make a simple app. For the next half hour, you&#39;ll be creating a virtual farm whose animals can be clicked on to get an alert displaying what sound they make. Open up the <a href="curriculum/lesson-plans/11-prototypal-inheritance/starter-code">starter code</a> to get started!</p>
-<p>Requirements:</p>
-<ul>
-<li>Must have one <code>FarmAnimal</code> prototype that all other objects extend.</li>
-<li>&#39;FarmAnimal&#39; must have <code>name</code> and <code>image</code> instance properties as well as a <code>talk</code> instance method.</li>
-<li>You should create at least five different animals for your farm.</li>
-<li>At least two animals must have subclasses. For example, if you create a <code>Cow</code> prototype it would have two types of cow objects extend from it (i.e. Angus &amp; Texas Longhorn).</li>
-<li>Use vanilla JS or jQuery to create elements based off your <code>FarmAnimal</code> objects and bind them to the DOM. add the class <code>animal</code> to each element.</li>
-<li>When you click on animal an alert should show display the sound it makes (i.e. <code>mooo!</code>).</li>
-<li>Each animal element should have position styles, such as <code>left</code> and <code>top</code>, so images aren&#39;t stacked on one another.</li>
-<li>After completing all the above tasks, log your most extended prototypes and have a neighbor decipher the prototype chain without looking at the code. for even more fun, have him/her see if they can recreate the prototyping portion of your code!</li>
-</ul>
-<p>Here&#39;s an example of how a simple animal object should look:</p>
-<p><img src="https://s3.amazonaws.com/f.cl.ly/items/1k0D3W1C3U1Q2m1e0k45/Image%202015-11-22%20at%2010.04.11%20AM.png" alt=""></p>
-<p>This portion of the class is for you to really get your hands dirty and implement everything you&#39;ve learned. The best way to do that is to truly customize your app to the best of your ability. Make it your own! If you want to show the animal sound in a way other than in an alert, do it! This is your app, learn and have fun!</p>
-<hr>
-<p><a name = "codealong4"></a></p>
-<h2 id="es6-same-ol-inheritance-just-with-syntactic-sugar-10-mins-">ES6 - Same Ol&#39; Inheritance Just With Syntactic Sugar (10 mins)</h2>
-<p>One last thing we&#39;ll touch on is ECMAScript 2015 also known as ECMAScript 6 (ES6) which is one of the most recently published versions of Javascript. As Javascript evolves, it is becoming more and more object-oriented-<em>like</em>. ES6 only serves to further illustrate this point by introducing &quot;classes&quot; to the language. But wait a second, earlier we said Javascript doesn&#39;t have classes? Well, in fact, it still really doesn&#39;t. What the new class feature of ES6 brings to Javascript is really just syntactic sugar to make its code look like a traditional class, but in reality, its functionality of inheritance is still being powered by constructors and prototypes. Keeping that in mind let&#39;s see what ES6 classes look like!</p>
-<p>we go from:</p>
-<pre><code class="lang-javascript">function Vehicle(color) {
-  this.color = color
-}
-
-var car = new Vehicle()
-</code></pre>
-<p>to:</p>
-<pre><code class="lang-javascript">class Vehicle {
-  constructor(color) {
-  this.color = color
-  }
-}
-</code></pre>
-<p><em>This constructor is no different than the constructor we&#39;ve been learning about. It has the same purpose of creating instance properties and methods.</em></p>
-<p>...and how can we extend our class in ES6?</p>
-<pre><code class="lang-javascript">class Car extends Vehicle() {
-  constructor(color) {
-    super(color)
-  }
-}
-</code></pre>
-<p><em><code>super</code> is a new one. Its purpose is to allow you the ability to call the constructor of the parent class.</em></p>
-<p><strong><em>note:</em></strong> ES5 and ES6 code can run side-by-side without the need of any <a href="https://en.wikipedia.org/wiki/Polyfill">polyfills</a> or hacks.</p>
-<hr>
 <p><a name = "conclusion"></a></p>
 <h2 id="conclusion-5-min-">Conclusion (5 min)</h2>
 <p>Review class objectives and the following questions:</p>
