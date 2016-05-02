@@ -1,0 +1,252 @@
+<h1 id="-https-ga-dash-s3-amazonaws-com-production-assets-logo-9f88ae6c9c3871690e33280fcf557f33-png-prototypal-inheritance-3-00-"><img src="https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png" alt=""> Prototypal Inheritance (3:00)</h1>
+<h3 id="objectives">Objectives</h3>
+<ul>
+<li>Explain prototypal inheritance and its purpose.</li>
+<li>Distinguish the difference between prototypal from classical inheritance.</li>
+<li>Create and extend prototypes.</li>
+<li>Explain the difference literal and constructed objects.</li>
+</ul>
+<p>We have had exposure to objects in JavaScript, using object literal notation:</p>
+<pre><code class="lang-js">var game = {
+  cards: document.querySelectorAll(&quot;.cards&quot;),
+  startingTime: 0,
+  createBoard: function(){
+    var gameBoard = document.querySelector(&quot;#game-board&quot;)
+    gameBoard.style.display = &quot;inline&quot;;
+  }
+};
+</code></pre>
+<p><strong>What is an object in programming?</strong></p>
+<blockquote>
+<p>An object encapsulates related data and
+behavior in an organized structure.</p>
+</blockquote>
+<p><strong>Why might we use an OOP approach to programming?</strong></p>
+<blockquote>
+<p>Object-oriented programming provides us
+with opportunities to clean up our procedural code and model it more-closely to the external world.</p>
+<p>OOP helps us to achieve the following:</p>
+<ul>
+<li>Abstraction</li>
+<li>Encapsulation</li>
+<li>Modularity</li>
+</ul>
+</blockquote>
+<p>OOP becomes <strong>very</strong> important as our front-end code grows in complexity. Even a simple app will have lots of code on the front end to do
+things like:</p>
+<ul>
+<li>render data from the back end</li>
+<li>update the state of the page as data changes</li>
+<li>respond to events like clicking buttons / links</li>
+<li>send requests to the back end to fetch / update / destroy data</li>
+</ul>
+<h3 id="creating-objects-5-min-">Creating Objects (5 min)</h3>
+<p>So far, we&#39;ve had to make our objects &#39;by hand&#39;, i.e. using object literals:</p>
+<pre><code class="lang-js">var celica = {
+  model: &#39;Toy-Yoda Celica&#39;,
+  color: &#39;limegreen&#39;,
+  fuel: 100,
+  drive: function() {
+    this.fuel--;
+    return &#39;Vroom!&#39;;
+  },
+  refuel: function() {
+    this.fuel = 100;
+  }
+}
+
+var civic = {
+  model: &#39;Honda Civic&#39;,
+  color: &#39;lemonchiffon&#39;,
+  fuel: 100,
+  drive: function() {
+    this.fuel--;
+    return &#39;Vroom!&#39;;
+  },
+  refuel: function() {
+    this.fuel = 100;
+  }
+}
+</code></pre>
+<p>Although we are taking an object-oriented approach to programming, notice how much duplication there is in that code! Just imagine if we needed a hundred cars in our app!! Our code would certainly not be considered &quot;DRY&quot;.</p>
+<p>As you may have noticed, some of these properties change between cars (model
+and color), and others stay the same, for example, <code>fuel</code> starts at 100, and
+<code>drive</code> and <code>refuel</code> are the same functions for every car.</p>
+<p>Why don&#39;t we build a function that makes these objects for us!</p>
+<h3 id="you-do-exercise-create-a-makecar-function-10-min-">You-Do Exercise: Create a makeCar function (10 min)</h3>
+<p>Define a function: <code>makeCar()</code> that takes two parameters (model, color) and
+makes a new object literal for a car using those params, and returns that object.</p>
+<pre><code class="lang-js">// This should return a car object just like the previous example
+var celica = makeCar(&quot;Toy-Yoda Celica&quot;, &quot;limegreen&quot;);
+console.log(celica);
+</code></pre>
+<h2 id="constructor-functions">Constructor Functions</h2>
+<h3 id="overview-of-constructor-functions-10-min-">Overview of Constructor Functions (10 min)</h3>
+<p>It&#39;s so common that we need to make objects with similar properties / methods
+that programming languages usually have some features to help with this.</p>
+<p>In Javascript, we use constructor functions and
+prototypes. <strong><em>(Note: the newest version, ES6, adds
+classes, but they&#39;re really just syntactic sugar, behind the scenes it&#39;s still using constructors and prototypes)</em></strong></p>
+<p>Constructor functions are a lot like the <code>makeCar</code> function we just created, but
+they&#39;re supported by JS and we use the <code>new</code> keyword to use the constructor
+function.</p>
+<p>Note that constructor functions start with a capital letter to make it obvious
+that they are constructors. This isn&#39;t necessary, but is a convention and you
+should follow it!</p>
+<h3 id="i-do-make-a-person-constructor-function-10-min-">I-Do: Make a Person Constructor Function (10 min)</h3>
+<pre><code class="lang-js">function Person(initialName) {
+  this.name = initialName;
+  this.species = &quot;Homo Sapiens&quot;;
+  this.speak = function() {
+    return &quot;Hello! I&#39;m &quot; + this.name;
+  };
+}
+
+var adam = new Person(&quot;Adam&quot;);
+var bob =  new Person(&quot;Bob&quot;);
+
+adam.name // &quot;Adam&quot;
+adam.speak() // &quot;Hello! I&#39;m Adam&quot;
+
+bob.name // &quot;Bob&quot;
+bob.speak() // &quot;Hello! I&#39;m Bob&quot;
+</code></pre>
+<p>Notice the use of <code>this</code>, and the fact that we don&#39;t return anything. Here&#39;s why we write constructor functions this way:</p>
+<p>When we run a constructor function with <code>new</code>, Javascript will automatically:</p>
+<ol>
+<li>Create an new, empty object for us.</li>
+<li>Call the constructor function on that object (<code>this</code> -&gt; the new object)</li>
+<li>Return the object</li>
+</ol>
+<h3 id="you-do-exercise-make-a-car-constructor-function-10-min-">You-Do Exercise: Make a Car Constructor Function (10 min)</h3>
+<p>Write a constructor function to replace our <code>makeCar</code> function earlier.</p>
+<h2 id="prototypes-15-min-">Prototypes (15 min)</h2>
+<p>There&#39;s one problem with our constructor function... every time we create a new
+car, it&#39;s creating new copies of the <code>refuel</code> and <code>drive</code> functions. This isn&#39;t really necessary, since those functions are exactly the same for every car.</p>
+<p>Creating all these copies can cause our program to use more memory than it
+really needs to.</p>
+<p>Thankfully, by using <strong>prototypes</strong>, we can eliminate this duplication. Every
+object in JS has a <code>prototype</code> property, that points to another <strong>object</strong>.
+Almost always, the prototype of a given object will come from it&#39;s
+<strong>constructor</strong> (which has a prototype).</p>
+<p>Any properties / methods defined on an object&#39;s prototype are available on the
+that object. An example:</p>
+<pre><code class="lang-js">function Dog(name, breed) {
+  this.name = name;
+  this.breed = breed;
+}
+
+Dog.prototype.species = &quot;Canis Canis&quot;;
+Dog.prototype.bark = function() { return &quot;Woof! I&#39;m &quot; + this.name; }
+
+// OR Alternate form:
+// The disadvantage here is that we&#39;re overwriting any existing properties on
+// the prototype
+Dog.prototype = {
+  species: &quot;Canis Canis&quot;,
+  speak: function() { return &quot;Woof! I&#39;m &quot; + this.name; }
+}
+
+// Our objects work just as they did before!
+var spot = new Dog(&quot;Spot&quot;, &quot;Beagle&quot;);
+var rufus =  new Dog(&quot;Rufus&quot;, &quot;Poodle&quot;);
+
+spot.name // &quot;Spot&quot;
+spot.breed // &quot;Beagle&quot;
+spot.bark() // &quot;Hello! I&#39;m Spot&quot;
+
+rufus.name // &quot;Rufus&quot;
+rufus.bark() // &quot;Hello! I&#39;m Rufus&quot;
+</code></pre>
+<p><strong>Note</strong>: <code>.prototype</code> is a property on constructor functions, while <code>.__proto__</code> is the
+property on objects, and is used in the lookup chain.</p>
+<h3 id="you-do-exercise-car-constructor-with-prototypes-10-min-">You-Do Exercise: Car Constructor with Prototypes (10 min)</h3>
+<p>Update the constructor function for our car to define the methods on prototypes
+rather than on the individual instances themselves.</p>
+<h3 id="you-do-exercise-monkey-20-min-">You-Do Exercise: Monkey (20 min)</h3>
+<h2 id="inheritance-10-min-">Inheritance (10 min)</h2>
+<p>In general, we&#39;re not going to be using inheritance with javascript, but it&#39;s
+worth just mentioning how it can be accomplished.</p>
+<pre><code class="lang-js">////////////////////////////////
+// Animal (Parent) Class
+////////////////////////////////
+function Animal( name ){
+  this.name = name;
+}
+
+Animal.prototype.kingdom = &quot;Animalia&quot;;
+Animal.prototype.breathe = function() {console.log(&quot;Inhale... exhale...&quot;)};
+
+
+////////////////////////////////
+// HELLO THIS IS DOG
+////////////////////////////////
+function Dog(name, breed){
+  this.name = name;
+  this.breed = breed;
+}
+
+// Important! Set up the link in the prototype chain connecting Dogs to Animals
+Dog.prototype = new Animal();
+
+// Add any methods / properties shared by all dogs.
+Dog.prototype.bark = function(){ console.log(&quot;Woof&quot;)};
+Dog.prototype.species = &quot;Canis canis&quot;
+
+////////////////////////////////
+// Testing our dawgs
+////////////////////////////////
+var spot = new Dog(&quot;Spot&quot;, &quot;Beagle&quot;);
+
+// from Animal prototype
+spot.kingdom;
+spot.breathe();
+
+// from Dog prototype
+spot.bark();
+spot.species;
+
+// from Dog properties
+spot.name;
+spot.breed;
+</code></pre>
+<h2 id="object-create-5-min-">Object.create (5 min)</h2>
+<p>So we won&#39;t use this often (if ever in this class), but you may see examples
+of using <code>Object.create</code>. This method creates a new object, and sets the
+prototype of the new object to be the existing object.</p>
+<p>An example might help:</p>
+<pre><code class="lang-js">var Person = {
+  species: &quot;Homo Sapiens&quot;,
+  speak: function() { console.log(&quot;Hello&quot;)}
+};
+
+var me = Object.create(Person);
+
+me.speak();
+me.species;
+</code></pre>
+<p>Just like before, we can use <code>this</code> inside our methods:</p>
+<pre><code class="lang-js">var Person = {
+  species: &quot;Homo Sapiens&quot;,
+  speak: function() { console.log(&quot;Hello! I&#39;m &quot; + this.name)}
+};
+
+var me = Object.create(Person);
+me.name = &quot;Adam&quot;;
+
+me.speak()
+me.species
+</code></pre>
+<p><a name = "conclusion"></a></p>
+<h2 id="conclusion-5-min-">Conclusion (5 min)</h2>
+<p>Review class objectives and the following questions:</p>
+<ul>
+<li>What is the difference between class-based and prototype based languages?</li>
+<li>When would you want to declare a literal object and when would you want to construct an object?</li>
+<li>Why is using a constructed object better for memory performance?</li>
+<li>When would you want to implement a &quot;subclass&quot;?</li>
+<li>What is the purpose of a constructor function?</li>
+<li>What is the purpose of the prototype property?</li>
+<li>How does the prototype chain work?</li>
+</ul>
+

@@ -1,0 +1,31 @@
+{
+  "name": "oop_monkey",
+  "version": "1.0.0",
+  "description": "OOP Monkey Exercise",
+  "main": "index.js",
+  "dependencies": {
+    "jasmine-expect": "^2.0.0-beta1",
+    "jasmine-node": "^1.14.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jasmine-node spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ga-dc/oop_monkey.git"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "monkey",
+    "jasmine",
+    "oop"
+  ],
+  "author": "Adam Bray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ga-dc/oop_monkey/issues"
+  },
+  "homepage": "https://github.com/ga-dc/oop_monkey#readme"
+}
