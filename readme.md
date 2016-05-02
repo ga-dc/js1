@@ -19,8 +19,8 @@
   - John Master
     - [john.master@generalassemb.ly](john.master@generalassemb.ly)
     - Office hours:
-      - Mondays 5:30 - 6:30 (General Assembly)
-      - Sundays 7:00 - 8:00 Remote - Will put appear.in link in slack
+      - Monday 5:30 - 6:30 (General Assembly)
+      - Wednesday 5:30 - 6:30 (General Assembly)
 
 ## Course information
 
