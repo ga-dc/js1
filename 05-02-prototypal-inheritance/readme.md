@@ -1,5 +1,7 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Prototypal Inheritance (3:00)
 
+https://github.com/jshawl/-/archive/05-02-prototypal-inheritance-1462210888.zip
+
 ### Objectives
 
 - Explain prototypal inheritance and its purpose.
