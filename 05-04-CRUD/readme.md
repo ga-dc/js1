@@ -35,11 +35,11 @@ _Before this lesson, students should already be able to:_
 ---
 
 <a name = "opening"></a>
-## Introduction to CRUD and Firebase (10 min)
+## Introduction to CRUD and Parse (10 min)
 
 In terms of an app's functionality, in general, most app's share the purpose of being able to show, create, update and delete data. For example, with Instagram a user is allowed to create and show data by uploading pictures with captions and share them with all their followers to see. Further, if the user wanted to go back and update the data, say they wanted to change the caption, they could do so by editing the caption or they could even delete all the data by removing the entire post. Similarly, with Tumblr, users can create posts they wish to share which they can edit later or even delete entirely. Being made aware of this pattern in apps can you name two or more apps and how they go about performing this functionality?
 
-This common app functionality dealing with data is known as CRUD (Create, Read, Update and Delete). For today's lesson we will not only become familiar with this concept, but learn how to implement it with the help of a back-end service known as Firebase as we build out our very own CRUD application.
+This common app functionality dealing with data is known as CRUD (Create, Read, Update and Delete). For today's lesson we will not only become familiar with this concept, but learn how to implement it with the help of a back-end service known as Parse as we build out our very own CRUD application.
 
 ---
 
@@ -77,7 +77,7 @@ API options:
 ---
 
 <a name = "introduction2"></a>
-## Firebase, a Back-end Service (10 min)
+## Parse, a Back-end Service (10 min)
 
 So far in this course we have covered how to consume data from third-party APIs, but have not yet created our own API. The work that we have been doing is what is known in the tech industry as client-side or _front-end_ development.
 
@@ -87,16 +87,14 @@ So far in this course we have covered how to consume data from third-party APIs,
 
 The process of actually creating the API, not consuming it, is what is known as _back-end_ development. You can think of back-end code as all the code living on the server-side, the code that app users never interact with directly. It is the "non-HTML-CSS-JavaScript" code.
 
-Even though we don't have all the skills needed to roll out our own fully custom back-end, today we are going to learn how to use Firebase, a back-end as a service (BEaaS), to help us create our very own API!
+Even though we don't have all the skills needed to roll out our own fully custom back-end, today we are going to learn how to use Parse, a back-end as a service (BEaaS), to help us create our very own API!
 
-Firebase serves as the entire back-end of an application, meaning its biggest features include working as a database for your app as well as providing you with a Javascript library to interact with said database. It's truly a great tool for designers/front-end developers that are either not familiar or don’t want to deal with building out the back-end. Sometimes you just want to quickly prototype and focus on your UX! Some noteworthy users of Firebase include CBS, Instacart and Jawbone. And in terms of cost, each app is allowed to have a database with 100 users connected simultaneously for free!
-
-So, without further ado, let's go ahead and get setup an application with Firebase!
+Parse serves as the entire back-end of an application, meaning its biggest features include working as a database for your app as well as providing you with a Javascript library to interact with said database. It's truly a great tool for designers/front-end developers that are either not familiar or don’t want to deal with building out the back-end. Sometimes you just want to quickly prototype and focus on your UX!
 
 ---
 
 <a name = "setup"></a>
-## Firebase Setup (35 min)
+## Parse Setup (35 min)
 
 Instead of the traditional codealong we're going to try a different approach to "learn by doing." First you'll closely watch how to do something with your laptops halfway closed. Then when the demo is complete you'll be given time to implement the knowledge you just soaked in.
 
