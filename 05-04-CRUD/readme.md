@@ -7,7 +7,6 @@
 | 10 min | [Opening](#opening) | Introduction to CRUD and Firebase |
 | 20 min | [Review](#review) | A Little Review...A lotta CRUD |
 | 15 min | [Introduction](#introduction1) | Understand CRUD Through Public APIs |
-| 15 min | [Introduction](#introduction2) | Firebase Introduction |
 | 35 min | [Setup](#setup) | Firebase Setup |
 | 15 min | [Codealong](#codealong3)  | Create with Firebase |
 | 25 min | [Codealong)](#codealong4) | Context...The Meaning and Purpose of this  |
@@ -69,8 +68,6 @@ API options:
 - Facebook
 - Instagram
 - Twitter
-- YouTube
-- Flickr
 
 > **Note:** Certain APIs may not allow for full CRUD functionality. If you're researching one of these APIs be sure to point out its limitations.
 
@@ -94,68 +91,13 @@ Parse serves as the entire back-end of an application, meaning its biggest featu
 ---
 
 <a name = "setup"></a>
-## Parse Setup (35 min)
-
-Instead of the traditional codealong we're going to try a different approach to "learn by doing." First you'll closely watch how to do something with your laptops halfway closed. Then when the demo is complete you'll be given time to implement the knowledge you just soaked in.
-
-The first thing you're going to need to do is to go to [Firebase site](https://firebase.com) and sign up.
-
-![](https://s3.amazonaws.com/f.cl.ly/items/2e1a2a222p1S1y2m0q45/Image%202016-03-09%20at%205.50.29%20PM.png?v=c59b999b)
-
-> **Note:** Firebase requires you to sign up with Google, so if you don't already, you'll need to create a Gmail account.
-
-If you have multiple google accounts, you'll be taken to a page asking you to select which one you'd like to use for your Firebase authentication.
-
-![](https://s3.amazonaws.com/f.cl.ly/items/3E2R0x3F373p3N2S1z02/Image%202016-03-09%20at%205.52.36%20PM.png?v=7d6d951a)
-
-Once you've successfully logged in you will be taken to your _Dashboard_. In this view, you are able to easily create new apps, more specifically, back-end databases for your apps.
-
-![](https://s3.amazonaws.com/f.cl.ly/items/3Q3J3X1U0c1M2H0S0Q1z/Image%202016-03-09%20at%205.56.37%20PM.png?v=a37d046d)
-
-> **Note:** For web development purposes, Firebase is most often utilized as a database. However, as you can see from the [features page](https://www.firebase.com/features.html) Firebase can be used for authentication, messaging and much more. The BEaaS is not only limited to web but is great for mobile apps as well.
-
-Go ahead and create a new back-end instance by clicking on the dash bordered box and creating an app name.
-
-![](https://s3.amazonaws.com/f.cl.ly/items/0C1E0i3N1c0o2V0r0c2i/Image%202016-03-09%20at%206.05.29%20PM.png?v=058cbb0f)
-
-> **Note:** The Firebase service also offers hosting capabilities (which we'll cover in the next lesson) and uses your app name as part of the app's URL. This means that your app name must be unique to any other Firebase app name, so that Firebase can correctly direct users to your application when it is hosted online.
-
-When your app has been successfully created you'll see something similar to the following:
-
-![](https://s3.amazonaws.com/f.cl.ly/items/2Q1M2c03053q3x0J262a/Image%202016-03-09%20at%206.11.32%20PM.png?v=24f35070)
-
-Now that you've created an application on the Firebase side of things, let's go ahead and hook up some client-side code to actually work with our newly created db (database).
-
-Go ahead and open up your HTML file in `starter-code/index.html` and add the Firebase JavaScript library:
-
-```js
-<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-```
-
-This library will give you the ability to connect and interact with your Firebase db. But now you may be asking yourself, how do I connect with _my_ database and not to anyone else's? Well, in order to do this you'll need to use your Firebase URL. This URL references _your specific database_ and was generated for you when you clicked the `CREATE NEW APP` button in your dashboard.
-
-![](https://s3.amazonaws.com/f.cl.ly/items/2T3m050N3h1k0P1S3F0r/Image%202016-03-09%20at%206.46.22%20PM.png?v=13169b69)
-
-After retrieving your unique URL, pass it to the Firebase constructor to get connected:
-
-```js
-var myDataRef = new Firebase('https://qbmufo1pg45.firebaseio-demo.com/');
-```
->**Important Note:** Firebase demo instances (i.e. instances whose URL ends in firebaseio-demo.com) are cleared nightly--they are just for demonstration purposes. **Don't store any important information in a Firebase demo instance or it will be lost!** For production data, always use a regular Firebase instance (i.e. an instance whose URL ends in firebaseio.com).
-
-Voila! That's it! You've created a Firebase account, created a Firebase database and connected with your database on the client-side of your application. Now let's move onto the juicier parts and start creating some data!
+## GA Parse Server Setup (35 min)
 
 ---
 
-<a name = "introduction2"></a>
-## Intro to CRUD with Firebase (5 min)
-
-Now that you are familiar with Firebase and how to set it up as a back-end for your application, we are going to cover how to properly implement CRUD functionality with it. Further, we will learn by doing! Once again, I'll first explain how to implement a new technical concept while you watch, and then when I'm done you and a teammate will go ahead and apply your new knowledge. Team up with a partner and for the next five minutes try to think of a simple app you'd like to build that implements CRUD. Your app must be able to Create, Read, Update and Delete data. This can be anything from a to-do list to a blog! Once you have your idea in mind go ahead and use the dashboard to create your new app. After you've done so go ahead and get your appropriate URL key to initialize your app and initialize your Firebase app utilizing the starter code.
-
----
 
 <a name = "codealong1"></a>
-## Create with Firebase (15 min)
+## Create (15 min)
 
 Before we completely dive in, to give you context, here's what I'll be building for demo purposes:
 

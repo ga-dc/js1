@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>KoЯn Fan Page</title>
+  <title>The Bey Hive</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -18,21 +18,29 @@
   <script src="app.js"></script>
 
   <style>
+		body,html {
+			width: 100%;
+			height: 100%;
+		}
     body {
-      background:
-      radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 9%, hsla(0, 100%, 20%, 0) 9%) 0 0,
-      radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 8%, hsla(0, 100%, 20%, 0) 10%) 50px 50px,
-      radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 50px 0,
-      radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 0 50px,
-      radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 50px 0,
-      radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 100px 50px,
-      radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 0 0,
-      radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 50px 50px,
-      linear-gradient(45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0,
-      linear-gradient(-45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0;
-      background-color: #300;
-      background-size: 100px 100px;
+			color: black;
+			background: url(img/bey.jpg);
+			background-size: 100% 100%;
+	    background-repeat: no-repeat;
     }
+
+		.panel-heading {
+			color: black !important;
+		}
+
+		.nav {
+			border-radius: 0;
+		}
+
+		.nav__title {
+			color: white;
+			margin: 1em;
+		}
 
     .fa {
       cursor: pointer;
@@ -43,10 +51,10 @@
 
 <body>
 
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse nav">
     <div class="container-fluid">
       <div class="navbar-header text-danger">
-        <h1>KoЯn Fan Page</h1>
+        <h1 class="nav__title">The Bey Hive</h1>
       </div>
     </div>
   </nav>
@@ -54,7 +62,7 @@
   <div class="container">
     <div class="panel-group">
       <div class="panel panel-danger">
-        <div class="panel-heading">Post a message for all fans of KoЯn AND KoЯn to see!</div>
+        <div class="panel-heading">Post a message for all fans of Beyonce AND Beyonce to see!</div>
         <div class="panel-body">
           <form action="" id="message-form">
             <div class="form-group">
