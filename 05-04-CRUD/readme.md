@@ -167,8 +167,6 @@ Now that we see how we can _create_ objects, how can we get objects?
 - What does CRUD stand for?
 - What HTTP methods are associated with C, R, U and D?
 - What is a BEaaS?
-- Why would some developers choose to use the Firebase service?
-- Is Firebase free?
 - Do all apps have CRUD?
 - How would you explain the front-end vs. the back-end to a fellow developer?
 
