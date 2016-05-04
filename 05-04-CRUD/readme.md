@@ -1,18 +1,6 @@
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
-#Intro to CRUD and Firebase (3:00)
-
-| Timing | Type | Topic |
-| --- | --- | --- |
-| 10 min | [Opening](#opening) | Introduction to CRUD and Firebase |
-| 20 min | [Review](#review) | A Little Review...A lotta CRUD |
-| 15 min | [Introduction](#introduction1) | Understand CRUD Through Public APIs |
-| 35 min | [Setup](#setup) | Firebase Setup |
-| 15 min | [Codealong](#codealong3)  | Create with Firebase |
-| 25 min | [Codealong)](#codealong4) | Context...The Meaning and Purpose of this  |
-| 25 min | [Codealong](#codealong5) | Manipulating Context  |
-| 20 min | [Lab](#lab3) | The Brainteasers |
-| 5 min |  [Conclusion](#conclusion)| Final Questions & Exit Tickets |
+#Intro to CRUD (3:00)
 
 
 ### Objectives
@@ -74,7 +62,7 @@ API options:
 ---
 
 <a name = "introduction2"></a>
-## Parse, a Back-end Service (10 min)
+## Back-end Service (10 min)
 
 So far in this course we have covered how to consume data from third-party APIs, but have not yet created our own API. The work that we have been doing is what is known in the tech industry as client-side or _front-end_ development.
 
@@ -97,167 +85,75 @@ Parse serves as the entire back-end of an application, meaning its biggest featu
 
 
 <a name = "codealong1"></a>
-## Create (15 min)
-
-Before we completely dive in, to give you context, here's what I'll be building for demo purposes:
-
-![](https://s3.amazonaws.com/f.cl.ly/items/141j0B3w3J2M3m3Y0D3L/Image%202015-12-15%20at%208.26.16%20PM.png?v=551439c5)
-
-What will be demoed is a KoЯn fan page where users will be able to upload messages to a message board, upvote and downvote messages as well as delete messages. Full CRUD functionality!
+## Create
 
 The first part of CRUD we'll be covering is _C_, create.
 
-```js
-  // connect to your Firebase application using your reference URL
-  var messageAppReference = new Firebase("https://js-dev-test.firebaseio.com/");
-
-  $('#message-form').submit(function(event) {
-    // by default a form submit reloads the DOM which will subsequently reload all our JS
-    // to avoid this we preventDefault()
-    event.preventDefault()
-
-    // grab user message input
-    var message = $('#message').val()
-
-    // clear message input (for UX purposes)
-    $('#message').val('')
-
-    // create a section for messages data in your db
-    var messagesReference = messageAppReference.child('messages');
-
-    // use the set method to save data to the messages
-    messagesReference.push({
-      message: message,
-      votes: 0
-    })
-  })
+```javascript
+   // TypeFactory is a global function that allows you to create new object types!
+	var Vehicle = TypeFactory('Vehicle');
+	
+	// now you need to define some properties for the car
+	var props = { wheelCount: 4 };
+	
+	// now just call .create and pass in the props!
+	Vehicle.create(props, function(err, result) {
+		// if an error exists, read it in the console
+		if (err) {
+			console.log(err);
+		} else {
+		   // otherwise, you'll get a result with the new object and an assigned objectId
+			console.log(result); // { wheelCount: 4, objectId: '10iedlfd' }
+		}
+	})
 ```
 
-Thinking on a high-level, in order to gather data from a user we must supply them with something in the view. What could that be? Yup, a form. I won't show you the HTML that goes with this script, because by this point you should be able to somewhat visualize it by reading the jQuery, but if you are really struggling to comprehend what HTML is associated with this script you can refer to the solution code.
-
-Looking at the jQuery we can see that its purpose is primarily to capture the message input supplied by user upon submit of the `#message-form` form. Once this fan message is obtained we can go ahead and start to use Firebase to save the message and _create_ the data.
-
-The first thing we do is distinguish a new type of data, `var messagesReference = messageAppReference.child('messages');`--this creates a section in our database to store the messages. Then we go ahead and use the `push` method to append new data to the messages section we just created in our database.
-
-Firebase uses the JSON format for data--you'll recall that JSON data consists of key/value pairs, just like JavaScript objects. In this case, the key is `message` and its value is the message input value grabbed from the DOM. Further, we can also set `votes` values for each entry in the database. Since we know that the message hasn't been made public yet, and therefore hasn't received any votes, we can initialize its value to `0`. With the data configured, we can go ahead and save it using the Firebase's `push` method. To double-check that your data is saved as expected go look at your dashboard. When you expand your individual messages data you should see something similar to:
-
-![](https://s3.amazonaws.com/f.cl.ly/items/3a2p3z471a2J0g3I283e/Image%202016-03-09%20at%207.44.58%20PM.png?v=c9fccab5)
-
-Let's break this down. Starting from top of the database tree, `js-dev-test`, refers to your application you can visualize it as the first key in the JSON object. Next, you'll see `messages` which is your subkey containing all of your JSON messages data you've pushed to it using the Firebase `push` method. Within `messages` you'll see a whole bunch of funky looking keys, such as `KCTatbxmw96WW4LRsLd`. These are the unique identifiers to each of your messages.
-
-Another important thing to note is that Firebase plays heavily on URLs. Besides checking your Dashboard you can also find data by using Firebase's structured URL format for querying, `https://<app name>.firebaseio.com/<db key>/<key of db key>`. For example, `https://js-dev-test.firebaseio.com/messages/-KCTgFSiQu9p3CdmqnCR`.
-
-![](https://s3.amazonaws.com/f.cl.ly/items/3K0x2U1N1u3N3S0d3k0m/Image%202016-03-09%20at%208.18.11%20PM.png?v=63b2867d)
-
-The ability to access data by using a structured URL request is essentially calling upon the Firebase API which we have custom created by dynamically creating data. This will come into play as we seek to update specific pieces of data later in this lesson.
-
-Once the functionality is fully implemented and used by a user, we have covered the _C_ in CRUD. Do you remember which HTTP method goes along with Create?
-
-### Mini-Lab: Setting up your first Firebase instance
-
-Now that you've seen the basics of how to save data to Firebase, try building out the _create_ functionality for your first Firebase application with a partner. Some of the steps should include:
-
-- create a form
-- get user input
-- create a new instance of your class
-- configure your instance with data
-- save your data
-- view your data in the Firebase dashboard
 
 ---
 
 <a name = "codealong2"></a>
-## Read with Firebase (20 min)
+## Get
 
-After a fan's message has been successfully saved to our database in the back-end, we want to be able to show (_Read_) it on our app for the world to see. In order to do this we are going to need to follow a few steps:
+Now that we see how we can _create_ objects, how can we get objects?
 
-- create a function that queries our database for fan message data
-- call the function upon the initialization of the app
-- bind the queried data to the DOM for users to see
-
-So, how do we go about the first step, querying our Firebase database?
-
-```js
-function getFanMessages() {
-
-  // use reference to app database to listen for changes in messages data
-
-  messageAppReference.child('messages').on('value', function(results) {
-
-    // iterate through results coming from database call; messages
-
-    results.forEach(function (message) {
-      var message = message.val().message;
-      var votes = message.val().votes;
-
-      // bind the results to the DOM
-
-    });
-  }
-}
+```javascript
+	// Once we have an object's 'objectId', we can fetch that object based on it!
+	Vehicle.get(objectId, function(err, car) {
+		// check for error
+		
+		// if there's no error, take a look at the vehicle object
+		console.log(car); // { wheelCount: 4, objectId }
+	}); 
 ```
-
-The first thing we do within our new querying function, `getFanMessages`, is use our reference to our application's database to listen for changes with our `messages` data. This is done by using `.child()` to connect to the `messages` database and `.on()` to listen to any `'value'` changes within it. One unique and totally awesome feature of a Firebase database is that it works in realtime, meaning we can run methods like `.on()` which will update our application "live" whenever there's a change. Think of the possibilities, a chatroom perhaps?! The second argument to `.on()` is a callback function which returns the results of the database call. What is returned is our `messages` object, remember `messages` is really just a subkey of our overarching application's database. To Firebase out the data we're seeking to bind to our UI (messages and votes) we must iterate through the object and access each data object's `message` and `votes` properties.
-
-> **Note:** `.val()` is used to access the JSON data object, `results`, that is being returned to us.
-
-Now it is up to you to implement all three steps listed above to create the _read_ functionality of your app. You and your partner have the tools needed: Firebase query abilities, DOM manipulation and knowledge of function. Utilize this toolset and show your app users some data!
 
 ---
 
 <a name = "codealong3"></a>
-## Update with Firebase (30 min)
+## Update
 
 ```js
-function updateMessage(id, votes) {
-  // find message whose objectId is equal to the id we're searching with
-  var messageReference =  messageAppReference.child('messages').child(id);
-
-  // update votes property
-  messageReference.update({
-    votes: votes
-  })
-}
+	// Having the objectId also allows us to update an object
+	Vehicle.update(objectId, { wheelCount: 2 }, function(err, result) {
+		// check for the error
+		
+		console.log(result); // { updatedAt: 'some date string' }
+	});
 ```
-
-To perform the _U_ in CRUD, follow these simple steps:
-
-- find the data you wish to update
-- update its value with the new value
-- save
-
-Note that in Firebase, `update()` will update only the specific fields for which you pass in new values, while `set()` will overwrite all of the fields with new values.
-
-Up until this point, we have not been concerned with specific `message` data. We have either created a new JSON object or retrieved all data objects at once. However, for _update_, we are concerned with updating specific messages, so the question arises, how will we be able to identify and retrieve a specific piece of data? Well, Firebase makes this task of data access fairly easy by creating an API for us that is based off the structure of our data objects. Can you remember Firebase's data URL structure we covered a little earlier? In case you forgot it's: `https://<app name>.firebaseio.com/<db key>/<key of db key>`.
-
-Looking at the code above, you can see how we utilize this URL to access the specific `message` data we want and set a reference to it. Then, with our reference we can use the `update` method to redefine certain key values of our `message`'s data object, in this case votes. It's as simple as that!
-
-Go ahead and take this knowledge to incorporate _update_ functionality within your app.
-
-**tip:** If you are wondering where you get your data object id to query with, the id of message object is returned when you queried your database. You can take the id and attach to an element as a [data attribute](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes) and [call upon it](https://api.jquery.com/data/) when you need it later on down the line.
 
 ---
 
 <a name = "codealong4"></a>
-## Delete with Firebase (10 min)
+## Delete
 
-```js
-function deleteMessage(id) {
-  // find message whose objectId is equal to the id we're searching with
-  var messageReference = new Firebase('https://js-dev-test.firebaseio.com/messages/' + id)
-
-  messageReference.remove()
-}
+```javascript
+	// and to delete, use the remove() method
+	
+	Vehicle.remove(objectId, function(err){
+		// check for err
+		
+		// if there is no error, the object was successfully removed
+	})
 ```
-
-To perform the _D_ in CRUD:
-
-- find the data you wish to delete
-- use the `.remove()` method upon the data to delete it
-
-_Delete_ is very similar to _update_ in that you must query for the specific piece of data you wish to delete. However, instead of updating column data you merely use the `remove` method upon your returned data to remove it from the database.
-
-Finish off the amazing CRUD-ness of your app by implementing this freshly learned _delete_ functionality!
 
 ---
 
