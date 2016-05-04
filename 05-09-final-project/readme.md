@@ -10,7 +10,7 @@ For the final project, you'll be designing and building a web app of your choice
 
 - Use JavaScript to correctly structure the code for a web application:
   - Structure your application to be a SPA (single page application)
-  - Make HTTP requests to your own Firebase URL
+  - Make HTTP requests to our self-hosted parse server
   - Make at least one HTTP request to a third-party server
   - CRUD functionality should be present
   - Use either vanilla JS or jQuery to perform DOM manipulation
