@@ -1,0 +1,33 @@
+body,html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	color: black;
+	background: url(img/bey.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.vote-count {
+	position: relative;
+	top: -.15em;
+}
+
+.panel-heading {
+	color: black !important;
+}
+
+.nav {
+	border-radius: 0;
+}
+
+.nav__title {
+	color: white;
+	margin: 1em;
+}
+
+.fa {
+	cursor: pointer;
+	padding-left: 3px;
+}

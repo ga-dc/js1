@@ -4,6 +4,7 @@
 
   <title>The Bey Hive</title>
 
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <!-- font awesome -->
@@ -18,16 +19,21 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
   <!-- Parse CDN -->
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	
 	<script src="client.js"></script>
   <!-- js -->
   <script src="app.js"></script>
 
 	<script id="message-template" type="text/x-handlebars-template">
-		<li class="message" data-id="{{ objectId }}" data-upvotes={{upVotes}}>
-			<span class="message__text">{{ text }}</span>
+		<!--
+			Woah the template variables are empty! That's right, you're gonna have to
+			fill them in yourself! Ugh, Johnny is a jerk!
+	 -->
+		<li class="message" data-id="{{  }}" data-upvotes={{ }}>
+			<span class="message__text">{{  }}</span>
 			<i class="fa fa-trash pull-right delete"></i>
 			<i class="fa fa-thumbs-up pull-right vote-up"></i>
-			<div class="pull-right vote-count">{{ upVotes }}</div>
+			<div class="pull-right vote-count">{{  }}</div>
 		</li>
 	</script>
 </head>
