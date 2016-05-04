@@ -9,8 +9,7 @@ _After this lesson, students will be able to:_
 
 - Explain what CRUD is.
 - Explain the HTTP methods associated with CRUD.
-- Implement Firebase in an application.
-- Build a full-stack app.
+- Build a basic CRUD front end app
 
 ### Preparation
 
