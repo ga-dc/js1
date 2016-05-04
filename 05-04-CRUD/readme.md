@@ -94,8 +94,8 @@ We've created a very simple JS library which will communicate with a backend ser
 The first part of CRUD we'll be covering is _C_, create.
 
 ```javascript
-   // TypeFactory is a global function that allows you to create new object types!
-	var Vehicle = TypeFactory('Vehicle');
+   	// ParseObjectType is a global function that allows you to create new object types!
+	var Vehicle = ParseObjectType('Vehicle');
 	
 	// now you need to define some properties for the car
 	var props = { wheelCount: 4 };
