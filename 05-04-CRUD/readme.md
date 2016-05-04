@@ -79,7 +79,11 @@ Parse serves as the entire back-end of an application, meaning its biggest featu
 ---
 
 <a name = "setup"></a>
-## GA Parse Server Setup (35 min)
+## GA Parse Server (35 min)
+
+We've created a very simple JS library which will communicate with a backend server.
+
+![it's alive](https://media.giphy.com/media/d3Kq5w84bzlBLVDO/giphy.gif)
 
 ---
 

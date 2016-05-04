@@ -1,4 +1,5 @@
 (function() {
+
 	if(!(localStorage.getItem("APP_ID") && localStorage.getItem("API_KEY") && localStorage.getItem("API_HOST"))){
 		var err = "Please set configuration vars by visiting config.html in a browser";
 		window.location.href = '/config.html';
@@ -125,7 +126,6 @@
 	  }
 	}
 
-	window.TypeFactory = function(objType, local) {
-		return new ParseObjectType(objType, local);
-	};
+	window.ParseObjectType = ParseObjectType;
+
 })();

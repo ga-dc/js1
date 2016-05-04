@@ -1,5 +1,5 @@
 
-var Message = TypeFactory('Message');
+var Message = new ParseObjectType('Message');
 
 $(document).ready(function() {
   $('#message-form').submit(function(event) {
