@@ -1,0 +1,75 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>The Bey Hive</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Bootstrap JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+
+	<link rel="stylesheet" href="style.css">
+	<!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	<!-- handlebars -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <!-- Parse CDN -->
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	<script src="client.js"></script>
+  <!-- js -->
+  <script src="app.js"></script>
+
+	<script id="message-template" type="text/x-handlebars-template">
+		<li class="message" data-id="{{ objectId }}" data-upvotes={{upVotes}}>
+			<span class="message__text">{{ text }}</span>
+			<i class="fa fa-trash pull-right delete"></i>
+			<i class="fa fa-thumbs-up pull-right vote-up"></i>
+			<div class="pull-right vote-count">{{ upVotes }}</div>
+		</li>
+	</script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse nav">
+    <div class="container-fluid">
+      <div class="navbar-header text-danger">
+        <h1 class="nav__title">The Bey Hive</h1>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="panel-group">
+      <div class="panel panel-danger">
+        <div class="panel-heading">Post a message for all fans of Beyonce AND Beyonce to see!</div>
+        <div class="panel-body">
+          <form action="" id="message-form">
+            <div class="form-group">
+              <label>Message:</label>
+              <textarea id="message" type="text" class="form-control"></textarea>
+            </div>
+            <button class="btn btn-default">Post to board</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">Message Board</div>
+        <div class="panel-body">
+          <ul class="message-board">
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
