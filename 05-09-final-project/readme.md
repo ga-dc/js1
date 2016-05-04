@@ -17,7 +17,7 @@ For the final project, you'll be designing and building a web app of your choice
   - Listen for events and add interactivity based on user input
 
 - Hosting
-  - App must be hosted on either GitHub Pages or Heroku
+  - App must be hosted on GitHub Pages
 
 #### Bonus / Best Practices
 
