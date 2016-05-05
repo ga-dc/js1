@@ -4,7 +4,7 @@
 ===================================================
 */
 
-var Message = TypeFactory('Message');
+var Message = new ParseObjectType('Message');
 
 $(document).ready(function() {
 	// TODO
