@@ -134,7 +134,5 @@
 	  }
 	}
 
-	window.TypeFactory = function(objType, local) {
-		return new ParseObjectType(objType, local);
-	};
+	window.ParseObjectType = ParseObjectType;
 })();
