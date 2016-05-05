@@ -93,3 +93,9 @@ So now that you know how to deploy a simple site to a hosting service, you may b
 In terms of web applications, the main purpose of a server is to listen to requests coming from clients (i.e. browsers) and upon each request the server responds with the appropriate resources to fulfill the request. This could be the server redirecting to a whole new page and/or just providing some more data to the user interface. When we pushed our code up to GitHub for GitHub Pages to host we essentially told GitHub Pages that we'd like to utilize their server to deliver our resources (HTML, CSS and JS). More specifically, we told GitHub Pages that whenever someone comes to `username.github.io` serve all the code from `username/username.github.io`.
 
 This brings us to our next point. What if we built out a full-stack application that already has a server? In our last lesson we utilized the BEaaS, Firebase, to build an application. What does BEaaS stand for again? _ǝɔᴉʌɹǝs ɐ sɐ puǝ-ʞɔɐq_ With Firebase, we were given a back-end and with that, a server. Can you see where we're going with this? If we have an application that already has its own server, would it still be appropriate to use a hosting service, like GitHub Pages, that provides our program with a server? The answer is no. Let us now look into another hosting option that is better suited for full-stack applications, not static sites.
+
+## Further Resources
+
+- https://pages.github.com/
+- https://help.github.com/categories/github-pages-basics/
+- https://help.github.com/articles/using-a-custom-domain-with-github-pages/
