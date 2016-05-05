@@ -129,6 +129,17 @@ Now that we see how we can _create_ objects, how can we get objects?
 	}); 
 ```
 
+## Get All
+
+```javascript
+	// Once we have an object's 'objectId', we can fetch that object based on it!
+	Vehicle.getAll(function(err, allCars) {
+		// check for error
+		
+		console.log(allCars);
+	}); 
+```
+
 ---
 
 <a name = "codealong3"></a>
