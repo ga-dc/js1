@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+	<h3>Configure your APP_ID, APP_KEY and APP_HOST right here!</h1>
+  <form>
+    <input type="text" name="APP_ID" placeholder="APP_ID">
+    <input type="text" name="API_KEY" placeholder="API_KEY">
+    <input type="text" name="API_HOST" placeholder="API_HOST">
+    <input type="submit">
+  </form>
+	<br>
+  <script>
+    var form = document.querySelector("form");
+    var appId = document.querySelector("input[name='APP_ID']");
+    var apiKey = document.querySelector("input[name='API_KEY']");
+    var apiHost = document.querySelector("input[name='API_HOST']");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      localStorage.setItem("APP_ID", appId.value)
+      localStorage.setItem("API_KEY", apiKey.value)
+      localStorage.setItem("API_HOST", apiHost.value)
+    })
+    var APP_ID = localStorage.getItem("APP_ID")
+    var API_KEY = localStorage.getItem("API_KEY")
+    var API_HOST = localStorage.getItem("API_HOST")
+    if(APP_ID){
+      appId.value = APP_ID
+    }
+    if(API_KEY){
+      apiKey.value = API_KEY
+    }
+    if(API_HOST){
+      apiHost.value = API_HOST
+    }
+
+  </script>
+</body>
+</html>
