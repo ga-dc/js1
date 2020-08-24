@@ -19,3 +19,5 @@ function usdToBTC(usd) {
   convertedBTC = usd / btcRate;
   return convertedBTC;
 }
+
+//this is a test
